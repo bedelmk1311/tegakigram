@@ -1,3 +1,7 @@
+# == Route Map
+# ターミナルに入れるとルーティング情報を書き出す
+# bundle exec annotate --routes
+
 Rails.application.routes.draw do
   # 管理者用 ログイン機能のみルーティングに登録
   # skipオプションでサインインを削除
