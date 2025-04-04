@@ -8,4 +8,8 @@
 #  updated_at :datetime         not null
 #
 class Label < ApplicationRecord
+
+  has_many :items
+
+  validates :name
 end
