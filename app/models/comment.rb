@@ -10,4 +10,8 @@
 #  user_id    :integer
 #
 class Comment < ApplicationRecord
+  belongs_to :user
+  belongs_to :post
+  
+  validates :message, length: { minimum: 2, maximum: 20 }, presence: true
 end
