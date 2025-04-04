@@ -13,14 +13,35 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  # namespace :[グループ名] do
-  # [グループ]にまとめる場合
-  # end
-  
+  # namespaceでadminをまとめる
   namespace :admin do
     root to: "homes#top"
     resources :users, only: [:index, :show, :destroy]
-    get "/search", to: "searches#search"
+    get "search", to: "searches#search"
     # 検索機能にアクセスするためのルーティング
+  end
+  
+  #scope moduleでカスタマイズ
+  scope module: :public do
+    root to:"home#top"
+    resources :, only: [:index, :show]
+    get "home/about"=>"homes#about"
+  
+    resources :posts do
+      resources :comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
+    end
+
+
+    resources :users, only: [:show,:edit,:update] do
+      patch "users/withdraw" => "users#withdraw"
+      get "users/confirm" => "users#confirm"
+
+      resource :relationships, only: [:create, :destroy]
+      get "followings" => "relationships#followings", as: "followings"
+      get "followers" => "relationships#followers", as: "followers"
+    end
+    get 'search', to: 'searches#search'
+
 
 end
