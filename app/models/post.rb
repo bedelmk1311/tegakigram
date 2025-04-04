@@ -18,7 +18,7 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   #バリデーション
-  validates :boby, presence: true
+  validates :boby, length: { maximum: 100 }, presence: true
   validates :image, presence: true
   validates :label_id, presence: true
 
