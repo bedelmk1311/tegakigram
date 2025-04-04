@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     #get "comfirm_post", to: "comfirm_post#comfirm" #仮
     #get "comfirm_comment", to: "comfirm_post#comfirm" #仮
     #get "index_comment", to: " # " #仮
-    delete "URL", to: " # " #仮 コメントを消したい
+    #delete "URL", to: " # " #仮 コメントを消したい
 
     get "/search", to: "searches#search"
     # 検索機能にアクセスするためのルーティング
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   
   #scope moduleでカスタマイズ
   scope module: :public do
-    root to:"home#top"
+    root to:"homes#top"
 
     #postと子(commentとfavorite)のルーティング
     resources :posts do
