@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get "index_comment", to: " # " #仮
     delete "URL", to: " # " #仮 コメントを消したい
 
-    get "search", to: "searches#search"
+    get "/search", to: "searches#search"
     # 検索機能にアクセスするためのルーティング
   end
   
@@ -45,7 +45,7 @@ Rails.application.routes.draw do
           get "followers" => "relationships#followers", as: "followers"
     end
      #searshのルーティング
-    get "search", to: "searches#search"
-
+    get "/search", to: "searches#search"
+  end
 
 end
