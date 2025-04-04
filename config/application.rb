@@ -1,6 +1,8 @@
 require_relative "boot"
 
 require "rails/all"
+# Action Mail とか消したい
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -10,6 +12,9 @@ module Tegakigram
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+     # あとで
+     # config.i18n.default_locale = :ja
+     # config.time_zone = 'Tokyo'
 
     # Configuration for the application, engines, and railties goes here.
     #

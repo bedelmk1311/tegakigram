@@ -17,9 +17,9 @@ Rails.application.routes.draw do
     root to: "homes#top"
     resources :users, only: [:show, :index, :destroy] # こっちのdestroyは投稿を消したい
 
-    get "comfirm_post", to: "comfirm_post#comfirm" #仮
-    get "comfirm_comment", to: "comfirm_post#comfirm" #仮
-    get "index_comment", to: " # " #仮
+    #get "comfirm_post", to: "comfirm_post#comfirm" #仮
+    #get "comfirm_comment", to: "comfirm_post#comfirm" #仮
+    #get "index_comment", to: " # " #仮
     delete "URL", to: " # " #仮 コメントを消したい
 
     get "/search", to: "searches#search"
