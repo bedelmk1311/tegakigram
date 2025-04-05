@@ -3,14 +3,15 @@
 ### bundle exec annotate --routes
 
 Rails.application.routes.draw do
-  # 管理者用 ログイン機能のみルーティングに登録
+  # 管理者用 
   # skipオプションでサインインを削除
   devise_for :admin,
     skip: [:registrations, :passwords] ,
     controllers: { sessions: "admin/sessions" }
 
-  #
-  devise_for :users
+  # コントローラーの指定
+  devise_for :users,
+    controllers: { registrations: "public/registrations", sessions: "public/sessions"}
 
   # namespaceでadminをまとめる
   namespace :admin do
