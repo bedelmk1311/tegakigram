@@ -1,6 +1,4 @@
 //とりあえずカスタム用のscss
-// 何の定義よりも先に、functions
-@import "../node_modules/bootstrap/scss/functions";
 
 // node_modules/bootstrap/scss/_variables.scss から拝借、!defaultは削除、カラーコードを書く
 $primary:       #0d6efd;
@@ -11,6 +9,9 @@ $warning:       #ffc107;
 $danger:        #dc3545;
 $light:         #f8f9fa;
 $dark:          #212529;
+
+$body-bg: #ffffff;
+// デフォルトで背景が暗くなってしまうのでここで無理やり変更
 
 $theme-colors: (
   "primary":    $primary,
@@ -32,50 +33,4 @@ $custom-colors: (
 // Merge the maps
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
-// node_modules/bootstrap/scss/bootstrap.scss にある定義を拝借、パスの整合性に注意
-// Required
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/variables-dark";
-
-@import "../node_modules/bootstrap/scss/maps";
-@import "../node_modules/bootstrap/scss/mixins";
-@import "../node_modules/bootstrap/scss/utilities";
-@import "../node_modules/bootstrap/scss/root";
-
-// Layout & components
-@import "../node_modules/bootstrap/scss/reboot";
-@import "../node_modules/bootstrap/scss/type";
-@import "../node_modules/bootstrap/scss/images";
-@import "../node_modules/bootstrap/scss/containers";
-@import "../node_modules/bootstrap/scss/grid";
-@import "../node_modules/bootstrap/scss/tables";
-@import "../node_modules/bootstrap/scss/forms";
-@import "../node_modules/bootstrap/scss/buttons";
-@import "../node_modules/bootstrap/scss/transitions";
-@import "../node_modules/bootstrap/scss/dropdown";
-@import "../node_modules/bootstrap/scss/button-group";
-@import "../node_modules/bootstrap/scss/nav";
-@import "../node_modules/bootstrap/scss/navbar";
-@import "../node_modules/bootstrap/scss/card";
-@import "../node_modules/bootstrap/scss/accordion";
-@import "../node_modules/bootstrap/scss/breadcrumb";
-@import "../node_modules/bootstrap/scss/pagination";
-@import "../node_modules/bootstrap/scss/badge";
-@import "../node_modules/bootstrap/scss/alert";
-@import "../node_modules/bootstrap/scss/progress";
-@import "../node_modules/bootstrap/scss/list-group";
-@import "../node_modules/bootstrap/scss/close";
-@import "../node_modules/bootstrap/scss/toasts";
-@import "../node_modules/bootstrap/scss/modal";
-@import "../node_modules/bootstrap/scss/tooltip";
-@import "../node_modules/bootstrap/scss/popover";
-@import "../node_modules/bootstrap/scss/carousel";
-@import "../node_modules/bootstrap/scss/spinners";
-@import "../node_modules/bootstrap/scss/offcanvas";
-@import "../node_modules/bootstrap/scss/placeholders";
-
-// Helpers
-@import "../node_modules/bootstrap/scss/helpers";
-
-// Utilities
-@import "../node_modules/bootstrap/scss/utilities/api";
+@import '~bootstrap/scss/bootstrap';

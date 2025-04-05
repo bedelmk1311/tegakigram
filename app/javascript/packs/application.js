@@ -12,8 +12,7 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"; 
-//import "../stylesheets/custom"; 
-// 独自のcssを読み込ませるときはここ変更
+
 
 Rails.start()
 Turbolinks.start()
