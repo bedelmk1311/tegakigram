@@ -13,7 +13,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+    <!--フラッシュメッセージ入れる予定-->
+
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %><!--bodyの中にヘッダー-->
+      <main>
+        <%= yield %>
+      </main>
+    <%= render 'layouts/footer' %><!--bodyの中にフッターー-->
   </body>
 </html>
