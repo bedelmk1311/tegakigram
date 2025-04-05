@@ -2,18 +2,18 @@
   <h2>仮ログイン画面</h2>
 
   <div>
-    <!--ロゴ文字だけ入れます-->
+    <h2>ロゴ文字だけ入れます</h2>
   </div>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field"><!--メール欄-->
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email" %>
     </div>
 
   <div class="field"><!--パスワード欄-->
       <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.password_field :password, placeholder: "password" , autocomplete: "current-password" %>
     </div>
 
       <% if devise_mapping.rememberable? %>
@@ -24,7 +24,7 @@
       <% end %>
 
     <div class="actions"><!--ボタン-->
-      <%= f.submit "ログイン" %>
+      <%= f.submit "ログイン" , class: "btn btn-sm btn-outline-success"%>
     </div>
   <% end %>
 
