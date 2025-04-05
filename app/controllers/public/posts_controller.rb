@@ -5,7 +5,13 @@ class Public::PostsController < ApplicationController
   end
     
   def create 
-    
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    if @post.save
+      redirect_to post_path
+    else
+      render :new
+    end
   end
 
     
@@ -40,4 +46,13 @@ class Public::PostsController < ApplicationController
 
   end
   
+
+   # 投稿データを保存するためのストロングパラメーター
+   private
+
+   def post_params
+     params.require(:post).permit(:body, :post_image)
+   end
+ 
+
 end
