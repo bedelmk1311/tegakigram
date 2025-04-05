@@ -9,6 +9,11 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>
 
+    <div class="field"><!--名前-->
+      <%= f.label :name %><br />
+      <%= f.text_field :name, placeholder: "name", autofocus: true, autocomplete: "name" %>
+    </div>
+
     <div class="field"><!--メール-->
       <%= f.label :email %><br />
       <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email" %>
