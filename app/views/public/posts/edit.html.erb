@@ -1,0 +1,17 @@
+<div class='container'>
+  <div class='row'>
+
+    <div class='col-md-3'>  <!--サイドバー-->
+      <h2>サイドバー</h2>
+    </div>
+
+    <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
+  		<h1>仮Editing Post</h1>
+    	  <!--%= render 'layouts/errors', obj: @post %-->
+  		  <!--%= render 'form', post: @post %-->
+  		  <%= link_to 'Show', @post, class: "post_#{@post.id}" %> |
+  		  <%= link_to 'Back', posts_path, class: "back" %>
+    </div>
+    
+  </div>
+</div>
