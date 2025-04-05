@@ -11,5 +11,5 @@ class Label < ApplicationRecord
 
   has_many :posts
 
-  validates :name
+  validates :name, presence: { message: "名を入力してください" }
 end
