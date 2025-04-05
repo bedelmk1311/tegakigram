@@ -1,0 +1,15 @@
+<div class ="container">
+  <h1>仮Post#index</h1>
+
+  <!--テンプレ化？-->
+    <% @post.each do |post| %>
+      <div>
+        <%= image_tag post_image.get_image %>
+          <p>投稿ユーザー画像：<!--%= image_tag 'sample-author1.jpg' %--></p>
+          <p>説明：<%= post.body %></p>
+          <p>ユーザーネーム：<%= post.user.name %></p>
+      </div>
+    <% end %>
+  <!--テンプレ化？-->
+  
+</div>
