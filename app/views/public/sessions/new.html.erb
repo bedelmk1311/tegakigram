@@ -1,8 +1,9 @@
 <div class="container">
   <h2>仮ログイン画面</h2>
 
-  <div>
-    <h2>ロゴ文字だけ入れます</h2>
+  <div class="text-center">
+    <!--%= image_tag " 画像.png", alt: "Logo", class: "mb-余白", width: 100とか %-->
+    <h2>ロゴタイトル入れます</h2>
   </div>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
