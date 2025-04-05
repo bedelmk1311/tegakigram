@@ -1,4 +1,6 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -33,11 +35,11 @@ class Public::PostsController < ApplicationController
   end
 
   def index_follow
-    
+    #後ほど
   end
     
   def index_favorite 
-    
+    #後ほど
   end
 
     
@@ -47,20 +49,34 @@ class Public::PostsController < ApplicationController
 
     
   def update 
-    
+    if @post.update(post_params)
+      redirect_to post_path(@post), notice: "You have updated book successfully."
+    else
+      render "edit"
+    end
   end
 
   def destroy
+    #削除するPostレコードを取得
+    post = Post.find(params[:id])
+    post.destroy
 
+    redirect_to posts_path
   end
   
 
-   # 投稿データを保存するためのストロングパラメーター
+
    private
 
-   def post_params
+   def post_params # 投稿データを保存するためのストロングパラメーター
      params.require(:post).permit(:body, :post_image)
    end
  
+   def ensure_correct_user #現在のユーザーがPostのユーザー同一かどうか
+    @post = Post.find(params[:id])
+    unless @post.user == current_user
+      redirect_to post_path
+    end
+  end
 
 end
