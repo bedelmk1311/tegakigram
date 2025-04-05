@@ -11,7 +11,7 @@
           <%= link_to 'サインイン',new_user_registration_path, class: "btn btn-outline-success btn-sm btn-block mb-5 sign_up" %>
         </div>
         <div class="row">
-          <%= link_to 'ゲストログイン',new_user_registration_path, class: "btn btn-outline-secondary btn-sm btn-block mb-5 sign_up" %>
+          <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-outline-secondary btn-sm btn-block mb-5 sign_in", method: :post %>
         </div>
         <div class="row">
           <%= link_to 'もっと見る',new_user_registration_path, class: "btn btn-outline-danger btn-sm btn-block mb-5 sign_up" %>

@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   devise_for :users,
     controllers: { registrations: "public/registrations", sessions: "public/sessions"}
 
+  #ゲストモード用のルーティング
+  devise_scope :user do
+    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+  end
+
   # namespaceでadminをまとめる
   namespace :admin do
     root to: "homes#top"
