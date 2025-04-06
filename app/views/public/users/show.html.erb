@@ -1,0 +1,51 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+
+    <div class='col-md-3, bg-info'>  <!--サイドバー-->
+      <h2>サイドバー</h2>
+    </div>
+  
+    <div class='col-md-8 offset-md-1'>  <!--メインコンテンツー-->
+      <h2>仮#{@user.name}のプロフィール</h2>
+      <p><%= link_to "編集", edit_user_path, class:"btn btn-outline-success btn-sm ml-5" %></p>
+      <!--テンプレ化?-->
+      <!--%= render 'posts/index',posts: @posts %-->
+        <table class='table table-hover table-inverse'>
+          <thead>
+            <tr>
+              <th>image</th>
+              <th>name</th>
+              <th colspan="4"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% users.each do |user| %>
+              <tr>
+                <td> <!--プロフ画像ー-->
+                  <%= image_tag user.get_profile_image, size: '50x50' %>
+                </td>
+                <td> <!--名前ー-->
+                  <%= user.name %>
+                </td>
+                <td> <!--いるか？-->
+                  <%= link_to 'Show', user %>
+                </td>
+                <td> <!--途中あとフォロー一覧リンク　フォロー関連も共通化したい-->
+                  フォロー数<%= user.followings.count %>
+                </td>
+                <td>
+                  フォロワー数<%= user.followers.count %>
+                </td>
+                <td>
+                  <!--%= render "relationships/follow", user: user, options: { class: "follow-link" } %-->
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <!--テンプレ化?-->
+
+    </div>
+
+  </div>
+</div>
