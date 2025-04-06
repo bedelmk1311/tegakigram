@@ -60,22 +60,31 @@ class User < ApplicationRecord
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
   
-  #指定したユーザーをフォローする
-  #def follow(user)
-    #relationships.create(followed_id: user.id)
-  #end
+  #フォローする relationshipコントローラー用
+  def follow(user)
+    relationships.create(followed_id: user.id)
+  end
 
-  #指定したユーザーのフォローを解除する
-  #def unfollow(user)
-    #relationships.find_by(followed_id: user.id).destroy
-  #end
+  #フォローを解除する relationshipコントローラー用
+  def unfollow(user)
+    relationships.find_by(followed_id: user.id).destroy
+  end
 
-  # 指定したユーザーをフォローしているかどうかをinclude？で判定
-  #def following?(user)
-    #followings.include?(user)
-  #end
+   #指定したユーザーをフォローしているかどうかをinclude？で判定
+  def following?(user)
+    followings.include?(user)
+  end
 
-  #検索メソッド実装予定
-
-  
+  #検索メソッド実装
+  def self.search_for(content, method)
+    if method == 'perfect'
+      User.where(name: content)
+    elsif method == 'forward'
+      User.where('name LIKE ?', content + '%')
+    elsif method == 'backward'
+      User.where('name LIKE ?', '%' + content)
+    else
+      User.where('name LIKE ?', '%' + content + '%')
+    end
+  end
 end
