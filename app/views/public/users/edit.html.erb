@@ -1,0 +1,40 @@
+<div class='container'>
+  <div class='row'>
+
+  <div class='col-md-3, bg-info'>  <!--サイドバー-->
+    <h2>サイドバー</h2>
+  </div>
+
+    <div class="col-md-8 px-5 px-sm-0 mx-auto"> <!--メインコンテンツ-->
+    <h2>仮プロフィール編集</h2>
+
+    <%= form_with model:@user, local:true do |f| %>
+      <!--テンプレートエラー？-->
+      <!--%= render 'layouts/errors', obj: @user %-->
+
+      <div class="form-group">
+        <%= f.label :name %> <!--名前-->
+        <%= f.text_field :name, placeholder: "name",class: "form-control name" %>
+      </div>
+
+     <div class="form-group"> <!--プロフィール画像-->
+        <%= f.label :image %>
+        <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+      </div>
+
+      <div class="form-group"> <!--自己紹介文-->
+        <%= f.label :introduction %>
+        <%= f.text_area :introduction, placeholder: "intro", class: "form-control introduction" %>
+      </div>
+
+      <div class="form-group">  <!--更新ボタン-->
+        <%= f.submit "変更を保存", class: 'btn btn-outline-successsecondary' %>
+      </div>
+      
+      <div class="form-group">  <!--戻るボタン-->
+        <!--%= link_to '戻る', back_path, class:"btn btn-sm btn-outline-secondary " %-->
+      </div>
+
+    <% end %>
+  </div>
+</div>
