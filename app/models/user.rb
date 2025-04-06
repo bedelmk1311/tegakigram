@@ -54,4 +54,28 @@ class User < ApplicationRecord
       user.name = "guestuser"
     end
   end
+
+  # ActiveStorage プロフィール画像
+  def get_profile_image
+    (profile_image.attached?) ? profile_image : 'no_image.jpg'
+  end
+  
+  #指定したユーザーをフォローする
+  #def follow(user)
+    #relationships.create(followed_id: user.id)
+  #end
+
+  #指定したユーザーのフォローを解除する
+  #def unfollow(user)
+    #relationships.find_by(followed_id: user.id).destroy
+  #end
+
+  # 指定したユーザーをフォローしているかどうかをinclude？で判定
+  #def following?(user)
+    #followings.include?(user)
+  #end
+
+  #検索メソッド実装予定
+
+  
 end
