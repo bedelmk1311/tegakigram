@@ -6,7 +6,7 @@
     </div>
   
     <div class='col-md-8 offset-md-1'>  <!--メインコンテンツー-->
-      <h2>仮#{@user.name}のプロフィール</h2>
+      <h2>仮<%="user_#{@user.id}"のプロフィール</h2>
       <p><%= link_to "編集", edit_user_path, class:"btn btn-outline-success btn-sm ml-5" %></p>
       <!--テンプレ化?-->
       <!--%= render 'posts/index',posts: @posts %-->
