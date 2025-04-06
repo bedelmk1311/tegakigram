@@ -1,6 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  # ensure 例外処理 投稿者だけが〜できる
 
   def new
     @post = Post.new
