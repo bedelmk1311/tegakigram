@@ -7,8 +7,7 @@
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
 
-      <!--バリデーションエラーメッセ-->
-      <% if @post.errors.any? %>
+      <% if @post.errors.any? %>  <!--バリデーションエラーメッセ-->
         <%= @post.errors.count %>件のエラーが発生しました
           <ul>
             <% @post.errors.full_messages.each do |message| %>
@@ -16,7 +15,6 @@
             <% end %>
           </ul>
       <% end %>
-
 
       <h2>仮新規POST</h2>
       <%= form_with model: @post do |f| %>

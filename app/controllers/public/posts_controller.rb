@@ -10,7 +10,7 @@ class Public::PostsController < ApplicationController
   def create 
     @post = Post.new(post_params)
     @post.user = current_user
-    if @post.save
+    if @post.save, notice: "投稿に成功しました"
       redirect_to posts_path
     else
       render :new
@@ -52,7 +52,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: "You have updated post successfully."
+      redirect_to post_path(@post), notice: "更新に成功しました"
        #showに戻るか一覧に戻るか迷い中
     else
       render "edit"
