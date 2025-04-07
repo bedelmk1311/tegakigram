@@ -12,8 +12,10 @@
         <!--テンプレ化？-->
           <% @posts.each do |post| %>
             <div>
-              <%= image_tag post.get_image, size: '100x100' %>
-                <p>説明：<%= post.body %></p>
+              <%= link_to(post_path(post.id)) do %>
+                <%= image_tag post.get_image, size: '100x100' %>
+              <% end %>
+                <p>(説明文)<%= post.body %></p>
             </div>
           <% end %>
         <!--テンプレ化？-->

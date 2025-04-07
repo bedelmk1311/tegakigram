@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
 
-    <div class='col-md-3, bg-info'>  <!--サイドバー-->
+    <div class='col-md-3 bg-info'>  <!--サイドバー-->
       <h2>サイドバー</h2>
     </div>
 
@@ -30,7 +30,7 @@
 
           <% if @post.user == current_user %>
             <td><!--編集-->
-              <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-outline-success edit_post_#{@post.id}" %>
+              <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-outline-success edit_post_#{@post.id}" %>
             </td>
             <td><!--削除-->
               <%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger destroy_post_#{@post.id}" %>
