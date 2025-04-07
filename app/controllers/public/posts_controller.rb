@@ -10,8 +10,8 @@ class Public::PostsController < ApplicationController
   def create 
     @post = Post.new(post_params)
     @post.user = current_user
-    if @post.save, notice: "投稿に成功しました"
-      redirect_to posts_path
+    if @post.save
+      redirect_to posts_path, notice: "投稿に成功しました"
     else
       render :new
     end
