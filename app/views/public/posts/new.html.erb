@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
 
-    <div class='col-md-3, bg-info'>  <!--サイドバー-->
+    <div class='col-md-3 bg-info'>  <!--サイドバー-->
       <h2>サイドバー</h2>
     </div>
 
@@ -9,7 +9,7 @@
       <h2>仮新規POST</h2>
       <%= form_with model: @post do |f| %>
         <h4>画像</h4>
-        <%= f.file_field :post_imageimage, accept: "image/*" %>
+        <%= f.file_field :post_image, accept: "image/*" %>
         <h4>本文</h4>
         <%= f.text_area :body %>
         <h4>仮ラベル</h4>

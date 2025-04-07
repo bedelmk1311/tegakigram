@@ -1,5 +1,5 @@
 class Public::SearchesController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   #権限いるか？？
 
   def search

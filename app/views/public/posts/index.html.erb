@@ -1,7 +1,5 @@
 <div class='container px-5 px-sm-0'>
-  <!--エラー部分-->
-    <!--%= render 'layouts/errors', obj: @book %-->
-  <!--エラー部分-->
+
 
   <div class='row'>
 
@@ -15,9 +13,7 @@
           <% @posts.each do |post| %>
             <div>
               <%= image_tag post_image.get_image %>
-                <p>投稿ユーザー画像：<!--%= image_tag 'sample-author1.jpg' %--></p>
                 <p>説明：<%= post.body %></p>
-                <p>ユーザーネーム：<%= post.user.name %></p>
             </div>
           <% end %>
         <!--テンプレ化？-->

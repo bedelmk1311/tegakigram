@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  #before_action :authenticate_user!
+  #before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   # ensure 例外処理 投稿者だけが〜できる
 
   def new
@@ -11,7 +11,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     #@post.user_id = current_user.id
     if @post.save
-      redirect_to post_path
+      redirect_to posts_path
     else
       render :new
     end

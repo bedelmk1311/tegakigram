@@ -1,5 +1,5 @@
 class Public::RelationshipsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   
   def create
     user = User.fing(params[:user_id])

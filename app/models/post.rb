@@ -13,14 +13,17 @@ class Post < ApplicationRecord
 
   #アソシエーション
   belongs_to :user
-  has_many :comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  #has_many :comments, dependent: :destroy
+  #has_many :favorites, dependent: :destroy
 
   #バリデーション
   validates :body, length: { maximum: 100 }, presence: true
-  #validates :image, presence: true
+  validates :post_image, presence: true
   #validates :label_id, presence: true
 
+  def get_image
+    (post_image.attached?) ? post_image : 'no_image.jpg'
+  end
 
   # なんだっけ？
   def favorited_by?(user)
