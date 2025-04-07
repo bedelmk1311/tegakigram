@@ -9,7 +9,7 @@ class Public::PostsController < ApplicationController
     
   def create 
     @post = Post.new(post_params)
-    #@post.user_id = current_user.id
+    @post.user_id = current_user.id
     if @post.save
       redirect_to posts_path
     else
@@ -70,7 +70,7 @@ class Public::PostsController < ApplicationController
    private
 
    def post_params # 投稿データを保存するためのストロングパラメーター
-     params.require(:post).permit(:body, :post_image)
+     params.require(:post).permit(:body)
    end
  
    def ensure_correct_user #現在のユーザーがPostのユーザー同一かどうか

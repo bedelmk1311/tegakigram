@@ -6,6 +6,7 @@
 #  body       :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 class Post < ApplicationRecord
   #active_storage宣言
@@ -18,7 +19,7 @@ class Post < ApplicationRecord
 
   #バリデーション
   validates :body, length: { maximum: 100 }, presence: true
-  validates :post_image, presence: true
+  #validates :post_image, presence: true
   #validates :label_id, presence: true
 
   def get_image
