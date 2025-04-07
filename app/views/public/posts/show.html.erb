@@ -19,6 +19,7 @@
 
           <td><!--内容-->
             <%= @post.body %>
+            <%= image_tag @post.get_image, size: '100x100' %>
           </td>
 
           <!--td class=<%= "favorite-" + @post.id.to_s %> --> <!--お気に入りボタン-->

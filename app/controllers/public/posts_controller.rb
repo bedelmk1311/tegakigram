@@ -60,18 +60,13 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    #削除するPostレコードを取得
-    post = Post.find(params[:id])
+    post = Post.find(params[:id]) #削除するPostレコードを取得
     post.destroy
-
     redirect_to posts_path
   end
   
-
-
    private
-
+   
    def post_params # 投稿データを保存するためのストロングパラメーター
      params.require(:post).permit(:body, :post_image)
    end
