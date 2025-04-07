@@ -1,20 +1,60 @@
 <header class="bg-light">
   <div class="container">
-    <p>ロゴ</p>
-    <p>新規登録アイコンのみ</p>
-    <p>ログインアイコンのみ</p>
 
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
+    <%= link_to root_path do %> <!--ロゴ-->
+      <%= image_tag "logo.jpg", alt: "Logo", width: 100 %>
+    <% end %>
+
+    <% if user_signed_in? %> <!--〜さんのマイページ用-->
+      <div class="me-3">
+        <%= current_user.name %>さん
+      </div>
+    <% end %>
+
+
+    <% if user_signed_in? %> <!--サインイン時-->
+      <div>
+        <%= link_to user_path(current_user),class: 'text-dark' do %>
+          <i class="fas fa-home"></i> プロフィール
+        <% end %>
+      </div>
+
+
+
+      <div>
+        <%=  link_to posts_path ,class: 'text-dark' do %>
+          <i class="fas fa-book-open"></i> Home
+        <% end %>
+      </div>
+
+      <div>
+        <%= link_to new_post_path ,class: 'text-dark' do %>
+          <i class="fas fa-home"></i> Newpost
+        <% end %>
+      </div>
+
+      <div>
+        <%= link_to destroy_user_session_path, method: :delete ,class: 'text-dark' do %>
+          <i class="fas fa-sign-out-alt"></i> logout
+        <% end %>
+      </div>
+
+
+    <!--% elsif %--> <!--Admim時-->
+
+
+    <% else %> <!--Nobody-->
+      <div>
+        <%= link_to new_user_registration_path, class: 'text-dark' do %>
+          <i class="fas fa-user-plus"></i> sign up
+        <% end %>
+      </div>
+      <div>
+        <%= link_to new_user_session_path ,class: 'text-dark' do %>
+          <i class="fas fa-sign-in-alt"></i> login
+        <% end %>
+      </div>
+      
     <% end %>
 
   </div>
