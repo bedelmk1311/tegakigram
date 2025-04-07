@@ -1,27 +1,27 @@
 <div class='container'>
   <div class='row'>
 
-    <div class='col-md-3, bg-info'>  <!--サイドバー-->
+    <div class='col-md-3 bg-info'>  <!--サイドバー-->
       <h2>サイドバー</h2>
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-  		<h1>仮Editing Post</h1>
+  		<h2>仮Editing Post</h2>
     	  <!--%= render 'layouts/errors', obj: @post %-->
 
 
         
       <%= form_with model: @post do |f| %>
         <h4>画像</h4>
-        <%= f.file_field :post_image, accept: "image/*" %>
+        <%= f.file_field :post_image, accept: "image/*" %> <!--#accept属性で画像の種類を指定-->
         <h4>本文</h4>
         <%= f.text_area :body %>
         <h4>仮ラベル</h4>
         <%= f.submit '投稿',class: "btn btn-sm btn-outline-success" %>
       <% end %>
 
-  		  <!--%= link_to 'Show', @post, class: "post_#{@post.id}",class: "btn btn-sm btn-outline-success" %--> |
-  		  <!--%= link_to 'Back', posts_path, class: "back",class: "btn btn-sm btn-outline-success" %-->
+  		  <%= link_to 'Show', @post, class: "post_#{@post.id}",class: "btn btn-sm btn-outline-success" %>
+  		  <%= link_to 'Back', posts_path, class: "back",class: "btn btn-sm btn-outline-success" %>
     </div>
 
   </div>
