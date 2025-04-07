@@ -49,6 +49,8 @@ class Public::PostsController < ApplicationController
 
     
   def update 
+    @post = Post.find(params[:id])
+
     if @post.update(post_params)
       redirect_to post_path(@post), notice: "You have updated post successfully."
        #showに戻るか一覧に戻るか迷い中
@@ -58,6 +60,7 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
     #削除するPostレコードを取得
     post = Post.find(params[:id])
     post.destroy
