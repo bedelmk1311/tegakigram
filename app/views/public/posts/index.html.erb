@@ -12,7 +12,7 @@
         <!--テンプレ化？-->
           <% @posts.each do |post| %>
             <div>
-              <%= image_tag post_image.get_image %>
+              <%= image_tag post.get_image, size: '100x100' %>
                 <p>説明：<%= post.body %></p>
             </div>
           <% end %>

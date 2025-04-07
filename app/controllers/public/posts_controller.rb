@@ -9,7 +9,7 @@ class Public::PostsController < ApplicationController
     
   def create 
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post.user = current_user
     if @post.save
       redirect_to posts_path
     else

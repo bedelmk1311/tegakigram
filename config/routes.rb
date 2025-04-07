@@ -48,14 +48,11 @@ Rails.application.routes.draw do
     root to:"homes#top"
 
     #postと子(commentとfavorite)のルーティング
-    #resources :posts  #do
+    resources :posts  do
       #resources :comments, only: [:create, :destroy]
       #resource :favorites, only: [:create, :destroy]
-        #get 'posts/new'
-        #post 'posts/new' => 'posts#create' # /posts/newにPOSTリクエストを受け付ける
-        #get 'posts' => 'posts#index' 
-    #end
-    resources :posts
+    end
+
 
     #userとrelationshipのルーティング
     resources :users, only: [:show,:edit,:update] do
