@@ -70,7 +70,7 @@ class Public::PostsController < ApplicationController
    private
 
    def post_params # 投稿データを保存するためのストロングパラメーター
-     params.require(:post).permit(:body)
+     params.require(:post).permit(:body, :post_image)
    end
  
    def ensure_correct_user #現在のユーザーがPostのユーザー同一かどうか
