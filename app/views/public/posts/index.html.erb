@@ -12,14 +12,14 @@
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
       <h1>仮Post#index</h1>
         <!--テンプレ化？-->
-          <!--% @post.each do |post| %-->
+          <% @post.each do |post| %>
             <div>
-              <!--%= image_tag post_image.get_image %-->
+              <%= image_tag post_image.get_image %>
                 <p>投稿ユーザー画像：<!--%= image_tag 'sample-author1.jpg' %--></p>
-                <p>説明：<!--%= post.body %--></p>
-                <p>ユーザーネーム：<!--%= post.user.name %--></p>
+                <p>説明：<%= post.body %></p>
+                <p>ユーザーネーム：<%= post.user.name %></p>
             </div>
-          <!--% end %-->
+          <% end %>
         <!--テンプレ化？-->
     </div>
 

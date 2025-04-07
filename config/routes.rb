@@ -40,9 +40,8 @@ Rails.application.routes.draw do
     resources :posts do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
-      collection do
-        post 'new', to: 'posts#create'  # /posts/newにPOSTリクエストを受け付ける
-      end
+        get 'posts/new'
+        post 'posts' => 'posts#create'  # /posts/newにPOSTリクエストを受け付ける
     end
 
     #userとrelationshipのルーティング
