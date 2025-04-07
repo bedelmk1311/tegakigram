@@ -9,14 +9,19 @@
   		<h1>仮Editing Post</h1>
     	  <!--%= render 'layouts/errors', obj: @post %-->
 
-        <%= form_with model:post,local:true do |f| %>
-          <%= f.label :body %>
-          <%= f.text_field :body %>
-          <%= f.submit class: 'btn btn-success' %>
-        <% end %>
 
-  		  <%= link_to 'Show', @post, class: "post_#{@post.id}",class: "btn btn-sm btn-outline-success" %> |
-  		  <%= link_to 'Back', posts_path, class: "back",class: "btn btn-sm btn-outline-success" %>
+        
+      <%= form_with model: @post do |f| %>
+        <h4>画像</h4>
+        <%= f.file_field :post_image, accept: "image/*" %>
+        <h4>本文</h4>
+        <%= f.text_area :body %>
+        <h4>仮ラベル</h4>
+        <%= f.submit '投稿',class: "btn btn-sm btn-outline-success" %>
+      <% end %>
+
+  		  <!--%= link_to 'Show', @post, class: "post_#{@post.id}",class: "btn btn-sm btn-outline-success" %--> |
+  		  <!--%= link_to 'Back', posts_path, class: "back",class: "btn btn-sm btn-outline-success" %-->
     </div>
 
   </div>

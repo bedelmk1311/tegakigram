@@ -28,10 +28,8 @@ class Public::PostsController < ApplicationController
 
     
   def show
-    #特定のidのPostImageモデルを格納させる
     @post = Post.find(params[:id])
-    @comment = Comment.new
-    #コメントを投稿するためのインスタンス変数を定義する（空箱を用意する）
+    #@comment = Comment.new #コメントを投稿するためのインスタンス変数を定義する
     
   end
 
@@ -45,13 +43,13 @@ class Public::PostsController < ApplicationController
 
     
   def edit
-    
   end
 
     
   def update 
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: "You have updated book successfully."
+      redirect_to post_path(@post), notice: "You have updated post successfully."
+       #showに戻るか一覧に戻るか迷い中
     else
       render "edit"
     end
