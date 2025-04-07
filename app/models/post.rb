@@ -6,6 +6,7 @@
 #  body       :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 class Post < ApplicationRecord
   #active_storage宣言
@@ -13,14 +14,17 @@ class Post < ApplicationRecord
 
   #アソシエーション
   belongs_to :user
-  has_many :comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  #has_many :comments, dependent: :destroy
+  #has_many :favorites, dependent: :destroy
 
   #バリデーション
-  validates :boby, length: { maximum: 100 }, presence: true
-  #validates :image, presence: true
+  validates :body, length: { maximum: 100 }, presence: true
+  #validates :post_image, presence: true
   #validates :label_id, presence: true
 
+  def get_image
+    (post_image.attached?) ? post_image : 'no_image.jpg'
+  end
 
   # なんだっけ？
   def favorited_by?(user)

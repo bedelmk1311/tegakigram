@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  #before_action :authenticate_user!
+  #before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   # ensure 例外処理 投稿者だけが〜できる
 
   def new
@@ -9,9 +9,9 @@ class Public::PostsController < ApplicationController
     
   def create 
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post.user = current_user
     if @post.save
-      redirect_to post_path
+      redirect_to posts_path
     else
       render :new
     end
@@ -70,7 +70,7 @@ class Public::PostsController < ApplicationController
    private
 
    def post_params # 投稿データを保存するためのストロングパラメーター
-     params.require(:post).permit(:body, :post_image)
+     params.require(:post).permit(:body)
    end
  
    def ensure_correct_user #現在のユーザーがPostのユーザー同一かどうか

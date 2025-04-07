@@ -2,6 +2,17 @@
 ### ↓ターミナルに入れるとルーティング情報を書き出す
 ### bundle exec annotate --routes
 
+#resourcesの中身
+#get 'posts'     => 'posts#index'
+#post 'posts' => 'posts#create'
+#get 'posts/new' => 'posts#new'
+
+#get 'posts/:id/edit' => 'posts#edit'
+#get 'posts/:id' => 'posts#show'
+#patch 'posts/:id'  => 'posts#update'
+#delete 'posts/:id' => 'posts#destroy'
+
+
 Rails.application.routes.draw do
   # 管理者用 
   # skipオプションでサインインを削除
@@ -37,13 +48,11 @@ Rails.application.routes.draw do
     root to:"homes#top"
 
     #postと子(commentとfavorite)のルーティング
-    resources :posts do
-      resources :comments, only: [:create, :destroy]
-      resource :favorites, only: [:create, :destroy]
-      collection do
-        post 'new', to: 'posts#create'  # /posts/newにPOSTリクエストを受け付ける
-      end
+    resources :posts  do
+      #resources :comments, only: [:create, :destroy]
+      #resource :favorites, only: [:create, :destroy]
     end
+
 
     #userとrelationshipのルーティング
     resources :users, only: [:show,:edit,:update] do

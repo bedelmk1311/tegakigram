@@ -1,7 +1,5 @@
 <div class='container px-5 px-sm-0'>
-  <!--エラー部分-->
-    <!--%= render 'layouts/errors', obj: @book %-->
-  <!--エラー部分-->
+
 
   <div class='row'>
 
@@ -12,14 +10,12 @@
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
       <h1>仮Post#index</h1>
         <!--テンプレ化？-->
-          <!--% @post.each do |post| %-->
+          <% @posts.each do |post| %>
             <div>
-              <!--%= image_tag post_image.get_image %-->
-                <p>投稿ユーザー画像：<!--%= image_tag 'sample-author1.jpg' %--></p>
-                <p>説明：<!--%= post.body %--></p>
-                <p>ユーザーネーム：<!--%= post.user.name %--></p>
+              <%= image_tag post.get_image, size: '100x100' %>
+                <p>説明：<%= post.body %></p>
             </div>
-          <!--% end %-->
+          <% end %>
         <!--テンプレ化？-->
     </div>
 
