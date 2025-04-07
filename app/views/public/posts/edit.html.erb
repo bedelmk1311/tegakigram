@@ -6,11 +6,19 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-  		<h2>仮Editing Post</h2>
-    	  <!--%= render 'layouts/errors', obj: @post %-->
+      <!--バリデーションエラーメッセ-->
+      <!--%= render 'layouts/errors', obj: @post %-->
+      <% if @post.errors.any? %>
+        <%= @post.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+      <% end %>
 
 
-        
+      <h2>仮Editing Post</h2>
       <%= form_with model: @post do |f| %>
         <h4>画像</h4>
         <%= f.file_field :post_image, accept: "image/*" %> <!--#accept属性で画像の種類を指定-->
