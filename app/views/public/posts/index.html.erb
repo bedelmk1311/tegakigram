@@ -21,6 +21,7 @@
               <% end %>
 
                 <p>(説明)<%= post.body %></p>
+                <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
             </div>
           <% end %>
         <!--テンプレ化？-->
