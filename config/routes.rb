@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     #postと子(commentとfavorite)のルgit ーティング
     resources :posts do
       resources :comments, only: [:create, :destroy]
-      resource :favorites, only: [:create, :destroy] #1回しかいいねできないから単数系
+      resource :favorite, only: [:create, :destroy] #1回しかいいねできないから単数系
     end
 
 
