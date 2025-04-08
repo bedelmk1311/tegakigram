@@ -27,7 +27,7 @@ class Public::UsersController < ApplicationController
       end
   end
 
-  def comfirm 
+  def confirm 
   end
 
   #def withdraw #退会処理　後ほど

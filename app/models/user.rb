@@ -57,7 +57,7 @@ class User < ApplicationRecord
 
   # ActiveStorage プロフィール画像
   def get_profile_image
-    (profile_image.attached?) ? profile_image : 'no_image.jpg'
+    (profile_image.attached?) ? profile_image : 'no_icon.jpg'
   end
   
   #フォローする relationshipコントローラー用
