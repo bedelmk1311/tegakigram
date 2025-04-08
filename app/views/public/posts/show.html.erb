@@ -12,13 +12,13 @@
   		  <tr>
           <td> <!--投稿主情報とリンク-->
             <%= link_to(@post.user) do %>
-              <%= image_tag @post.user.get_profile_image, size:"100x100" %><br>
+              <%= image_tag @post.user.get_profile_image, size:"50x50" %><br>
               <%= @post.user.name %>
             <% end %>
           </td>
 
           <td> <!--内容-->
-            <%= image_tag @post.get_image, size: '100x100' %>
+            <%= image_tag @post.get_image, size: '200x200' %>
             <%= @post.created_at.strftime('%Y/%m/%d') %>
           </td>
 

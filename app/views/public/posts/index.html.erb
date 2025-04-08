@@ -8,14 +8,19 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h1>仮Post#index</h1>
+      <h1>仮Home post#index</h1>
         <!--テンプレ化？-->
           <% @posts.each do |post| %>
             <div>
-              <%= link_to(post_path(post.id)) do %>
-                <%= image_tag post.get_image, size: '100x100' %>
+            <%= link_to(post_path(post.id)) do %> <!--投稿-->
+                <%= image_tag post.get_image, size: '300x300' %>
               <% end %>
-                <p>(説明文)<%= post.body %></p>
+
+              <%= link_to(post.user) do %> <!--プロフ-->
+                <%= image_tag post.user.get_profile_image, size:'30x30' %>
+              <% end %>
+
+                <p>(説明)<%= post.body %></p>
             </div>
           <% end %>
         <!--テンプレ化？-->
