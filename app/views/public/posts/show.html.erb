@@ -6,10 +6,20 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-  		<h2>仮Post detail</h2>
+      <h2>仮Post detail</h2>
 
-  		<table class='table'>
-  		  <tr>
+            <!--%= render 'layouts/errors', obj: @post %-->
+      <% if @comment.errors.any? %> <!--バリデーションエラーメッセ-->
+        <%= @comment.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @comment.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+      <% end %>
+
+      <table class='table'>
+        <tr>
           <td> <!--投稿主情報とリンク-->
             <%= link_to(@post.user) do %>
               <%= image_tag @post.user.get_profile_image, size:"50x50" %><br>
@@ -19,7 +29,7 @@
 
           <td> <!--内容-->
             <%= image_tag @post.get_image, size: '200x200' %>
-            <%= @post.created_at.strftime('%Y/%m/%d') %>
+            <%= @post.created_at.strftime('%Y年%m月%d日') %>
           </td>
 
           <td> <!--中身-->
@@ -48,20 +58,21 @@
 
   </div>
 <div>
-  <p>コメント件数：<%= @post.comments.count %></p>
+  <p><%= @post.comments.count %>件</p><!--コメント数-->
   <% @post.comments.each do |comment| %>
     <p><!--%= image_tag comment.user.get_profile_image(30,30) %--></p>
-    <%= comment.user.name %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.message %>
+    <p><%= comment.user.name %></p>
+    <p><%= comment.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
+    <p><%= comment.message %></p>
 
     <% if comment.user == current_user %>
-      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-sm btn-outline-danger" %>
     <% end %>
   <% end %>
 </div>
 <%= form_with model:[@post, @comment] do |f| %>
   <%= f.text_area :message, rows:'5',placeholder: "コメントをここに", class: "w-100 comment-textarea" %>
-  <%= f.submit "送信する", class: "btn btn-sm btn-base-1 mt-20 pull-right" %>
+  <%= f.submit "送信する", class: "btn btn-sm  btn-outline-danger mt-20 pull-right" %>
 <% end %>
 
 

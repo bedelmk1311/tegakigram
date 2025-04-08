@@ -12,6 +12,7 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post
-  
+
+  #バリデーション
   validates :message, length: { minimum: 2, maximum: 20 }, presence: true
 end
