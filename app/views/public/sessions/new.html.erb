@@ -1,22 +1,21 @@
-<div class="container">
-  <h2>仮ログイン画面</h2>
+<div class="container bg-custom-color">
+  <h2 class="text-center">仮ログイン画面</h2>
 
   <div class="text-center">
     <%= link_to root_path do %> <!--ロゴ-->
-      <%= image_tag "logo_text_toka.png", alt: "Logo", width: 100 %>
+      <%= image_tag "logo_text_toka.png", alt: "Logo", width: 300 %>
     <% end %>
   </div>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field"><!--メール欄-->
-      <%= f.label :email %><br />
-      <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email" %>
-    </div>
+  <div class="text-center">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field"><!--メール欄-->
+        <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email" %>
+      </div>
 
-  <div class="field"><!--パスワード欄-->
-      <%= f.label :password %><br />
-      <%= f.password_field :password, placeholder: "password" , autocomplete: "current-password" %>
-    </div>
+      <div class="field"><!--パスワード欄-->
+        <%= f.password_field :password, placeholder: "password" , autocomplete: "current-password" %>
+      </div>
 
       <% if devise_mapping.rememberable? %>
         <div class="field">
@@ -25,10 +24,11 @@
         </div>
       <% end %>
 
-    <div class="actions"><!--ボタン-->
-      <%= f.submit "ログイン" , class: "btn btn-sm btn-outline-success"%>
-    </div>
-  <% end %>
+      <div class="actions"><!--ボタン-->
+        <%= f.submit "ログイン" , class: "btn btn-sm btn-outline-success"%>
+      </div>
+    <% end %>
+  </div>
 
   <!--%= render "/shared/links" %-->
 </div>
