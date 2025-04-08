@@ -34,9 +34,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root to:"homes#top"
 
-    #postと子(commentとfavorite)のルーティング
+    #postと子(commentとfavorite)のルgit ーティング
     resources :posts  do
-      #resources :comments, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
       #resource :favorites, only: [:create, :destroy]
     end
 
