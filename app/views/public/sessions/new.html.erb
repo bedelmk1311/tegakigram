@@ -3,18 +3,18 @@
 
   <div class="text-center">
     <%= link_to root_path do %> <!--ロゴ-->
-      <%= image_tag "logo_text_toka.png", alt: "Logo", width: 300 %>
+      <%= image_tag "logo_text_toka.png", alt: "Logo", width: 200 %>
     <% end %>
   </div>
 
   <div class="text-center">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field"><!--メール欄-->
-        <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email",class: "m-1" %>
       </div>
 
       <div class="field"><!--パスワード欄-->
-        <%= f.password_field :password, placeholder: "password" , autocomplete: "current-password" %>
+        <%= f.password_field :password, placeholder: "password" , autocomplete: "current-password",class: "m-1" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
@@ -25,7 +25,7 @@
       <% end %>
 
       <div class="actions"><!--ボタン-->
-        <%= f.submit "ログイン" , class: "btn btn-sm btn-outline-success"%>
+        <%= f.submit "ログイン" , class: "btn btn-sm btn-outline-success m-1"%>
       </div>
     <% end %>
   </div>

@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container bg-custom-color">
   <h2 class="text-center">会員登録</h2>
 
   <div class="text-center">
     <%= link_to root_path do %> <!--ロゴ-->
-      <%= image_tag "logo_text_toka.png", alt: "Logo", width: 300 %>
+      <%= image_tag "logo_text_toka.png", alt: "Logo", width: 200 %>
     <% end %>
   </div>
 
@@ -12,30 +12,30 @@
       <%= render "public/shared/error_messages", resource: resource %>
 
       <div class="field"><!--名前-->
-        <%= f.text_field :name, placeholder: "name", autofocus: true, autocomplete: "name" %>
+        <%= f.text_field :name, placeholder: "name", autofocus: true, autocomplete: "name",class: "m-1" %>
       </div>
 
       <div class="field"><!--メール-->
-        <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email",class: "m-1" %>
       </div>
 
       <div class="field"><!--パスワード-->
           <% if @minimum_password_length %>
           <% end %>
-          <%= f.password_field :password, placeholder: "6文字のpassword", autocomplete: "new-password" %>
+          <%= f.password_field :password, placeholder: "6文字のpassword", autocomplete: "new-password",class: "m-1" %>
       </div>
 
       <div class="field"><!--パスワード-->
-        <%= f.password_field :password_confirmation, placeholder: "確認用password",autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, placeholder: "確認用password",autocomplete: "new-password",class: "m-1" %>
       </div>
 
       <div class="actions"><!--ボタン-->
-        <%= f.submit "はじめる",class: "btn btn-sm btn-outline-success" %>
+        <%= f.submit "はじめる",class: "btn btn-sm btn-outline-success m-1" %>
       </div>
     <% end %>
   </div>
 
-  <h3 class="text-center" >すでに会員の方はこちら</h3>
+  <p class="text-center" >すでに会員の方は<%= link_to new_user_session_path do %>こちら<% end %></p>
 
   <!--%= render "/shared/links" %-->
 </div>
