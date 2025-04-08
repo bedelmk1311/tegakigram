@@ -7,21 +7,16 @@
   </div>
 
   <div class="text-center"> <!--メインコンテンツ-->
-    <h2>退会しますか？</h2>
-      <h4>ユーザー側の退会処理はadmin側作ってからやります</h4>
-
+    <h3>退会しますか？</h3>
 
       <p>
-      退会すると、会員登録情報や<br>
-      これまでの購入履歴が閲覧できなくなります。<br>
-      退会する場合は、「退会する」をクリックしてください。
+        退会すると、会員登録情報や<br>
+        新規投稿はできません。<br>
+        退会する場合は、「退会する」をクリックしてください。
       </p>
 
-      <%= link_to "ホームに戻る", posts_path, :class => "btn btn-outline-primary" %>
-      <%= link_to "退会する", users_withdraw_path, method: :patch, :class => "btn btn-outline_danger ms-3", data: { confirm: "本当に退会しますか？" }  %>
-
-    </div>
-
-    <% end %>
+      <%= link_to "ホームに戻る", posts_path, :class => "btn btn-sm btn-outline-primary" %>
+      <!--%= link_to "退会する", users_withdraw_path(@user), method: :patch, :class => "btn btn-outline_danger ms-3", data: { confirm: "本当に退会しますか？" }  %-->
+    
   </div>
 </div>
