@@ -43,13 +43,15 @@ Rails.application.routes.draw do
 
     #userとrelationshipのルーティング
     resources :users, only: [:show,:edit,:update] do
+      get "confirm" => "users#confirm" # confirmとwithdrawが怪しい
+      patch "withdraw" => "users#withdraw"
+      
       resource :relationships, only: [:create, :destroy]
         get "followings" => "relationships#followings", as: "followings"
         get "followers" => "relationships#followers", as: "followers"
     end
 
-    get "users/confirm" => "users#confirm" # confirmとwithdrawが怪しい
-    patch "users/withdraw" => "users#withdraw"
+
 
      #searchのルーティング
     get "/search", to: "searches#search"
