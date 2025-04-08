@@ -17,9 +17,13 @@
             <% end %>
           </td>
 
-          <td><!--内容-->
-            <%= @post.body %>
+          <td> <!--内容-->
             <%= image_tag @post.get_image, size: '100x100' %>
+            <%= @post.created_at.strftime('%Y/%m/%d') %>
+          </td>
+
+          <td> <!--中身-->
+            <%= @post.body %>
           </td>
 
           <!--td class=<%= "favorite-" + @post.id.to_s %> --> <!--お気に入りボタン-->
