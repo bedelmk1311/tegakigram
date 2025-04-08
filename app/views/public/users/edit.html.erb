@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
 
-  <div class='col-md-3, bg-info'>  <!--サイドバー-->
+  <div class='col-md-3 bg-info'>  <!--サイドバー-->
     <h2>サイドバー</h2>
   </div>
 
@@ -13,22 +13,19 @@
       <!--%= render 'layouts/errors', obj: @user %-->
 
       <div class="form-group">
-        <%= f.label :name %> <!--名前-->
         <%= f.text_field :name, placeholder: "name",class: "form-control name" %>
       </div>
 
      <div class="form-group"> <!--プロフィール画像-->
-        <%= f.label :image %>
         <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
       </div>
 
       <div class="form-group"> <!--自己紹介文-->
-        <%= f.label :introduction %>
         <%= f.text_area :introduction, placeholder: "intro", class: "form-control introduction" %>
       </div>
 
       <div class="form-group">  <!--更新ボタン-->
-        <%= f.submit "変更を保存", class: 'btn btn-outline-successsecondary' %>
+        <%= f.submit "変更を保存", class: 'btn btn-outline-secondary' %>
       </div>
       
       <div class="form-group">  <!--戻るボタン-->
