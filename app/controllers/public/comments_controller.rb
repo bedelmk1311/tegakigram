@@ -5,10 +5,10 @@ class Public::CommentsController < ApplicationController
 
   def create
     @post =Post.find(params[:post_id]) #修正:idだとcomment_idを代入してしまう
-    #@comment = Comment.new(comment_params) #修正
     @comment = current_user.messages.new(comment_params)
-    post_id = @comment.post_id #
+    post.id = @comment.post_id #
     @comment.save
+    redirect_to post_path(post) #その投稿に戻る
   end
     
   def destroy 

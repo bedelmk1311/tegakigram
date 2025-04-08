@@ -29,7 +29,7 @@ class Public::PostsController < ApplicationController
     
   def show
     @post = Post.find(params[:id])
-    #@comment = Comment.new #コメントを投稿するためのインスタンス変数を定義する
+    @comment = Comment.new #コメントを投稿するためのインスタンス変数を定義する
     
   end
 

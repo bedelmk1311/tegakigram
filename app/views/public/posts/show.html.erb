@@ -48,3 +48,8 @@
 
   </div>
 </div>
+
+<%= form_with(model:[@post, @comment], local: false) do |f| %>
+  <%= f.text_area :message, rows:'5',placeholder: "コメントをここに", class: "w-100 comment-textarea" %>
+  <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+<% end %>
