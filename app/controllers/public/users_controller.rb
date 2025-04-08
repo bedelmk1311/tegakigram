@@ -31,7 +31,7 @@ class Public::UsersController < ApplicationController
   end
 
   #def withdraw #退会処理　後ほど
-    #@user = User.find(current_user.id)
+    #@user = User.find(params[:id])
     #@user.update(is_user_status: false))
     #reset_session
     #flash[:notice] = "退会処理を実行しました。"
