@@ -6,6 +6,17 @@
   </div>
 
     <div class="col-md-8 px-5 px-sm-0 mx-auto"> <!--メインコンテンツ-->
+
+      <!--%= render 'layouts/errors', obj: @post %-->
+      <% if @user.errors.any? %> <!--バリデーションエラーメッセ-->
+        <%= @user.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+      <% end %>
+
     <h2>仮プロフィール編集</h2>
 
     <%= form_with model:@user, local:true do |f| %>

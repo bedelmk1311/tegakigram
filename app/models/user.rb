@@ -42,7 +42,7 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
 
   #バリデーション
-  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true, presence: true
   validates :introduction, length: { maximum: 50 }
 
   #ゲストログイン用
