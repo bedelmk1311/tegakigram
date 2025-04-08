@@ -27,6 +27,7 @@ class User < ApplicationRecord
   #active_storage宣言
   has_one_attached :profile_image
 
+  #関連付け
   has_many :posts
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy

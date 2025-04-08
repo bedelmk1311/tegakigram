@@ -6,7 +6,7 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h2>仮Post detail</h2>
+      <h2>仮投稿詳細画面#show</h2>
 
             <!--%= render 'layouts/errors', obj: @post %-->
       <% if @comment.errors.any? %> <!--バリデーションエラーメッセ-->
@@ -54,26 +54,28 @@
         </tr>
       </table>
 
+      <div class="bg-success">
+        <p><%= @post.comments.count %>件</p><!--コメント数-->
+        <% @post.comments.each do |comment| %>
+          <p><!--%= image_tag comment.user.get_profile_image(30,30) %--></p>
+          <p><%= comment.user.name %></p>
+          <p><%= comment.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
+          <p><%= comment.message %></p>
+
+          <% if comment.user == current_user %>
+            <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-sm btn-outline-danger" %>
+          <% end %>
+        <% end %>
+        <%= form_with model:[@post, @comment] do |f| %>
+          <%= f.text_area :message, rows:'5',placeholder: "コメントを追加", class: "w-100 comment-textarea" %>
+          <%= f.submit "送信する", class: "btn btn-sm  btn-outline-danger mt-20 pull-right" %>
+        <% end %>
+      </div>
+
     </div>
 
-  </div>
-<div>
-  <p><%= @post.comments.count %>件</p><!--コメント数-->
-  <% @post.comments.each do |comment| %>
-    <p><!--%= image_tag comment.user.get_profile_image(30,30) %--></p>
-    <p><%= comment.user.name %></p>
-    <p><%= comment.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
-    <p><%= comment.message %></p>
 
-    <% if comment.user == current_user %>
-      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-sm btn-outline-danger" %>
-    <% end %>
-  <% end %>
-</div>
-<%= form_with model:[@post, @comment] do |f| %>
-  <%= f.text_area :message, rows:'5',placeholder: "コメントをここに", class: "w-100 comment-textarea" %>
-  <%= f.submit "送信する", class: "btn btn-sm  btn-outline-danger mt-20 pull-right" %>
-<% end %>
+  </div>
 
 
 

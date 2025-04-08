@@ -12,10 +12,10 @@ class Post < ApplicationRecord
   #active_storage宣言
   has_one_attached :post_image
 
-  #アソシエーション
+  #関連付け
   belongs_to :user
   has_many :comments, dependent: :destroy
-  #has_many :favorites, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   #バリデーション
   validates :body, length: { maximum: 100 }, presence: true
@@ -27,7 +27,7 @@ class Post < ApplicationRecord
     (post_image.attached?) ? post_image : 'no_image.jpg'
   end
 
-  # なんだっけ？
+  # user_idがテーブル内に存在するか調べるメソッド
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
