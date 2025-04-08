@@ -1,5 +1,5 @@
 class Public::UsersController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
   #before_action :ensure_correct_user, only: [:edit, :update]
   #ensure 例外処理 投稿者だけが〜できる
 
