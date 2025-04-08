@@ -15,11 +15,11 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) #ensureの後で外す
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) #ensureの後で外す
       if @user.update(user_params) #引数を指定しないとargumentエラー
         redirect_to user_path(@user), notice: "更新に成功しました"
       else
