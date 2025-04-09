@@ -71,3 +71,4 @@ gem 'bootstrap-kaminari-views'
 # Bootstrapをkaminariに効かす
 
 gem 'rails-i18n'
+# 日本語化

@@ -2,9 +2,9 @@ class Public::RelationshipsController < ApplicationController
   #before_action :authenticate_user!
   
   def create
-    user = User.fing(params[:user_id])
+    user = User.find(params[:user_id])
     current_user.follow(user) #userモデルで定義
-    redirect_to request.referer
+    redirect_to request.referer #
   end
     
   def destroy 
