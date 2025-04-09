@@ -1,14 +1,15 @@
 <div class='container'>
   <div class='row'>
 
-    <div class='col-md-3, bg-info'>  <!--サイドバー-->
+    <div class='col-md-3 bg-info'>  <!--サイドバー-->
       <h2>サイドバー</h2>
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
     <h2>仮Follow Users</h2>
       <% if @users.exists? %> <!--どこで定義してたっけ？-->
-        <%= render '/users/index', users: @users %>
+        <!--%= render '/users/index', users: @users %-->
+        <p>一覧</p>
       <% else %>
         <p>ユーザーはいません</p>
       <% end %>
