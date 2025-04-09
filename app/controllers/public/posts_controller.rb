@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user! ,except: [:index]
-  #before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   # ensure 例外処理 投稿者だけが〜できる
 
   def new
@@ -43,14 +43,10 @@ class Public::PostsController < ApplicationController
 
     
   def edit
-    @post = Post.find(params[:id])
-
   end
 
     
   def update 
-    @post = Post.find(params[:id])
-
     if @post.update(post_params)
       redirect_to post_path(@post), notice: "更新に成功しました"
        #showに戻るか一覧に戻るか迷い中
@@ -60,8 +56,7 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id]) #削除するPostレコードを取得
-    post.destroy
+    @post.destroy
     redirect_to posts_path
   end
   
