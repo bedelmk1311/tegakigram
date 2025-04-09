@@ -34,12 +34,11 @@ Rails.application.routes.draw do
   scope module: :public do
     root to:"homes#top"
 
-    #postと子(commentとfavorite)のルgit ーティング
+    #postと子(commentとfavorite)のルーティング
     resources :posts do
       resources :comments, only: [:create, :destroy]
       resource :favorite, only: [:create, :destroy] #1回しかいいねできないから単数系
     end
-
 
     #userとrelationshipのルーティング
     resources :users, only: [:show,:edit,:update] do
@@ -50,8 +49,6 @@ Rails.application.routes.draw do
         get "followings" => "relationships#followings", as: "followings"
         get "followers" => "relationships#followers", as: "followers"
     end
-
-
 
      #searchのルーティング
     get "/search", to: "searches#search"
