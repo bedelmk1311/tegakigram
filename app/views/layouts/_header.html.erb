@@ -7,7 +7,7 @@
 
     <% if user_signed_in? %> <!--〜さんのマイページ用-->
       <div class="me-3">
-        <%= current_user.name %>さん
+        こんにちは！<%= current_user.name %>さん
       </div>
     <% end %>
 
@@ -23,19 +23,19 @@
 
       <div>
         <%=  link_to posts_path ,class: 'text-dark' do %>
-          <i class="fas fa-book-open"></i> Home
+          <i class="fas fa-book-open"></i>ホーム
         <% end %>
       </div>
 
       <div>
         <%= link_to new_post_path ,class: 'text-dark' do %>
-          <i class="fas fa-home"></i> Newpost
+          <i class="fas fa-home"></i> 新規投稿
         <% end %>
       </div>
 
       <div>
         <%= link_to destroy_user_session_path, method: :delete ,class: 'text-dark' do %>
-          <i class="fas fa-sign-out-alt"></i> logout
+          <i class="fas fa-sign-out-alt"></i> ログアウト
         <% end %>
       </div>
 
@@ -46,12 +46,12 @@
     <% else %> <!--Nobody-->
       <div>
         <%= link_to new_user_registration_path, class: 'text-dark' do %>
-          <i class="fas fa-user-plus"></i> sign up
+          <i class="fas fa-user-plus"></i> 新規会員登録
         <% end %>
       </div>
       <div>
         <%= link_to new_user_session_path ,class: 'text-dark' do %>
-          <i class="fas fa-sign-in-alt"></i> login
+          <i class="fas fa-sign-in-alt"></i> ログイン
         <% end %>
       </div>
       
