@@ -75,15 +75,17 @@ class User < ApplicationRecord
   end
 
   #検索メソッド実装
-  def self.search_for(content, method)
-    if method == 'perfect'
-      User.where(name: content)
-    elsif method == 'forward'
-      User.where('name LIKE ?', content + '%')
-    elsif method == 'backward'
-      User.where('name LIKE ?', '%' + content)
+  def self.search_for(word, method)
+    if method == 'perfect_match'
+      @user = User.where("name LIKE?", "#{word}")
+    elsif method == "forward_match"
+      @user = User.where("name LIKE?","#{word}%")
+    elsif method == "backward_match"
+      @user = User.where("name LIKE?","%#{word}")
+    elsif method == "partial_match"
+      @user = User.where("name LIKE?","%#{word}%")
     else
-      User.where('name LIKE ?', '%' + content + '%')
+      @user = User.all #全表示
     end
   end
 end

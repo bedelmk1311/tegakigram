@@ -1,15 +1,14 @@
 class Public::SearchesController < ApplicationController
-  #before_action :authenticate_user!
-  #権限いるか？？
+  before_action :authenticate_user!
 
   def search
-    @model = params[:model]
-    @content = params[:content]
+    @range = params[:range] #
+    @word = params[:word]
     @method = params[:method]
-      if @model == 'user'
-        @records = User.search_for(@content, @method)
+      if @model == 'user' #表示させる結果を条件分岐
+        @users = User.search_for(@word, @method) #検索内容を取得
       else
-        @records = Post.search_for(@content, @method)
+        @posts = Post.search_for(@word, @method)
       end
   end
 end

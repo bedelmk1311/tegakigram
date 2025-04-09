@@ -1,18 +1,30 @@
 <div class='container'>
   <div class='row'>
 
-    <div class='col-md-3, bg-info'>  <!--サイドバー-->
+    <div class='col-md-3 bg-info'>  <!--サイドバー-->
       <h2>サイドバー</h2>
     </div>
     
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
 
-    <% if @model == 'user' %> <!--ユーザー検索-->
-      <h3>Users search for "<%= @content %>"</h3>
-      <%= render 'users/index', users: @records %>
-    <% elsif @model == 'post' %> <!--投稿検索-->
-      <h3>Books search for "<%= @content %>"</h3>
-      <%= render 'posts/index', posts: @records %>
+    <% if @range == 'user' %> <!--ユーザー検索-->
+      <h3>Users search for "<%= @word %>"</h3>
+      <!--%= render 'users/index', users: @records %-->
+      <% @users.each do |user| %>
+        <%= user.name %>
+      <% end %>
+      <p>user results</p>
+
+    
+    <% elsif @range == 'post' %> <!--投稿検索-->
+      <h3>Books search for "<%= @word %>"</h3>
+      <!--%= render 'posts/index', posts: @records %-->
+      <% @posts.each do |post| %>
+        <%= post.body %>
+      <% end %>
+      <p>user results</p>
+    <% else %>
+      <p>結果はありません</p>
     <% end %>
 
   </div>
