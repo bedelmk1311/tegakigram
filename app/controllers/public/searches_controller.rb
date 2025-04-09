@@ -2,13 +2,13 @@ class Public::SearchesController < ApplicationController
   before_action :authenticate_user!
 
   def search
-    @range = params[:range] #
-    @word = params[:word]
-    @method = params[:method]
-      if @model == 'user' #表示させる結果を条件分岐
-        @users = User.search_for(@word, @method) #検索内容を取得
+    @range = params[:range] 
+    @word = params[:word] #検索結果用
+    @search = params[:search] #検索結果用
+      if @range == 'User' #表示させる結果を条件分岐
+        @users = User.looks(params[:word], params[:search]) #looksメソッドで検索内容を取得
       else
-        @posts = Post.search_for(@word, @method)
+        @posts = Post.looks(params[:word], params[:search])
       end
   end
 end

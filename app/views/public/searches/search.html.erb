@@ -7,22 +7,26 @@
     
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
 
-    <% if @range == 'user' %> <!--ユーザー検索-->
-      <h3>Users search for "<%= @word %>"</h3>
+    <% if @range == 'User' %> <!--ユーザー検索-->
+      <h3><%= @range %>検索</h3>
+      <h4>"<%= @word %>"さんに関する検索結果</h4>
       <!--%= render 'users/index', users: @records %-->
       <% @users.each do |user| %>
-        <%= user.name %>
+        <li><%= user.name %></li>
       <% end %>
-      <p>user results</p>
+      <p>ユーザー検索</p>
 
     
-    <% elsif @range == 'post' %> <!--投稿検索-->
-      <h3>Books search for "<%= @word %>"</h3>
+    <% elsif @range == 'Post' %> <!--投稿検索-->
+      <h3><%= @range %>検索</h3>
+      <h4>"<%= @word %>"の単語を含む検索結果</h4>
       <!--%= render 'posts/index', posts: @records %-->
       <% @posts.each do |post| %>
-        <%= post.body %>
+        <li><%= post.body %></li>
       <% end %>
-      <p>user results</p>
+      <p>投稿検索</p>
+
+      
     <% else %>
       <p>結果はありません</p>
     <% end %>

@@ -33,15 +33,15 @@ class Post < ApplicationRecord
   end
 
   # 検索
-  def self.search_for(word, method)
-    if method == "perfect_match"
-      @post = Post.where("title LIKE?","#{word}")
-    elsif method == "forward_match"
-      @post = Post.where("title LIKE?","#{word}%")
-    elsif method == "backward_match"
-      @post = Post.where("title LIKE?","%#{word}")
-    elsif method == "partial_match"
-      @post = Post.where("title LIKE?","%#{word}%")
+  def self.looks(word, search)
+    if search == "perfect_match"
+      @post = Post.where("body LIKE?","#{word}")
+    elsif search == "forward_match"
+      @post = Post.where("body LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @post = Post.where("body LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @post = Post.where("body LIKE?","%#{word}%")
     else
       @post = Post.all #全表示
     end

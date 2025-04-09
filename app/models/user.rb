@@ -74,15 +74,15 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  #検索メソッド実装
-  def self.search_for(word, method)
-    if method == 'perfect_match'
+  #検索メソッド実装 LIKEであいまい検索の構文
+  def self.looks(word, search)
+    if search == 'perfect_match'
       @user = User.where("name LIKE?", "#{word}")
-    elsif method == "forward_match"
+    elsif search == "forward_match"
       @user = User.where("name LIKE?","#{word}%")
-    elsif method == "backward_match"
+    elsif search == "backward_match"
       @user = User.where("name LIKE?","%#{word}")
-    elsif method == "partial_match"
+    elsif search == "partial_match"
       @user = User.where("name LIKE?","%#{word}%")
     else
       @user = User.all #全表示
