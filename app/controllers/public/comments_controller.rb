@@ -10,7 +10,7 @@ class Public::CommentsController < ApplicationController
     if @comment.save
       redirect_to posts_path, notice: "コメントの投稿に成功しました" #戻る
     else
-      redirect_to posts_path, notice: "コメントの投稿に失敗しました" #とりあえずの画面遷移
+      render 'error' 
     end
     end
     

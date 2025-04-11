@@ -1,0 +1,8 @@
+<% if @comment.errors.any?%>
+<div class="text-center" style="color:red;">
+<%= @comment.errors.count %>件のエラーが発生しました。<br>
+<% @comment.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+</div>
+<% end %>
