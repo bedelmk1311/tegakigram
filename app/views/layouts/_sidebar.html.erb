@@ -1,32 +1,22 @@
-<header class="bg-light">
-  <div class="container">
+<div class="">
 
-    <%= link_to root_path do %> <!--ロゴ-->
-      <%= image_tag "logo.jpg", alt: "Logo", width: 100 %>
-    <% end %>
-
-    <% if user_signed_in? %> <!--〜さんのマイページ用-->
-      <div class="me-3">
-        こんにちは！<%= current_user.name %>さん
-      </div>
-    <% end %>
-
+  <div class="text-center">
     <% if user_signed_in? %> <!--サインイン時-->
       <div>
         <%= link_to user_path(current_user),class: 'text-dark' do %>
-           <i class="fa-solid fa-user fa-2xs" style="color: #B197FC;"></i>
+           <i class="fa-solid fa-user fa-2xs" style="color: #B197FC;">プロフィール</i>
         <% end %>
       </div>
 
       <div>
         <%=  link_to posts_path ,class: 'text-dark' do %>
-          <i class="fa-solid fa-house fa-2xs" style="color: #B197FC;"></i>
+          <i class="fa-solid fa-house fa-2xs" style="color: #B197FC;">ホーム</i>
         <% end %>
       </div>
 
       <div>
         <%= link_to destroy_user_session_path, method: :delete ,class: 'text-dark' do %>
-          <i class="fas fa-sign-out-alt" style="color: #B197FC;"></i>
+          <i class="fas fa-sign-out-alt" style="color: #B197FC;">ログアウト</i>
         <% end %>
       </div>
 
@@ -36,6 +26,10 @@
           <i class="fa-solid fa-plus fa-2xl" style="color: #B197FC;"></i>
           <i class="fa-solid fa-pen-to-square fa-2xs" style="color: #B197FC;"></i>
         <% end %>
+      </div>
+
+      <div>
+        <%= render 'public/searches/form' %><!--検索窓-->
       </div>
 
     <!--% elsif %--> <!--Admim時-->
@@ -56,4 +50,5 @@
     <% end %>
 
   </div>
-</header>
+
+  </div>
