@@ -35,7 +35,9 @@
     <% end %>
   </div>
 
-  <p class="text-center" >すでに会員の方は<%= link_to new_user_session_path do %>こちら<% end %></p>
+  <p class="text-center" >
+    すでに会員の方は<%= link_to new_user_session_path do %>こちら<% end %>
+  </p>
 
-  <!--%= render "/shared/links" %-->
+    <%= render "public/shared/links" %><!--いらぬ-->
 </div>

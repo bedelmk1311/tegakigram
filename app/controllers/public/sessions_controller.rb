@@ -24,4 +24,21 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  #applicationコントローラーと重複
+  #def after_sign_in_path_for(resource) #ログイン後 
+    #posts_path
+  #end
+
+  #def after_sign_out_path_for(resource) #ログアウト後
+    #root_path
+  #end
+
+  #private #あとで
+  #def block_if_admin_signed_in
+    #if admin_signed_in?
+      #flash[:alert] = "管理者としてログイン中は顧客ログインできません。"
+      #redirect_to admin_root_path
+    #end
+  #end
 end
