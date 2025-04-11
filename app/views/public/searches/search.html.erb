@@ -2,7 +2,7 @@
   <div class='row'>
 
     <div class='col-md-3 bg-info'>  <!--サイドバー-->
-      <h2>サイドバー</h2>
+      <%= render 'layouts/sidebar' %>
     </div>
     
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
@@ -10,25 +10,29 @@
     <% if @range == 'User' %> <!--ユーザー検索-->
       <h3><%= @range %>検索</h3>
       <h4>"<%= @word %>"さんに関する検索結果</h4>
+
       <!--%= render 'users/index', users: @records %-->
-      <% @users.each do |user| %>
-        <li><%= user.name %></li>
+      <% if @users == [] %>
+        <p>存在しませんでした。</p>
+      <% else %>
+        <% @users.each do |user| %>
+          <li><%= user.name %></li>
+        <% end %>
       <% end %>
-      <p>ユーザー検索</p>
 
     
-    <% elsif @range == 'Post' %> <!--投稿検索-->
+    <% else @range == 'Post' %> <!--投稿検索-->
       <h3><%= @range %>検索</h3>
       <h4>"<%= @word %>"の単語を含む検索結果</h4>
-      <!--%= render 'posts/index', posts: @records %-->
-      <% @posts.each do |post| %>
-        <li><%= post.body %></li>
-      <% end %>
-      <p>投稿検索</p>
 
-      
-    <% else %>
-      <p>結果はありません</p>
+      <!--%= render 'posts/index', posts: @records %-->
+      <% if @posts == [] %>
+        <p>存在しませんでした。</p>
+      <% else %>
+        <% @posts.each do |post| %>
+          <li><%= post.body %></li>
+        <% end %>
+      <% end %>
     <% end %>
 
   </div>
