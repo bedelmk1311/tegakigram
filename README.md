@@ -27,6 +27,9 @@
 ## 設計書
 
 作成中
+
+## オリジナルロゴ
+![メインロゴ](./app/assets/images/logo.jng)
 ​
 ## 開発環境
 - OS：Linux(CentOS)
@@ -34,6 +37,10 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：vscode
+
+## バージョン
+Rails version: 6.1.7.10
+Ruby version: ruby 3.1.2p20
 ​
 ## 使用素材
 
