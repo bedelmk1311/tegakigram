@@ -29,7 +29,7 @@
 作成中
 
 ## オリジナルロゴ
-![メインロゴ](./app/assets/images/logo.jng)
+![メインロゴ](./app/assets/images/logo.jpg)
 ​
 ## 開発環境
 - OS：Linux(CentOS)
