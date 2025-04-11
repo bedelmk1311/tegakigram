@@ -37,13 +37,26 @@
 
     <% else %> <!--Nobody-->
       <div>
-        <%= link_to new_user_registration_path, class: 'text-dark' do %>
-          <i class="fas fa-user-plus"></i> 新規会員登録
+        <%=  link_to posts_path ,class: 'text-dark' do %>
+          <i class="fa-solid fa-house fa-2xs" style="color: #B197FC;">ホーム</i>
         <% end %>
       </div>
+
+      <div>
+        <%= link_to new_user_registration_path, class: 'text-dark' do %>
+          <i class="fas fa-user-plus" style="color: #B197FC;"></i> 新規会員登録
+        <% end %>
+      </div>
+      
       <div>
         <%= link_to new_user_session_path ,class: 'text-dark' do %>
-          <i class="fas fa-sign-in-alt"></i> ログイン
+          <i class="fas fa-sign-in-alt" style="color: #B197FC;"></i> ログイン
+        <% end %>
+      </div>
+
+      <div>
+        <%= link_to new_user_session_path ,class: 'text-dark' do %>
+          <i class="fas fa-sign-in-alt" style="color: #B197FC;"></i> ゲストログイン
         <% end %>
       </div>
       
