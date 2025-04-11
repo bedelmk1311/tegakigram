@@ -76,12 +76,7 @@ class User < ApplicationRecord
 
   #検索メソッド実装 LIKEであいまい検索の構文
   def self.looks(word, search)
-    if search == 'perfect_match'
-      @user = User.where("name LIKE?", "#{word}")
-    elsif search == "partial_match"
-      @user = User.where("name LIKE?","%#{word}%")
-    else
-      #@user = User.all #全表示
-    end
+    search == "partial_match"
+    @user = User.where("name LIKE?","%#{word}%")
   end
 end

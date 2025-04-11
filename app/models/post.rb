@@ -34,12 +34,7 @@ class Post < ApplicationRecord
 
   # 検索
   def self.looks(word, search)
-    if search == "perfect_match"
-      @post = Post.where("body LIKE?","#{word}")
-    elsif search == "partial_match"
-      @post = Post.where("body LIKE?","%#{word}%")
-    else
-      #@post = Post.all #全表示
-    end
+    search == "partial_match"
+    @post = Post.where("body LIKE?","%#{word}%")
   end
 end
