@@ -39,8 +39,8 @@
 - IDE：vscode
 
 ## バージョン
-Rails version: 6.1.7.10
-Ruby version: ruby 3.1.2p20
+- Rails version: 6.1.7.10
+- Ruby version: ruby 3.1.2p
 ​
 ## 使用素材
 

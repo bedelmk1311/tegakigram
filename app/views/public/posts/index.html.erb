@@ -20,7 +20,7 @@
                 <%= image_tag post.user.get_profile_image, size:'30x30' %>
               <% end %>
 
-                <p>(説明)<%= post.body %></p>
+                <p><%= post.body %></p>
                 <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
             </div>
           <% end %>

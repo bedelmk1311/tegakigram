@@ -9,7 +9,7 @@
       <h2>仮<%= @user.name %>さんのプロフィール</h2>
 
       <div class="bg-warning">
-        <% if @user == current_user%> <!--編集、退会ボタンの表示-->
+        <% if @user == current_user%> <!--編集の表示-->
           <%= link_to "プロフ編集", edit_user_path, class:"btn btn-sm btn-outline-success " %>
         <% else %>
         <% end %>

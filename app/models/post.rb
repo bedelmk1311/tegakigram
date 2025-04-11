@@ -21,7 +21,6 @@ class Post < ApplicationRecord
   validates :body, length: { maximum: 100 }, presence: true
   validates :post_image, presence: true
   #validates :label_id, presence: true
-  #validates :comment, length: { maximum: 50 } #ここにつけてしまうのとNG
 
   def get_image
     (post_image.attached?) ? post_image : 'no_image.jpg'
