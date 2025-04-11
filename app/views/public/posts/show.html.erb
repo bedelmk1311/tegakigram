@@ -9,7 +9,7 @@
       <h2>仮投稿詳細画面#show</h2>
 
             <!--%= render 'layouts/errors', obj: @post %-->
-      <% if @comment.errors.any? %> <!--バリデーションエラーメッセ-->
+      <% if @comment.errors.any? %> <!--コメントのバリデーションエラーメッセ入れたい-->
         <%= @comment.errors.count %>件のエラーが発生しました
           <ul>
             <% @comment.errors.full_messages.each do |message| %>
