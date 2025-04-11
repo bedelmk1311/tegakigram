@@ -33,13 +33,9 @@ class Public::UsersController < ApplicationController
   def confirm 
   end
 
-  def withdraw #退会処理　後ほど
-    #@user = User.find(params[:id])
-    #@user = User.find(user_params)
-    #@user.update(is_user_status: false))
-    #reset_session
-    #flash[:notice] = "退会処理を実行しました。"
-    #redirect_to root_path
+  def destroy
+    @user.destroy
+    redirect_to root_path ,notice: "正常に処理が行われました"
   end
 
   private

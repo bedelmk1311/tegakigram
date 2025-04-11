@@ -41,10 +41,9 @@ Rails.application.routes.draw do
     end
 
     #userとrelationshipのルーティング
-    resources :users, only: [:show,:edit,:update] do
-      get "confirm" => "users#confirm" # confirmとwithdrawが怪しい
-      patch "withdraw" => "users#withdraw"
-      
+    resources :users, only: [:show,:edit,:update, :destroy] do
+      get "confirm" => "users#confirm"
+
       resource :relationships, only: [:create, :destroy]
         get "followings" => "relationships#followings", as: "followings"
         get "followers" => "relationships#followers", as: "followers"
