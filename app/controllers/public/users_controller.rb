@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :ensure_correct_user, only: [:edit, :update,:destroy]
   #ensure 例外処理 投稿者だけが〜できる
 
 
@@ -31,11 +31,12 @@ class Public::UsersController < ApplicationController
   end
 
   def confirm 
+    @user = current_user #確認画面にいるuserを拾う
   end
 
   def destroy
     @user.destroy
-    redirect_to root_path ,notice: "正常に処理が行われました"
+    redirect_to root_path , notice: "正常に処理が行われました"
   end
 
   private
