@@ -38,3 +38,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+/.env
+# RDSで構築したMySQLへEC2から接続する
