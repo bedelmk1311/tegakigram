@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# ターミナル出力メモ
+puts "seedの実行を開始"
+
 momotaro = User.find_or_create_by!(email: "momo@test.com") do |user|
   user.name = "桃太郎"
   user.password = "password"
@@ -49,3 +52,5 @@ Post.create(
   body: "日替わりで出すお魚通信。",
   user: urasimataro
 )
+
+puts "seedの実行が完了しました"
