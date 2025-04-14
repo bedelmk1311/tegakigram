@@ -1,5 +1,5 @@
 ja:
-  enums:
+  enums: #保留
     order:
       payment_method:
         credit_card: "クレジットカード"
@@ -28,15 +28,11 @@ ja:
   ja:
   activerecord:
     models:
-      item: 商品
-      genre: ジャンル
-    attributes:
-      item:
-        name: 商品名
-        introduction: 商品説明
-        price: 価格
-        is_active: 販売ステータス
-        genre_id: ジャンル
+      user: ユーザー
+    attributes: #属性
+      post:
+        body: 投稿本文
+        introduction: 自己紹介ぶん
       genre:
         name: ジャンル
     errors:
