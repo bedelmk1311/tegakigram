@@ -1,6 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user! ,except: [:index]
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
   # ensure 例外処理 投稿者だけが〜できる
 
   def new
@@ -45,7 +46,7 @@ class Public::PostsController < ApplicationController
   def edit
   end
 
-    
+
   def update 
     if @post.update(post_params)
       redirect_to post_path(@post), notice: "更新に成功しました"
@@ -69,7 +70,7 @@ class Public::PostsController < ApplicationController
    def ensure_correct_user #現在のユーザーがPostのユーザー同一かどうか
     @post = Post.find(params[:id])
     unless @post.user == current_user
-      redirect_to post_path
+      redirect_to posts_path
     end
   end
 
