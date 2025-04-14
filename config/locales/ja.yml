@@ -1,5 +1,5 @@
 ja:
-  enums: #保留
+  enums: #保留　消したいとこ消す
     order:
       payment_method:
         credit_card: "クレジットカード"
@@ -18,7 +18,7 @@ ja:
         completion_of_production: "製作完了"
         already_shipped: "発送済み"
   views:
-    pagination:
+    pagination: #ページネーション
       first: <i class="fas fa-angle-double-left"></i>
       last: <i class="fas fa-angle-double-right"></i>
       previous: <i class="fas fa-angle-left"></i>
@@ -29,15 +29,16 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      post: 投稿
     attributes: #属性
       post:
         body: 投稿本文
         introduction: 自己紹介ぶん
-      genre:
-        name: ジャンル
+      label:
+        name: ラベル
     errors:
       models:
-        item:
+        post:
           attributes:
             name:
               blank: "を入力してください"
@@ -48,9 +49,9 @@ ja:
               not_a_number: "は0円以上の整数で入力してください"
               not_an_integer: "は整数で入力してください"
               greater_than_or_equal_to: "は0円以上で入力してください"
-            genre_id:
+            label_id:
               blank: "を入力してください"
-        genre:
+        label:
           attributes:
             name:
               blank: "を入力してください"
