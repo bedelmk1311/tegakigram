@@ -31,7 +31,8 @@ class Public::UsersController < ApplicationController
   end
 
   def confirm 
-    @user = current_user #確認画面にいるuserを拾う
+    @user = current_user 
+    #確認画面にいるuserを拾う
   end
 
   def destroy
