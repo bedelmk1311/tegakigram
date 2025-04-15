@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   protected #呼び出された他のコントローラからも参照できる
-  #deviseの機能が使われる前に、configure_permitted_parametersをする
   #sign_upの際に、nameのデータ操作を許可
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])

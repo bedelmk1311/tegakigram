@@ -7,6 +7,8 @@
     <% end %>
   </div>
 
+  <!--%= flash[:notice] %--> <!--ログインエラー用-->
+
   <div class="text-center">
     <%= form_with(model: resource, url: session_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>

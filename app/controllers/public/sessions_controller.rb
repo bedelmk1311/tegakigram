@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  # before_action :configure_sign_in_params, only: [:create] #構成する
+  #before_action :block_public_user, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -18,6 +19,7 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
+  # どこかに書くのか？
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -39,6 +41,19 @@ class Public::SessionsController < Devise::SessionsController
     sign_in user
     redirect_to posts_path, notice: "ゲストユーザーでログインしました。"
   end
+
+  # def block_public_user
+  #   @user = User.find_by(email: params[:user][:email])
+  #   if @user.valid_password?(params[:user][:password])
+  #   elsif
+  #     flash[:error] = "パスワードが間違っています。"
+  #     redirect_to new_user_session_path
+  #   else
+  #     flash[:error] = "該当するユーザーが見つかりません。"
+  #     redirect_to new_user_session_path
+  #   end
+  # end
+
   #private #あとで
   #def block_if_admin_signed_in
     #if admin_signed_in?
