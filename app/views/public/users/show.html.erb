@@ -8,10 +8,9 @@
     <div class='col-md-8 offset-md-1'>  <!--メインコンテンツー-->
       <h2><%= @user.name %>さんのプロフィールページ</h2>
 
-      <div class="bg-warning">
-        <% if @user == current_user%> <!--編集の表示-->
-          <%= link_to "プロフィールの編集", edit_user_path, class:"btn btn-sm btn-outline-success " %>
-        <% else %>
+      <div class="bg-warning"> <!--編集リンクの表示 DRY原則?-->
+        <% if @user == current_user && @user.email != "guest@example.com" %>
+          <%= link_to "プロフィールの編集", edit_user_path(@user), class: "btn btn-sm btn-outline-success" %>
         <% end %>
       </div>
 
@@ -28,9 +27,9 @@
 
 
       <div class="bg-light"> <!--フォロー数とフォロワー数-->
-        <p>follows</p>
+        <p>フォロー中</p>
         <p><%= link_to @user.followings.count, user_followings_path(@user) %></p>
-        <p>followers</p>
+        <p>フォロワー</p>
         <p><%= link_to @user.followers.count, user_followers_path(@user) %></p>
       </div>
 
