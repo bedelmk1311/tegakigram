@@ -15,7 +15,6 @@
         続ける場合は「削除する」をクリックしてください。
       </p>
 
-      <!--%= link_to "削除する", @user, method: :delete, data: { confirm: "本当に退会しますか？" }, class: "btn btn-outline-danger ms-3" %-->
       <%= link_to "削除する", user_path(@user.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger ms-3" %>
       <%= link_to "ホームに戻る", root_path, class: "btn btn-sm btn-outline-primary" %>
   </div>
