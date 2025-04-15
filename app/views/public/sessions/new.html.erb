@@ -10,6 +10,7 @@
   <div class="text-center">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
+
       <div class="field"><!--メール欄-->
         <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email",class: "m-1" %>
       </div>
