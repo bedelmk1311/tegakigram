@@ -1,5 +1,5 @@
 <div class="container bg-custom-color">
-  <h2 class="text-center">仮ログイン画面</h2>
+  <h2 class="text-center">ログイン画面</h2>
 
   <div class="text-center">
     <%= link_to root_path do %> <!--ロゴ-->
@@ -14,11 +14,11 @@
       <%= render "public/shared/error_messages", resource: resource %>
 
       <div class="field"><!--メール欄-->
-        <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email",class: "m-1" %>
+        <%= f.email_field :email, placeholder: "Eメール", autofocus: true, autocomplete: "email",class: "m-1" %>
       </div>
 
       <div class="field"><!--パスワード欄-->
-        <%= f.password_field :password, placeholder: "password" , autocomplete: "current-password",class: "m-1" %>
+        <%= f.password_field :password, placeholder: "パスワード" , autocomplete: "current-password",class: "m-1" %>
       </div>
 
       <% if devise_mapping.rememberable? %>

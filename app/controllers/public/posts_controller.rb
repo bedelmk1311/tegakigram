@@ -49,7 +49,7 @@ class Public::PostsController < ApplicationController
 
   def update 
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: "更新に成功しました"
+      redirect_to post_path(@post), notice: "投稿の編集内容は保存されました"
        #showに戻るか一覧に戻るか迷い中
     else
       render "edit"

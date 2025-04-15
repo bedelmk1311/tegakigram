@@ -22,11 +22,11 @@
       <div class="field"><!--パスワード-->
           <% if @minimum_password_length %>
           <% end %>
-          <%= f.password_field :password, placeholder: "6文字のパスワード", autocomplete: "new-password",class: "m-1" %>
+          <%= f.password_field :password, placeholder: "パスワード(6文字以上)", autocomplete: "new-password",class: "m-1" %>
       </div>
 
       <div class="field"><!--パスワード-->
-        <%= f.password_field :password_confirmation, placeholder: "確認用パスワード",autocomplete: "new-password",class: "m-1" %>
+        <%= f.password_field :password_confirmation, placeholder: "パスワード(確認用)",autocomplete: "new-password",class: "m-1" %>
       </div>
 
       <div class="actions"><!--ボタン-->
@@ -36,7 +36,7 @@
   </div>
 
   <p class="text-center" >
-    すでに会員の方は<%= link_to new_user_session_path do %>こちら<% end %>
+    すでに会員の方は<%= link_to new_user_session_path do %>こちら<% end %>から
   </p>
 
     <%= render "public/shared/links" %><!--いらぬ-->

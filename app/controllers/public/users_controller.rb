@@ -24,7 +24,7 @@ class Public::UsersController < ApplicationController
      #@user = current_user #どっちがいいんだろう
     @user = User.find(params[:id]) #ensureの後で外す
       if @user.update(user_params) #引数を指定しないとargumentエラー
-        redirect_to user_path(@user), notice: "更新に成功しました"
+        redirect_to user_path(@user), notice: "プロフィールの編集内容は保存されました"
       else
         render :edit
       end
@@ -37,7 +37,7 @@ class Public::UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to root_path , notice: "正常に処理が行われました"
+    redirect_to root_path , notice: "アカウント削除に成功しました"
   end
 
   private
