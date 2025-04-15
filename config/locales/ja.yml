@@ -1,22 +1,22 @@
 ja:
-  enums: #保留　消したいとこ消す
-    order:
-      payment_method:
-        credit_card: "クレジットカード"
-        transfer: "銀行振込"
-      status:
-        awaiting_payment: "入金待ち"
-        payment_confirmation: "入金確認"
-        in_production: "製作中"
-        preparing_to_ship: "発送準備"
-        already_shipped: "発送済み"
-    order_detail:
-      making_status:
-        unavoidable: "着手不可"
-        awaiting_manufacture: "製作待ち"
-        in_production: "製作中"
-        completion_of_production: "製作完了"
-        already_shipped: "発送済み"
+  # enums: #保留　消したいとこ消す
+  #   order:
+  #     payment_method:
+  #       credit_card: "クレジットカード"
+  #       transfer: "銀行振込"
+  #     status:
+  #       awaiting_payment: "入金待ち"
+  #       payment_confirmation: "入金確認"
+  #       in_production: "製作中"
+  #       preparing_to_ship: "発送準備"
+  #       already_shipped: "発送済み"
+  #   order_detail:
+  #     making_status:
+  #       unavoidable: "着手不可"
+  #       awaiting_manufacture: "製作待ち"
+  #       in_production: "製作中"
+  #       completion_of_production: "製作完了"
+  #       already_shipped: "発送済み"
   views:
     pagination: #ページネーション
       first: <i class="fas fa-angle-double-left"></i>
@@ -28,14 +28,20 @@ ja:
   ja:
   activerecord:
     models:
-      user: ユーザー
+      # user: ユーザー devise側と重複
       post: 投稿
+      comment: コメント
+      label: ラベル
     attributes: #属性
+      user:
+        name: 名前
+        introduction: 自己紹介文
+        profile_image: プロフィール写真
       post:
         body: 投稿本文
-        introduction: 自己紹介ぶん
+        post_image: 投稿写真
       label:
-        name: ラベル
+        name: ラベル名
     errors:
       models:
         post:
@@ -44,13 +50,13 @@ ja:
               blank: "を入力してください"
             introduction:
               blank: "を入力してください"
-            price:
-              blank: "を入力してください"
-              not_a_number: "は0円以上の整数で入力してください"
-              not_an_integer: "は整数で入力してください"
-              greater_than_or_equal_to: "は0円以上で入力してください"
-            label_id:
-              blank: "を入力してください"
+            # price:
+            #   blank: "を入力してください"
+            #   not_a_number: "は0円以上の整数で入力してください"
+            #   not_an_integer: "は整数で入力してください"
+            #   greater_than_or_equal_to: "は0円以上で入力してください"
+            # label_id:
+            #   blank: "を入力してください"
         label:
           attributes:
             name:
