@@ -38,9 +38,10 @@
         <% end %>
       </div>
 
-    <!--% elsif %--> <!--Admim時-->
-
-
+      <div>
+        <%= render 'public/searches/form' %><!--検索窓-->
+      </div>
+      <!--% elsif %--> <!--Admim時-->
     <% else %> <!--Nobody-->
       <div>
         <%= link_to new_user_registration_path, class: 'text-dark' do %>
