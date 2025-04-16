@@ -4,14 +4,13 @@ class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
   #ensure 例外処理 投稿者だけが〜できる
 
-
   def show
     @user = User.find(params[:id])
      #@user = current_user #どっちがいいんだろう
     @post = Post.new
     @posts = @user.posts
     @posts_all = Post.all
-    
+
     #@posts = @user.posts.page(params[:page])
     #kaminari pageメソッドで使用可能
   end
