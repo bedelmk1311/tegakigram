@@ -1,0 +1,28 @@
+<table class='table table-hover table-inverse'>
+  <!--%= render 'public/post/index', post: post %--> <!--あとで共通化-->
+  <% @posts_favorite.each do |post| %>
+    <tr>
+      <td> <!--投稿主-->
+        <%= link_to(post.user) do %>
+          <%= image_tag post.user.get_profile_image, size:'30x30' %>
+        <% end %><br>
+        <%= post.user.name%>
+      </td>
+      <td> <!--投稿写真-->
+        <%= link_to(post_path(post.id)) do %>
+          <%= image_tag post.get_image, size: '300x300' %>
+        <% end %>
+      </td>
+      <td>
+        <%= post.body %>
+      </td>
+      <td> <!--コメント-->
+        <%= link_to post_path(post.id) do %>
+          <i class="fa-solid fa-comment-dots " style="color: #B197FC;"> <%= post.comments.count %></i>
+        <% end %><br>
+      <td><!--いいね-->
+        <%= render "public/favorites/btn", post: post %>
+      </td>
+    </tr>
+   <% end %>
+ </table>

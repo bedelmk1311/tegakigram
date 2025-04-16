@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user! ,except: [:index]
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy, :index_favorite]
   # ensure 例外処理 投稿者だけが〜できる
 
   def new
@@ -29,11 +29,17 @@ class Public::PostsController < ApplicationController
     @comment = Comment.new #コメントを投稿するためのインスタンス変数を定義する
   end
 
-  def index_follow
-    #後ほど
-  end
+  # def index_favorite 下のに修正
+    # @posts_favorite = Post.where(favorites: { user_id: current_user.id })
+    # ユーザーがいいねしたレコードを絞り込み
+  # end
 
   def index_favorite 
+    @posts_favorite = current_user.favorites.map(&:post)
+    #ユーザーが持ついいねのデータをpostメソッドを適用にして表示　
+  end
+
+  def index_follow
     #後ほど
   end
 
