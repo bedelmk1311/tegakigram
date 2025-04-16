@@ -49,8 +49,8 @@
         </tr>
       </table>
 
-      <div class="bg-success">
-        <p><%= @post.comments.count %>件</p><!--コメント数-->
+      <div class="bg-success"> <!--コメント-->
+        <p>総コメント数<strong> <%= @post.comments.count %></strong>件</p>
         <% @post.comments.each do |comment| %>
           <p><!--%= image_tag comment.user.get_profile_image(30,30) %--></p>
           <p><%= comment.user.name %></p>
