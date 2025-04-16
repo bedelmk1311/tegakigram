@@ -1,6 +1,5 @@
 <div class='container px-5 px-sm-0'>
 
-
   <div class='row'>
 
     <div class='col-md-3 bg-info'>  <!--サイドバー-->
@@ -8,7 +7,7 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h1>仮Home post#index</h1>
+      <h1>ホーム</h1>
         <!--テンプレ化？-->
           <% @posts.each do |post| %>
             <div>
@@ -21,7 +20,9 @@
               <% end %>
 
                 <p><%= post.body %></p>
-                <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
+                  <%= link_to post_path(post.id) do %>
+                    <i class="fa-solid fa-comment-dots " style="color: #B197FC;"> <%= post.comments.count %></i>
+                  <% end %>
             </div>
           <% end %>
         <!--テンプレ化？-->
