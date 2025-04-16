@@ -6,7 +6,7 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h2>仮投稿詳細画面#show</h2>
+      <h2>投稿詳細画面</h2>
 
       <!--%= render 'layouts/errors', obj: @post %-->
       <!--%= render 'comments/errors', obj: @comment %-->
@@ -30,7 +30,9 @@
           <td> <!--中身-->
             <%= @post.body %>
           </td>
-
+          <td><!--いいね-->
+            <%= render "public/favorites/btn", post: @post %>
+          </td>
           <!--td class=<%= "favorite-" + @post.id.to_s %> --> <!--お気に入りボタン-->
             <!--%= render "favorites/btn", post: @post %-->
           <!--/td-->
@@ -74,23 +76,6 @@
         <%= form_with model:[@post, @comment] do |f| %> <!--コメントフォーム-->
           <%= f.text_area :message, rows:'5',placeholder: "コメントを書いてみよう!", class: "w-100 comment-textarea" %>
           <%= f.submit "追加", class: "btn btn-sm  btn-outline-danger mt-20 pull-right" %>
-        <% end %>
-      </div>
-
-
-      <div>
-        <% if @post.favorited_by?(current_user) %>
-          <p>
-            <%= link_to post_favorite_path(@post), method: :delete do %>
-              ♥<%= @post.favorites.count %> いいね
-            <% end %>
-          </p>
-          <% else %>
-          <p>
-            <%= link_to post_favorite_path(@post), method: :post do %>
-              ♡<%= @post.favorites.count %> いいね
-            <% end %>
-          </p>
         <% end %>
       </div>
 

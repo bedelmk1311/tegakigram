@@ -26,11 +26,12 @@
               <td>
                 <%= post.body %>
               </td>
-              <td>
-                <%= link_to post_path(post.id) do %><!--コメント-->
+              <td> <!--コメント-->
+                <%= link_to post_path(post.id) do %>
                   <i class="fa-solid fa-comment-dots " style="color: #B197FC;"> <%= post.comments.count %></i>
                 <% end %><br>
-                
+              <td><!--いいね-->
+                <%= render "public/favorites/btn", post: @post %>
               </td>
             </tr>
           <% end %>

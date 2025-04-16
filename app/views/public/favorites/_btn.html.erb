@@ -1,14 +1,9 @@
-<!--いいねを取り消す-->
-<% if post.favorited_by?(current_user) %>
-  <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
-    <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-    <%= post.favorites.count %> いいね
+<% if @post.favorited_by?(current_user) %> <!--いいね-->
+  <%= link_to post_favorite_path(post), method: :delete do %>
+    <i class="fa-solid fa-thumbs-up fa-bounce fa-xl" style="color: #B197FC;"><%= post.favorites.count %></i>
   <% end %>
-
-<!--いいねする-->
 <% else %>
-  <%= link_to post_favorites_path(post), method: :post, remote: true do %>
-    <i class="fas fa-heart" aria-hidden="true"></i>
-    <%= post.favorites.count %> いいね
+  <%= link_to post_favorite_path(post), method: :post do %> <!--いいね取り消し-->
+    <i class="fa-solid fa-thumbs-up fa-bounce fa-xl" style="color: #B197FC;"><%= post.favorites.count %></i>
   <% end %>
 <% end %>
