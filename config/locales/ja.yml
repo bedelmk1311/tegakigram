@@ -42,6 +42,8 @@ ja:
         post_image: 投稿写真
       label:
         name: ラベル名
+      comment:
+        message: コメント
     errors:
       models:
         post:
