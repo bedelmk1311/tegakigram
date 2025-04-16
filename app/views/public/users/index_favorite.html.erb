@@ -8,7 +8,16 @@
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
       <h2>いいねした投稿</h2>
-        <%= render 'public/posts/index', posts: @posts_favorite %>
+        <% if @posts_favorite == [] %>
+          <div class="test-center">
+            いいねした投稿はありません<br>
+            いいねしてみよう!
+          </div>
+        <% else %>
+          <div>
+            <%= render 'public/posts/index', posts: @posts_favorite %>
+          </div>
+        <% end %>
     </div>
 
   </div>
