@@ -3,7 +3,7 @@ class Public::RelationshipsController < ApplicationController
 
   def create
     user = User.find(params[:user_id])
-    current_user.follow(user) #userモデルで定義
+    current_user.follow(user) #followはuserモデルで定義
     redirect_to request.referer, notice: "フォローしました"
     #直前に見ていたURL=同じページに戻る
   end
@@ -15,12 +15,14 @@ class Public::RelationshipsController < ApplicationController
   end
 
   def followings
-    user = User.find(params[:user_id])
-    @users = user.followings
+    @user = User.find(params[:user_id])
+    #対象のuserを特定
+    @users = @user.followings
+    #フォローしているユーザーを取得(Userモデルで定義)
   end
 
   def followers 
-    user = User.find(params[:user_id])
-    @users = user.followers
+    @user = User.find(params[:user_id])
+    @users = @user.followers
   end
 end

@@ -6,12 +6,29 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-    <h2>仮Follow Users</h2>
-      <% if @users.exists? %> <!--どこで定義してたっけ？-->
-        <!--%= render '/users/index', users: @users %-->
-        <p>一覧</p>
-      <% else %>
+    <h2>仮<%= @user.name %> さんがフォロー中のユーザー</h2>
+      <% if @users == [] %>
         <p>ユーザーはいません</p>
+      <% else %>
+        <table class='table table-hover table-inverse'>
+          <tr>
+            <td> <!--プロフ画像と名前ー-->
+              <!--%= image_tag @users.get_profile_image, size: '200x200' %--><br>
+              <%= @users.name %> <!--名前-->
+              <p><!--%= link_to "#{@users.followings.count} フォロー中", user_followings_path(@users) %--></p>
+              <p><!--%= link_to "#{@users.followers.count} フォロワー", user_followers_path(@users) %--></p>
+            </td>
+            <td>
+              <i class="fa-solid fa-calendar-days " style="color: #B197FC;"></i>
+              <!--%= @users.created_at.strftime('%Y年%m月%d日') %--><br>
+              <%= @user[:introduction] %>
+            </td>
+            <td>
+              <!--%= render "relationships/follow", user: user, options: { class: "follow-link" } %-->
+            </td>
+          </tr>
+        </table>
+      <!--テンプレ化?-->
       <% end %>
     </div>
 
