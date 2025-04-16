@@ -6,7 +6,6 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-     #@user = current_user #どっちがいいんだろう
     @post = Post.new
     @posts = @user.posts
     @posts_all = Post.all
@@ -17,7 +16,6 @@ class Public::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id]) #ensureの後で外す
-     #@user = current_user #どっちがいいんだろう
   end
 
   # def index_favorite 下のに修正

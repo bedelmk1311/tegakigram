@@ -19,7 +19,6 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    #@post = Post.new # 後でサイドバーから投稿する用
     #@posts = PostImage.page(params[:page]) #メシテロのようにするならば
     #1ページ分の決められた数のデータだけを、新しい順に取得
   end
