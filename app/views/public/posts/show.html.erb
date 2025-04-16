@@ -43,7 +43,9 @@
               <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-outline-success edit_post_#{@post.id}" %>
             </td>
             <td><!--削除-->
-              <%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger destroy_post_#{@post.id}" %>
+              <%= link_to @post, method: :delete, data: { confirm: '本当に消しますか？' } do %>
+                <i class="fa-solid fa-trash-can fa-xl" style="color: #dc3545"></i>
+              <% end %>
             </td>
           <% end %>
         </tr>
@@ -51,19 +53,27 @@
 
       <div class="bg-success"> <!--コメント-->
         <p>総コメント数<strong> <%= @post.comments.count %></strong>件</p>
-        <% @post.comments.each do |comment| %>
-          <p><!--%= image_tag comment.user.get_profile_image(30,30) %--></p>
-          <p><%= comment.user.name %></p>
-          <p><%= comment.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
-          <p><%= comment.message %></p>
-
-          <% if comment.user == current_user %>
-            <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-sm btn-outline-danger" %>
+        <table class='table table-hover table-inverse'>
+          <% @post.comments.each do |comment| %>
+            <tr>
+              <td><%= image_tag comment.user.get_profile_image, size:"50x50" %><br>
+                  <%= comment.user.name %>
+              </td>
+              <td><%= comment.message %></td>
+              <td><%= comment.created_at.strftime("%m月%d日 %H:%M") %></td> <!--2025年入れるかどうか？-->
+              <td>
+                <% if comment.user == current_user %>
+                  <%= link_to post_comment_path(comment.post, comment), method: :delete do %>
+                    <i class="fa-solid fa-trash-can fa-xl" style="color: #dc3545"></i>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
           <% end %>
-        <% end %>
-        <%= form_with model:[@post, @comment] do |f| %>
-          <%= f.text_area :message, rows:'5',placeholder: "コメントを追加", class: "w-100 comment-textarea" %>
-          <%= f.submit "送信する", class: "btn btn-sm  btn-outline-danger mt-20 pull-right" %>
+        </table>
+        <%= form_with model:[@post, @comment] do |f| %> <!--コメントフォーム-->
+          <%= f.text_area :message, rows:'5',placeholder: "コメントを書いてみよう!", class: "w-100 comment-textarea" %>
+          <%= f.submit "追加", class: "btn btn-sm  btn-outline-danger mt-20 pull-right" %>
         <% end %>
       </div>
 
