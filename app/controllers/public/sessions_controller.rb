@@ -39,17 +39,17 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest
     sign_in user
-    redirect_to posts_path, notice: "ゲストユーザーでログインしました。"
+    redirect_to posts_path, notice: "ゲストユーザーでログインしました"
   end
 
   # def block_public_user
   #   @user = User.find_by(email: params[:user][:email])
   #   if @user.valid_password?(params[:user][:password])
   #   elsif
-  #     flash[:error] = "パスワードが間違っています。"
+  #     flash[:error] = "パスワードが間違っています"
   #     redirect_to new_user_session_path
   #   else
-  #     flash[:error] = "該当するユーザーが見つかりません。"
+  #     flash[:error] = "該当するユーザーが見つかりません"
   #     redirect_to new_user_session_path
   #   end
   # end
@@ -57,7 +57,7 @@ class Public::SessionsController < Devise::SessionsController
   #private #あとで
   #def block_if_admin_signed_in
     #if admin_signed_in?
-      #flash[:alert] = "管理者としてログイン中は顧客ログインできません。"
+      #flash[:alert] = "管理者としてログイン中は顧客ログインできません"
       #redirect_to admin_root_path
     #end
   #end
