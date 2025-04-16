@@ -1,16 +1,5 @@
-<div class='container px-5 px-sm-0'>
-
-  <div class='row'>
-
-    <div class='col-md-3 bg-info'>  <!--サイドバー-->
-      <%= render 'layouts/sidebar' %>
-    </div>
-
-    <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h2>いいねした投稿</h2>
-        <table class='table table-hover table-inverse'>
-  <!--%= render 'public/post/index', post: post %--> <!--あとで共通化-->
-  <% @posts_favorite.each do |post| %>
+<table class='table table-hover table-inverse'>
+  <% @posts.each do |post| %>
     <tr>
       <td> <!--投稿主-->
         <%= link_to(post.user) do %>
@@ -23,20 +12,18 @@
           <%= image_tag post.get_image, size: '300x300' %>
         <% end %>
       </td>
-      <td>
+      <td> <!--本文-->
         <%= post.body %>
       </td>
       <td> <!--コメント-->
         <%= link_to post_path(post.id) do %>
           <i class="fa-solid fa-comment-dots " style="color: #B197FC;"> <%= post.comments.count %></i>
         <% end %><br>
+      </td>
       <td><!--いいね-->
         <%= render "public/favorites/btn", post: post %>
       </td>
-    </tr>
-   <% end %>
- </table>
-    </div>
+     </tr>
+  <% end %>
+</table>
 
-  </div>
-</div>
