@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update,:destroy]
+  before_action :ensure_correct_user, only: [:edit, :update,:destroy, :index_favorite]
   before_action :ensure_guest_user, only: [:edit]
   #ensure 例外処理 投稿者だけが〜できる
 
@@ -19,6 +19,15 @@ class Public::UsersController < ApplicationController
   def edit
     @user = User.find(params[:id]) #ensureの後で外す
      #@user = current_user #どっちがいいんだろう
+  end
+
+  # def index_favorite 下のに修正
+    # @posts_favorite = Post.where(favorites: { user_id: current_user.id })
+    # ユーザーがいいねしたレコードを絞り込み
+  # end
+  def index_favorite 
+    @posts_favorite = current_user.favorites.map(&:post)
+    #ユーザーが持ついいねのデータをpostメソッドを適用にして表示　
   end
 
   def update

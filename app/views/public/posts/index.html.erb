@@ -7,25 +7,8 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h1>ホーム</h1>
-        <!--テンプレ化？-->
-          <% @posts.each do |post| %>
-            <div>
-            <%= link_to(post_path(post.id)) do %> <!--投稿-->
-                <%= image_tag post.get_image, size: '300x300' %>
-              <% end %>
-
-              <%= link_to(post.user) do %> <!--プロフ-->
-                <%= image_tag post.user.get_profile_image, size:'30x30' %>
-              <% end %>
-
-                <p><%= post.body %></p>
-                  <%= link_to post_path(post.id) do %>
-                    <i class="fa-solid fa-comment-dots " style="color: #B197FC;"> <%= post.comments.count %></i>
-                  <% end %>
-            </div>
-          <% end %>
-        <!--テンプレ化？-->
+      <h2>ホーム</h2>
+        <%= render 'public/posts/index', posts: @posts %>
     </div>
 
   </div>

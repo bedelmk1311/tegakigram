@@ -4,14 +4,20 @@
     <% if user_signed_in? %> <!--サインイン時-->
       <div>
         <%= link_to user_path(current_user),class: 'text-dark' do %>
-           <i class="fa-solid fa-user fa-2xs" style="color: #B197FC;">プロフィール</i>
+           <i class="fa-solid fa-user " style="color: #B197FC;">プロフィール</i>
         <% end %>
       </div>
 
       <div>
         <%=  link_to posts_path ,class: 'text-dark' do %>
-          <i class="fa-solid fa-house fa-2xs" style="color: #B197FC;">ホーム</i>
+          <i class="fa-solid fa-house " style="color: #B197FC;">ホーム</i>
         <% end %>
+      </div>
+        <%=  link_to index_favorite_user_path(current_user) ,class: 'text-dark' do %>
+          <i class="fa-solid fa-thumbs-up " style="color: #B197FC;">いいねした投稿</i>
+        <% end %>
+      <div>
+        
       </div>
 
       <div>
