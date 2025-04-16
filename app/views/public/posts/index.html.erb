@@ -9,22 +9,32 @@
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
       <h1>ホーム</h1>
         <!--テンプレ化？-->
+          <table class='table table-hover table-inverse'>
           <% @posts.each do |post| %>
-            <div>
-            <%= link_to(post_path(post.id)) do %> <!--投稿-->
-                <%= image_tag post.get_image, size: '300x300' %>
-              <% end %>
-
-              <%= link_to(post.user) do %> <!--プロフ-->
-                <%= image_tag post.user.get_profile_image, size:'30x30' %>
-              <% end %>
-
-                <p><%= post.body %></p>
-                  <%= link_to post_path(post.id) do %>
-                    <i class="fa-solid fa-comment-dots " style="color: #B197FC;"> <%= post.comments.count %></i>
-                  <% end %>
-            </div>
+            <tr>
+              <td> <!--投稿主-->
+                <%= link_to(post.user) do %>
+                  <%= image_tag post.user.get_profile_image, size:'30x30' %>
+                <% end %><br>
+                <%= post.user.name%>
+              </td>
+              <td> <!--投稿写真-->
+                <%= link_to(post_path(post.id)) do %>
+                  <%= image_tag post.get_image, size: '300x300' %>
+                <% end %>
+              </td>
+              <td>
+                <%= post.body %>
+              </td>
+              <td>
+                <%= link_to post_path(post.id) do %><!--コメント-->
+                  <i class="fa-solid fa-comment-dots " style="color: #B197FC;"> <%= post.comments.count %></i>
+                <% end %><br>
+                
+              </td>
+            </tr>
           <% end %>
+        </table>
         <!--テンプレ化？-->
     </div>
 
