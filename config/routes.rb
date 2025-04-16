@@ -38,15 +38,15 @@ Rails.application.routes.draw do
     resources :posts do
       resources :comments, only: [:create, :destroy]
       resource :favorite, only: [:create, :destroy] #1回しかいいねできないから単数系
-      member do
-        # いいねした投稿一覧
-        get :index_favorite
-     end
     end
 
     #userとrelationshipのルーティング
     resources :users, only: [:show,:edit,:update, :destroy] do
       get "confirm" => "users#confirm"
+      member do
+        # いいねした投稿一覧
+        get :index_favorite
+     end
 
       resource :relationships, only: [:create, :destroy]
         get "followings" => "relationships#followings", as: "followings"
