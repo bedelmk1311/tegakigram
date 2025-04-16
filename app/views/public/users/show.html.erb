@@ -27,9 +27,9 @@
             <td> <!--プロフ画像と名前ー-->
               <%= image_tag @user.get_profile_image, size: '200x200' %><br>
               <!--%= @user.name %--> <!--いるか？-->
-              <!--フォロー数とフォロワー数-->
-              <p>フォロー中 <%= link_to @user.followings.count, user_followings_path(@user) %></p>
-              <p>フォロワー <%= link_to @user.followers.count, user_followers_path(@user) %></p>
+              <p><%= link_to "#{@user.followings.count} フォロー中", user_followings_path(@user) %></p>
+              <p><%= link_to "#{@user.followers.count} フォロワー", user_followers_path(@user) %></p>
+
             </td>
             <td>
               <i class="fa-solid fa-calendar-days " style="color: #B197FC;"></i>
