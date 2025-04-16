@@ -1,9 +1,9 @@
-<% if @post.favorited_by?(current_user) %> <!--いいね-->
+<% if post.favorited_by?(current_user) %> <!--いいね-->
   <%= link_to post_favorite_path(post), method: :delete do %>
-    <i class="fa-solid fa-thumbs-up fa-bounce fa-xl" style="color: #B197FC;"><%= post.favorites.count %></i>
+    <i class="fa-solid fa-thumbs-up fa-bounce " style="color: #B197FC;"> <%= post.favorites.count %></i>
   <% end %>
 <% else %>
   <%= link_to post_favorite_path(post), method: :post do %> <!--いいね取り消し-->
-    <i class="fa-solid fa-thumbs-up fa-bounce fa-xl" style="color: #B197FC;"><%= post.favorites.count %></i>
+    <i class="fa-solid fa-thumbs-up fa-bounce " style="color: #B197FC;"> <%= post.favorites.count %></i>
   <% end %>
 <% end %>
