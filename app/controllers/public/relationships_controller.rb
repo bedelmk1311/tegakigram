@@ -15,16 +15,15 @@ class Public::RelationshipsController < ApplicationController
   end
 
   def followings
-    user = User.find(params[:user_id])
+    @user = User.find(params[:user_id])
     #対象のuserを特定
-    @users = user.followings
-    #フォローしているユーザーを取得(Userモデルで定義)
+    @users = @user.followings
     #特定のユーザーがフォローしているユーザーの一覧を表示するためのアクション
   end
 
   def followers 
-    user = User.find(params[:user_id])
-    @users = user.followers
-    #定のユーザーをフォローしているユーザーの一覧を表示するためのアクション
+    @user = User.find(params[:user_id])
+    @users = @user.followers
+    #特定のユーザーをフォローしているユーザーの一覧を表示するためのアクション
   end
 end
