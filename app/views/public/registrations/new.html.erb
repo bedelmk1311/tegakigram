@@ -33,11 +33,8 @@
         <%= f.submit "はじめる",class: "btn btn-sm btn-outline-success m-1" %>
       </div>
     <% end %>
+    <p>すでに会員の方は<%= render "public/shared/links" %></p>
   </div>
 
-  <p class="text-center" >
-    すでに会員の方は<%= link_to new_user_session_path do %>こちら<% end %>から
-  </p>
 
-    <%= render "public/shared/links" %><!--いらぬ-->
 </div>

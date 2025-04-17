@@ -1,0 +1,25 @@
+<table class='table table-hover table-inverse'>
+  <% users.each do |user| %>
+    <tr>
+      <td> <!--プロフ画像と名前ー-->
+        <%= image_tag user.get_profile_image, size: '50x50' %><br>
+        <%= user.name %>
+      </td>
+      <td> <!--自己紹介と登録日-->
+        <i class="fa-solid fa-calendar-days " style="color: #B197FC;"></i>
+        <%= user.created_at.strftime('%Y年%m月%d日') %><br>
+        <%= user.introduction %>
+      </td>
+      <td>
+        <p><%= link_to "#{user.followings.count} フォロー中", user_followings_path(user) %></p>
+        <p><%= link_to "#{user.followers.count} フォロワー", user_followers_path(user) %></p>
+      </td>
+      <td>
+        <p><%= render 'public/relationships/btn', user: user %></p><!--フォローボタン-->
+      </td>
+      <td>
+        <!--%= render "relationships/follow", user: user, options: { class: "follow-link" } %-->
+      </td>
+    </tr>
+  <% end %>
+</table>

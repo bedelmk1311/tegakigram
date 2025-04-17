@@ -46,8 +46,8 @@ Rails.application.routes.draw do
       member do
         # いいねした投稿一覧
         get :index_favorite
+        get :index_follow
      end
-
       resource :relationships, only: [:create, :destroy]
         get "followings" => "relationships#followings", as: "followings"
         get "followers" => "relationships#followers", as: "followers"

@@ -4,16 +4,15 @@
     <div class='col-md-3 bg-info'>  <!--サイドバー-->
       <%= render 'layouts/sidebar' %>
     </div>
-    
+
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h2>仮Follower Users</h2>
-      <% if @users.exists? %> <!--どこで定義してたっけ？-->
-        <!--%= render '/users/index', users: @users %-->
-        <p>一覧</p>
+      <h3><%= @user.name %> さんのフォロワー一覧</h3>
+      <% if @users.exists? %>
+        <%= render 'public/users/index', users: @users %>
       <% else %>
         <p>ユーザーはいません</p>
       <% end %>
     </div>
-    
+
   </div>
 </div>

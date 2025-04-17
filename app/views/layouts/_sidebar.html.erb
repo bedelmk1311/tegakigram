@@ -17,7 +17,12 @@
           <i class="fa-solid fa-thumbs-up " style="color: #B197FC;">いいねした投稿</i>
         <% end %>
       <div>
-        
+
+      </div>
+        <%=  link_to index_follow_user_path(current_user) ,class: 'text-dark' do %>
+          <i class="fa-solid fa-thumbs-up " style="color: #B197FC;">フォロー中のユーザーの投稿</i>
+        <% end %>
+      <div>
       </div>
 
       <div>
@@ -53,7 +58,7 @@
           <i class="fas fa-user-plus" style="color: #B197FC;"></i> 新規会員登録
         <% end %>
       </div>
-      
+
       <div>
         <%= link_to new_user_session_path ,class: 'text-dark' do %>
           <i class="fas fa-sign-in-alt" style="color: #B197FC;"></i> ログイン
@@ -65,7 +70,7 @@
           <i class="fas fa-sign-in-alt" style="color: #B197FC;"></i> ゲストログイン
         <% end %>
       </div>
-      
+
     <% end %>
 
   </div>

@@ -73,10 +73,10 @@
             </tr>
           <% end %>
         </table>
-        <%= form_with model:[@post, @comment] do |f| %> <!--コメントフォーム-->
-          <%= f.text_area :message, rows:'5',placeholder: "コメントを書いてみよう!", class: "w-100 comment-textarea" %>
-          <%= f.submit "追加", class: "btn btn-sm  btn-outline-danger mt-20 pull-right" %>
-        <% end %>
+
+        <div> <!--コメントフォーム-->
+          <%= render 'public/comments/form', post: @post,comment: @comment %>
+        </div>
       </div>
 
     </div>

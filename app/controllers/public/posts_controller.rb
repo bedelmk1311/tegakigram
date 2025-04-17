@@ -19,7 +19,6 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    #@post = Post.new # 後でサイドバーから投稿する用
     #@posts = PostImage.page(params[:page]) #メシテロのようにするならば
     #1ページ分の決められた数のデータだけを、新しい順に取得
   end
@@ -30,18 +29,11 @@ class Public::PostsController < ApplicationController
   end
 
   #user側に変更
-  # def index_favorite 下のに変更
-    # @posts_favorite = Post.where(favorites: { user_id: current_user.id })
-    # ユーザーがいいねしたレコードを絞り込み
-  # end
   # def index_favorite 
-  #   @posts_favorite = current_user.favorites.map(&:post)
-  #   #ユーザーが持ついいねのデータをpostメソッドを適用にして表示　
   # end
 
-  def index_follow
-    #後ほど
-  end
+  # def index_follow
+  # end
 
   def edit
   end

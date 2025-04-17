@@ -6,73 +6,40 @@
     </div>
   
     <div class='col-md-8 offset-md-1'>  <!--メインコンテンツー-->
-      <h2><%= @user.name %>さんのプロフィールページ</h2>
+      <h2><%= @user.name %> さんのプロフィールページ</h2>
 
-      <div class="bg-warning"> <!--編集リンクの表示 DRY原則?-->
+      <div class="bg-warning"> <!--DRY原則?-->
+        <!--現在ログインしているユーザーのプロフィールページかつ、ゲストユーザーじゃない場合-->
         <% if @user == current_user && @user.email != "guest@example.com" %>
-          <%= link_to "プロフィールの編集", edit_user_path(@user), class: "btn btn-sm btn-outline-success" %>
-        <% end %>
-      </div>
-
-
-      <div class="bg-warning"> <!--フォローボタン-->
-        <% if current_user != @user%> <!--フォローボタンの表示-->
-          <% if current_user.following?(@user) %>
-            <%= link_to "フォローを外す", user_relationships_path(@user.id), method: :delete, class: "btn btn-sm btn-outline-info" %>
-          <% else %>
-            <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-sm btn-outline-success" %>
+          <%= link_to edit_user_path(@user) do %>
+            <i class="fa-solid fa-gear fa-2xl" style="color: #B197FC;"></i>
           <% end %>
+        <% else %>
+          <!--フォローボタン-->
+          <%= render 'public/relationships/btn', user: @user %>
         <% end %>
       </div>
-
-
-      <div class="bg-light"> <!--フォロー数とフォロワー数-->
-        <p>フォロー中</p>
-        <p><%= link_to @user.followings.count, user_followings_path(@user) %></p>
-        <p>フォロワー</p>
-        <p><%= link_to @user.followers.count, user_followers_path(@user) %></p>
-      </div>
-
 
       <!--テンプレ化?-->
       <!--%= render 'posts/index',posts: @posts %-->
         <table class='table table-hover table-inverse'>
-          <thead>
-            <tr>
-              <th></th>
-              <th>名前</th>
-              <th>自己紹介</th>
-              <th>フォロー中</th>
-              <th>フォロワー</th>
-              <th>登録日</th>
-              <th colspan="4"></th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr>
-                <td> <!--プロフ画像ー-->
-                  <%= image_tag @user.get_profile_image, size: '200x200' %>
-                </td>
-                <td> <!--名前ー-->
-                  <%= @user.name %>
-                </td>
-                <td> <!--いるか？-->
-                  <%= @user.introduction %>
-                </td>
-                <td> <!--途中あとフォロー一覧リンク　フォロー関連も共通化したい-->
-                  フォロー数<!--%= user.followings.count %-->
-                </td>
-                <td>
-                  フォロワー数<!--%= user.followers.count %-->
-                </td>
-                <td>
-                  <%= @user.created_at.strftime('%Y年%m月%d日') %>
-                </td>
-                <td>
-                  <!--%= render "relationships/follow", user: user, options: { class: "follow-link" } %-->
-                </td>
-              </tr>
-          </tbody>
+          <tr>
+            <td> <!--プロフ画像と名前ー-->
+              <%= image_tag @user.get_profile_image, size: '200x200' %><br>
+              <!--%= @user.name %--> <!--いるか？-->
+              <p><%= link_to "#{@user.followings.count} フォロー中", user_followings_path(@user) %></p>
+              <p><%= link_to "#{@user.followers.count} フォロワー", user_followers_path(@user) %></p>
+
+            </td>
+            <td>
+              <i class="fa-solid fa-calendar-days " style="color: #B197FC;"></i>
+              <%= @user.created_at.strftime('%Y年%m月%d日') %><br>
+              <%= @user.introduction %>
+            </td>
+            <td>
+              <!--%= render "relationships/follow", user: user, options: { class: "follow-link" } %-->
+            </td>
+          </tr>
         </table>
       <!--テンプレ化?-->
 

@@ -4,21 +4,17 @@ class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
   #ensure 例外処理 投稿者だけが〜できる
 
-
   def show
     @user = User.find(params[:id])
-     #@user = current_user #どっちがいいんだろう
     @post = Post.new
     @posts = @user.posts
     @posts_all = Post.all
-    
+
     #@posts = @user.posts.page(params[:page])
     #kaminari pageメソッドで使用可能
   end
 
   def edit
-    @user = User.find(params[:id]) #ensureの後で外す
-     #@user = current_user #どっちがいいんだろう
   end
 
   # def index_favorite 下のに修正
@@ -30,9 +26,18 @@ class Public::UsersController < ApplicationController
     #ユーザーが持ついいねのデータをpostメソッドを適用にして表示　
   end
 
+  # def index_follow 下のに修正
+    # @posts_follow = current_user.followings.map(&:post)
+    # @posts_follow = current_user.followings.posts
+    # フォローしているユーザー一覧を取得するとこまではOK
+  # end
+
+  def index_follow
+    @posts_follow = current_user.followings.map { |followed_user| followed_user.posts }.flatten
+    #各ユーザーごとにpostsを呼び出してflattenメソッドで平坦化して`@posts_follow`に格納
+  end
+
   def update
-     #@user = current_user #どっちがいいんだろう
-    @user = User.find(params[:id]) #ensureの後で外す
       if @user.update(user_params) #引数を指定しないとargumentエラー
         redirect_to user_path(@user), notice: "プロフィールの編集内容は保存されました"
       else

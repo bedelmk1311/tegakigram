@@ -5,7 +5,9 @@
         <%= link_to(post.user) do %>
           <%= image_tag post.user.get_profile_image, size:'30x30' %>
         <% end %><br>
-        <%= post.user.name%>
+        <%= post.user.name%><br>
+        <!--フォローボタン　保留-->
+        <!--%= render 'public/relationships/btn', user: current_user %-->
       </td>
       <td> <!--投稿写真-->
         <%= link_to(post_path(post.id)) do %>
