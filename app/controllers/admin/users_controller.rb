@@ -1,11 +1,11 @@
 class Admin::UsersController < ApplicationController
 
   def show
-    
+    @user = User.find(params[:id])
   end
 
   def index 
-    
+    @users = User.all
   end
 
   # def index_comments
