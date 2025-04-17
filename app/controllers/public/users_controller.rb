@@ -26,8 +26,15 @@ class Public::UsersController < ApplicationController
     #ユーザーが持ついいねのデータをpostメソッドを適用にして表示　
   end
 
+  # def index_follow 下のに修正
+    # @posts_follow = current_user.followings.map(&:post)
+    # @posts_follow = current_user.followings.posts
+    # フォローしているユーザー一覧を取得するとこまではOK
+  # end
+
   def index_follow
-    #@posts_follow = current_user.followings.map(&:post)
+    @posts_follow = current_user.followings.map { |followed_user| followed_user.posts }.flatten
+    #各ユーザーごとにpostsを呼び出してflattenメソッドで平坦化して`@posts_follow`に格納
   end
 
   def update
