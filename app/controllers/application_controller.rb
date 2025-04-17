@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
+  def back_redirect_by_notice(message)
+    redirect_to request.referer, notice: message
+  end
 end

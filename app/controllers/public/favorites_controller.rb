@@ -14,5 +14,6 @@ class Public::FavoritesController < ApplicationController
     @favorite.destroy
     #render 'replace_btn'
     redirect_to request.referer, notice: "いいねを取り消しました"
+    #back_redirect_by_notice("なんかメッセージ")
   end
 end
