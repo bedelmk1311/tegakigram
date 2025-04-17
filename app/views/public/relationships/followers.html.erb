@@ -6,7 +6,7 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h3>仮<%= @users.name %> さんのフォロワー一覧</h3>
+      <h3><%= @user.name %> さんのフォロワー一覧</h3>
       <% if @users.exists? %>
         <%= render 'public/users/index', users: @users %>
       <% else %>
