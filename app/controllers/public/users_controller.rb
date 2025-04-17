@@ -15,7 +15,6 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id]) #ensureの後で外す
   end
 
   # def index_favorite 下のに修正
@@ -27,9 +26,11 @@ class Public::UsersController < ApplicationController
     #ユーザーが持ついいねのデータをpostメソッドを適用にして表示　
   end
 
+  def index_follow
+    #@posts_follow = current_user.followings.map(&:post)
+  end
+
   def update
-     #@user = current_user #どっちがいいんだろう
-    @user = User.find(params[:id]) #ensureの後で外す
       if @user.update(user_params) #引数を指定しないとargumentエラー
         redirect_to user_path(@user), notice: "プロフィールの編集内容は保存されました"
       else
