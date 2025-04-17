@@ -4,6 +4,25 @@ class Admin::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+    # 新規登録時のエラーをフラッシュメッセージで返す どうしてもバリデーションエラー時にURLが/usersになってしまうため
+  # redirect_toを使うことにします
+  def create
+    # build_resourceはRegistrationsControllerで使われるメソッド、新規登録処理をカスタマイズしたいときに使う
+    # (sign_up_params)がform_withから送られてくる値
+    build_resource(sign_up_params)
+
+    # resource は Devise のコントローラーで使用されるユーザーのインスタンスで通常は @user として扱う
+    if resource.save
+      sign_up(resource_name, resource)
+      redirect_to after_sign_up_path_for(resource)
+    else
+      # resource.errorsの中にモデルのバリデーションエラーが格納されてる
+      # full_messagesでエラーを一覧表示に .join("<br>")で改行 .html_safeで<br>をRailsにHTMLとして扱わせる
+      flash[:alert] = resource.errors.full_messages.join("<br>").html_safe
+      redirect_to new_user_registration_path
+    end
+  end
+
   # GET /resource/sign_up
   # def new
   #   super
