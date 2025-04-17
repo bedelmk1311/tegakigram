@@ -6,29 +6,33 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-    <h2>仮<%= @user.name %> さんがフォロー中のユーザー</h2>
-      <% if @users == [] %>
-        <p>ユーザーはいません</p>
-      <% else %>
+            <h3>仮<%= @users.name %> さんがフォロー中のユーザー</h3>
+      <% if @users.exists? %>
         <table class='table table-hover table-inverse'>
+        <% @users.each do |user| %>
           <tr>
             <td> <!--プロフ画像と名前ー-->
-              <!--%= image_tag @users.get_profile_image, size: '200x200' %--><br>
-              <%= @users.name %> <!--名前-->
-              <p><!--%= link_to "#{@users.followings.count} フォロー中", user_followings_path(@users) %--></p>
-              <p><!--%= link_to "#{@users.followers.count} フォロワー", user_followers_path(@users) %--></p>
-            </td>
+              <%= image_tag user.get_profile_image, size: '50x50' %><br>
+              <%= user.name %> <!--名前-->
             <td>
               <i class="fa-solid fa-calendar-days " style="color: #B197FC;"></i>
-              <!--%= @users.created_at.strftime('%Y年%m月%d日') %--><br>
-              <%= @user[:introduction] %>
+              <%= user.created_at.strftime('%Y年%m月%d日') %><br>
+              <%= user.introduction %>
             </td>
+            <td>
+              <p><%= link_to "#{user.followings.count} フォロー中", user_followings_path(@users) %></p>
+              <p><%= link_to "#{user.followers.count} フォロワー", user_followers_path(@users) %></p>
+            </td>
+
             <td>
               <!--%= render "relationships/follow", user: user, options: { class: "follow-link" } %-->
             </td>
           </tr>
+        <% end %>
         </table>
       <!--テンプレ化?-->
+      <% else %>
+        <p>ユーザーはいません</p>
       <% end %>
     </div>
 
