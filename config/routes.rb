@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   #scope moduleでカスタマイズ
   scope module: :public do
     root to:"homes#top"
+    get "/about", to: "homes#about"
 
     #searchのルーティング
     get "/search", to: "searches#search"
