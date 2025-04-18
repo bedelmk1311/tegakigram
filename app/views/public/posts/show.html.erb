@@ -6,7 +6,7 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h2>投稿詳細画面</h2>
+      <h2><i class="fa-solid fa-image"></i>(仮タイトル)</h2>
 
       <!--%= render 'layouts/errors', obj: @post %-->
       <!--%= render 'comments/errors', obj: @comment %-->
@@ -44,10 +44,11 @@
             <td><!--編集-->
               <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-outline-success edit_post_#{@post.id}" %>
             </td>
-            <td><!--削除-->
+            <td><!--削除--><!--showページではアイコンじゃない方がいいかもしれない-->
               <%= link_to @post, method: :delete, data: { confirm: '本当に消しますか？' } do %>
                 <i class="fa-solid fa-trash-can fa-xl" style="color: #dc3545"></i>
               <% end %>
+              <%= link_to "削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger" %>
             </td>
           <% end %>
         </tr>
