@@ -1,6 +1,6 @@
 <h2>管理者</h2>
 <h2>登録ユーザー一覧</h2>
-<!--%= render 'public/users/index', users: @users %-->
+<!--%= render 'public/users/index', users: @users %--><!--undefined method `email' for nil:NilClass　保留-->
 <table class='table table-hover table-inverse'>
   <% @users.each do |user| %>
     <tr>
@@ -14,8 +14,8 @@
         <%= user.introduction %>
       </td>
       <td>
-        <p><!--%= link_to "#{user.followings.count} フォロー中", user_followings_path(user) %--></p>
-        <p><!--%= link_to "#{user.followers.count} フォロワー", user_followers_path(user) %--></p>
+        <p><%= link_to "#{user.followings.count} フォロー中", user_followings_path(user) %></p>
+        <p><%= link_to "#{user.followers.count} フォロワー", user_followers_path(user) %></p>
       </td>
     </tr>
   <% end %>

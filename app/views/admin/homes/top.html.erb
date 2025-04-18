@@ -18,10 +18,9 @@
       </div>
 
       <div> <!--ログアウトorログイン-->
-        <%= link_to destroy_admin_session_path,class: 'text-dark' do %>
+        <%= link_to destroy_admin_session_path, method: :delete, class: 'text-dark' do %>
            <i class="fas fa-sign-out-alt" style="color: #B197FC;"></i>
-        <% end %><br
-      >
+        <% end %><br>
         <%= link_to new_admin_session_path,class: 'text-dark' do %>
            <i class="fas fa-sign-in-alt" style="color: #B197FC;"></i>
         <% end %>

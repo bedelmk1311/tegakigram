@@ -15,7 +15,9 @@
         <p><%= link_to "#{user.followers.count} フォロワー", user_followers_path(user) %></p>
       </td>
       <td>
-        <p><%= render 'public/relationships/btn', user: user %></p><!--フォローボタン-->
+        <% unless current_user.email == "admin@test.com" %><!--adminログイン時は表示させない-->
+          <p><%= render 'public/relationships/btn', user: user %></p><!--フォローボタン-->
+        <% end %>
       </td>
       <td>
         <!--%= render "relationships/follow", user: user, options: { class: "follow-link" } %-->
