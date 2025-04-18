@@ -5,8 +5,10 @@
   <% @users.each do |user| %>
     <tr>
       <td> <!--プロフ画像と名前ー-->
-        <%= image_tag user.get_profile_image, size: '50x50' %><br>
-        <%= user.name %>
+        <%= link_to admin_user_path(user) do %>
+          <%= image_tag user.get_profile_image, size: '50x50' %><br>
+          <%= user.name %>
+        <% end %>
       </td>
       <td> <!--自己紹介と登録日-->
         <i class="fa-solid fa-calendar-days " style="color: #B197FC;"></i>
