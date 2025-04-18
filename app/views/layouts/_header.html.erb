@@ -41,7 +41,9 @@
         <%= render 'public/searches/form' %>
       </div>
 
-    <% elsif %> <!--Admin時-->
+    <%
+=begin%>
+ <% elsif %> <!--Admin時-->
 
       <div> <!--ホーム-->
         <%= link_to user_path(current_user),class: 'text-dark' do %>
@@ -68,7 +70,9 @@
         <%= link_to new_admin_session_path,class: 'text-dark' do %>
            <i class="fas fa-sign-in-alt" style="color: #B197FC;"></i>
         <% end %>
-      </div>
+      </div> 
+<%
+=end%>
 
     <% else %> <!--Nobody-->
       <div>
