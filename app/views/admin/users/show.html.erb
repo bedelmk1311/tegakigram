@@ -3,7 +3,7 @@
 <!--プロフ画像と名前ー-->
   <h3><%= @user.name %> さんの情報</h3>
   <%= image_tag @user.get_profile_image, size: '200x200' %><br>
-  <!--カウント数はあってもいいけどリンクはいらないかも？-->
+  <!--管理者は見れるようにする権限あとで追加-->
   <p><%= link_to "#{@user.followings.count} フォロー中", user_followings_path(@user) %></p>
   <p><%= link_to "#{@user.followers.count} フォロワー", user_followers_path(@user) %></p>
 
@@ -12,5 +12,7 @@
   
   <p>自己紹介</p>
   <%= @user.introduction %>
-
-  <p>アカウント削除ボタン</p>
+<!--余力あれば確認画面、今はdataのみ-->
+  <p>
+    アカウント<%= link_to '削除', admin_user_path(@user), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  </p>
