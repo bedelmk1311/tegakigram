@@ -6,7 +6,7 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h2>投稿詳細画面</h2>
+      <h2><i class="fa-solid fa-image"></i>(仮タイトル)</h2>
 
       <!--%= render 'layouts/errors', obj: @post %-->
       <!--%= render 'comments/errors', obj: @comment %-->
@@ -23,7 +23,8 @@
           </td>
 
           <td> <!--内容-->
-            <%= image_tag @post.get_image, size: '200x200' %>
+            <%= image_tag @post.get_image, size: '200x200' %><br>
+            <i class="fa-solid fa-calendar-days fa-sm "></i>
             <%= @post.created_at.strftime('%Y年%m月%d日') %>
           </td>
 
@@ -44,39 +45,25 @@
             <td><!--編集-->
               <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-outline-success edit_post_#{@post.id}" %>
             </td>
-            <td><!--削除-->
+            <td><!--削除--><!--showページではアイコンじゃない方がいいかもしれない-->
               <%= link_to @post, method: :delete, data: { confirm: '本当に消しますか？' } do %>
                 <i class="fa-solid fa-trash-can fa-xl" style="color: #dc3545"></i>
               <% end %>
+              <%= link_to "削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger" %>
             </td>
           <% end %>
         </tr>
       </table>
 
-      <div class="bg-success"> <!--コメント-->
+      <div class="bg-warning"> <!--コメント-->
         <p>総コメント数<strong> <%= @post.comments.count %></strong>件</p>
-        <table class='table table-hover table-inverse'>
-          <% @post.comments.each do |comment| %>
-            <tr>
-              <td><%= image_tag comment.user.get_profile_image, size:"50x50" %><br>
-                  <%= comment.user.name %>
-              </td>
-              <td><%= comment.message %></td>
-              <td><%= comment.created_at.strftime("%m月%d日 %H:%M") %></td> <!--2025年入れるかどうか？-->
-              <td>
-                <% if comment.user == current_user %>
-                  <%= link_to post_comment_path(comment.post, comment), method: :delete do %>
-                    <i class="fa-solid fa-trash-can fa-xl" style="color: #dc3545"></i>
-                  <% end %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </table>
 
-        <div> <!--コメントフォーム-->
-          <%= render 'public/comments/form', post: @post,comment: @comment %>
-        </div>
+        <!--コメント一覧-->
+        <%= render 'public/comments/index', post: @post,comment: @comment %><br>
+
+        <!--コメントフォーム-->
+        <%= render 'public/comments/form', post: @post,comment: @comment %>
+
       </div>
 
     </div>

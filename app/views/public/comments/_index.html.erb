@@ -1,21 +1,29 @@
-<table> <!--テンプレ化しないかもしれん-->
-  <tbody>
-      <% post.comments.each do |comment| %>
-      <tr>
+<!--public/posts/show-->
 
-        <td>
-          <%= link_to user_path(comment.user) do %>
-            <%= image_tag comment.user.get_profile_image, size: "100x100" %><br>
-            <%= comment.user.name %>
-          <% end %>
-        </td>
-        <td><%= comment.message %></td>
-        <td>
-          <% if comment.user == current_user %>
-            <%= link_to "Destroy", post_comment_path(post, comment), method: :delete, class: "btn btn-danger pull-right", remote: true %>
-          <% end %>
-        </td>
-      </tr>
+<div class="">
+    <table class='table table-hover table-inverse'>
+      <% post.comments.each do |comment| %>
+        <tr>
+          <td>
+            <%= link_to user_path(post.user)do %>
+              <%= image_tag comment.user.get_profile_image, size:"50x50" %><br>
+              <%= comment.user.name %>
+            <% end %>
+          </td>
+          <td>
+            <%= comment.created_at.strftime("%m月%d日 %H:%M") %>
+          </td>
+          <td>
+            <%= comment.message %>
+          </td>
+          <td>
+            <% if comment.user == current_user %>
+              <%= link_to post_comment_path(comment.post, comment), method: :delete do %>
+                <i class="fa-solid fa-trash-can fa-xl" style="color: #dc3545"></i>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
       <% end %>
-  </tbody>
-</table>
+    </table>
+</div>

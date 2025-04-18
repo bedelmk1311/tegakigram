@@ -8,7 +8,7 @@
     <div class="col-md-8 px-5 px-sm-0 mx-auto"> <!--メインコンテンツ-->
 
       <!--%= render 'layouts/errors', obj: @post %-->
-      <% if @user.errors.any? %> <!--バリデーションエラーメッセ-->
+      <% if @user.errors.any? %> <!--バリデーションエラーメッセ あとでまとめたい-->
         <%= @user.errors.count %>件のエラーが発生しました
           <ul>
             <% @user.errors.full_messages.each do |message| %>
@@ -17,7 +17,7 @@
           </ul>
       <% end %>
 
-    <h2>プロフィール編集</h2>
+    <h2><i class="fa-solid fa-gear fa-sm" ></i>プロフィール編集</h2>
 
     <%= form_with model:@user, local:true do |f| %>
       <!--テンプレートエラー？-->

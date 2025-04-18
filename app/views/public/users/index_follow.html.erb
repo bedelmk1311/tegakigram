@@ -6,7 +6,8 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h3><%= current_user.name %> さんがフォロー中のユーザーの投稿</h3>
+      <h2><i class="fa-solid fa-user-check fa-sm" ></i><%= current_user.name %> さんが
+      フォロー中のユーザーの投稿</h2>
         <% if @posts_follow == [] %>
           <div class="test-center">
             <%= image_tag "kogarashi.jpg", alt: "Logo", width: 200 %><br>

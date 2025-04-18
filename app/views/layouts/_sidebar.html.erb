@@ -1,78 +1,55 @@
 <div class="">
-
   <div class="text-center">
     <% if user_signed_in? %> <!--サインイン時-->
       <div>
-        <%= link_to user_path(current_user),class: 'text-dark' do %>
-           <i class="fa-solid fa-user " style="color: #B197FC;">プロフィール</i>
-        <% end %>
-      </div>
+        <%= link_to user_path(current_user),class: 'btn m-3' do %>
+           <i class="fa-solid fa-user fa-2xl " style="color: #B197FC;"></i>プロフィール
+        <% end %><br>
 
-      <div>
-        <%=  link_to posts_path ,class: 'text-dark' do %>
-          <i class="fa-solid fa-house " style="color: #B197FC;">ホーム</i>
-        <% end %>
-      </div>
-        <%=  link_to index_favorite_user_path(current_user) ,class: 'text-dark' do %>
-          <i class="fa-solid fa-thumbs-up " style="color: #B197FC;">いいねした投稿</i>
-        <% end %>
-      <div>
+        <%=  link_to posts_path ,class: 'btn m-3' do %>
+          <i class="fa-solid fa-house fa-2xl " style="color: #B197FC;"></i>ホーム
+        <% end %><br>
 
-      </div>
-        <%=  link_to index_follow_user_path(current_user) ,class: 'text-dark' do %>
-          <i class="fa-solid fa-thumbs-up " style="color: #B197FC;">フォロー中のユーザーの投稿</i>
-        <% end %>
-      <div>
-      </div>
+        <%=  link_to index_favorite_user_path(current_user) ,class: 'btn m-3' do %>
+          <i class="fa-solid fa-thumbs-up fa-2xl " style="color: #B197FC;"></i>いいねしたポスト
+        <% end %><br>
 
-      <div>
-        <%= link_to destroy_user_session_path, method: :delete ,class: 'text-dark' do %>
-          <i class="fas fa-sign-out-alt" style="color: #B197FC;">ログアウト</i>
-        <% end %>
-      </div>
+        <%=  link_to index_follow_user_path(current_user) ,class: 'btn m-3' do %>
+                <i class="fa-solid fa-user-check fa-2xl" style="color: #B197FC;"></i>フォロー中のユーザーのポスト
+        <% end %><br>
 
-      <div>
-        <%= link_to new_post_path ,class: 'text-dark' do %>
-          <i class="fa-solid fa-circle-plus fa-2xl" style="color: #B197FC;"></i>
-          <i class="fa-solid fa-plus fa-2xl" style="color: #B197FC;"></i>
-          <i class="fa-solid fa-pen-to-square fa-2xs" style="color: #B197FC;"></i>
-        <% end %>
-      </div>
+        <%= link_to destroy_user_session_path, method: :delete ,class: 'btn m-3' do %>
+          <i class="fas fa-sign-out-alt fa-2xl " style="color: #B197FC;"></i>ログアウト
+        <% end %><br>
 
-      <div>
+        <%= link_to new_post_path ,class: 'btn m-3' do %>
+          <i class="fa-solid fa-circle-plus fa-2xl" style="color: #B197FC;"></i>新規ポスト
+        <% end %><br>
+
         <%= render 'public/searches/form' %><!--検索窓-->
       </div>
 
-    <!--% elsif %--> <!--Admim時-->
-
+    <% elsif admin_signed_in? %> <!--Admin時-->
 
     <% else %> <!--Nobody-->
       <div>
-        <%=  link_to posts_path ,class: 'text-dark' do %>
-          <i class="fa-solid fa-house fa-2xs" style="color: #B197FC;">ホーム</i>
-        <% end %>
-      </div>
+        <%=  link_to posts_path ,class: 'btn m-3' do %>
+          <i class="fa-solid fa-house fa-2xl " style="color: #B197FC;">ホーム</i>
+        <% end %><br>
 
-      <div>
-        <%= link_to new_user_registration_path, class: 'text-dark' do %>
-          <i class="fas fa-user-plus" style="color: #B197FC;"></i> 新規会員登録
-        <% end %>
-      </div>
+        <%= link_to new_user_registration_path, class: 'btn m-3' do %>
+          <i class="fas fa-user-plus fa-2xl " style="color: #B197FC;"></i> 新規会員登録
+        <% end %><br>
 
-      <div>
-        <%= link_to new_user_session_path ,class: 'text-dark' do %>
-          <i class="fas fa-sign-in-alt" style="color: #B197FC;"></i> ログイン
-        <% end %>
-      </div>
+        <%= link_to new_user_session_path ,class: 'btn m-3' do %>
+          <i class="fas fa-sign-in-alt fa-2xl " style="color: #B197FC;"></i> ログイン
+        <% end %><br>
 
-      <div>
-        <%= link_to new_user_session_path ,class: 'text-dark' do %>
-          <i class="fas fa-sign-in-alt" style="color: #B197FC;"></i> ゲストログイン
-        <% end %>
+        <%= link_to new_user_session_path ,class: 'btn m-3' do %>
+          <i class="fas fa-sign-in-alt fa-2xl " style="color: #B197FC;"></i> ゲストログイン
+        <% end %><br>
       </div>
-
     <% end %>
 
   </div>
-
-  </div>
+</div>
