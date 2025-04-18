@@ -48,7 +48,7 @@ end
 Post.create( 
   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/gyoza_sign.jpg"), filename:"gyoza_sign.jpg"),
   body: "のぼりが手書きでした。味わいがあって好きです。",
-  user: urasima
+  user: urasimataro
 )
 Post.create( 
   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/pop_anago.jpg"), filename:"pop_anago.jpg"),
@@ -58,7 +58,7 @@ Post.create(
 Post.create( 
   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/yakitori_sign.jpg"), filename:"yakitori_sign.jpg"),
   body: "知り合いがやっている焼き鳥屋さん。れっきとした看板で、決して落書きではないそうです。",
-  user: urasima
+  user: urasimataro
 )
 Post.create( 
   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/pop_simesaba.jpg"), filename:"pop_simesaba.jpg"),
@@ -89,8 +89,9 @@ Post.create(
   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/salmon.jpg"), filename:"pop_salmon.jpg"),
   body: "鮭ばっかり描いてたらだんだん上手くなってきた",
   user: shirayuki
-)Post.create( 
-  post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/quote.jpg"), filename:"quote.jpg"),
+)
+Post.create( 
+  post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/quote_sign.jpg"), filename:"quote_sign.jpg"),
   body: "木目と白の相性良き。次の制作のヒントに。",
   user: kaguya
 )
