@@ -26,7 +26,7 @@ kintaro = User.find_or_create_by!(email: "kin@test.com") do |user|
   user.introduction = "筆ペン練習マン"
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/bear_picture.jpg"), filename:"bear_picture.jpg")
 end
-urasimataro = User.find_or_create_by!(email: "urasima@test.com") do |user|
+urasimataro = User.find_or_create_by!(email: "urashima@test.com") do |user|
   user.name = "浦島太郎＠旅なう"
   user.password = "password"
   user.introduction = "居酒屋の写真をあげることが多めです。海鮮料理ラブ"
