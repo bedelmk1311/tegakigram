@@ -1,9 +1,14 @@
+<h2>管理者</h2>
+<h2>登録ユーザー一覧</h2>
+<!--%= render 'public/users/index', users: @users %--><!--undefined method `email' for nil:NilClass　保留-->
 <table class='table table-hover table-inverse'>
-  <% users.each do |user| %>
+  <% @users.each do |user| %>
     <tr>
       <td> <!--プロフ画像と名前ー-->
-        <%= image_tag user.get_profile_image, size: '50x50' %><br>
-        <%= user.name %>
+        <%= link_to admin_user_path(user) do %>
+          <%= image_tag user.get_profile_image, size: '50x50' %><br>
+          <%= user.name %>
+        <% end %>
       </td>
       <td> <!--自己紹介と登録日-->
         <i class="fa-solid fa-calendar-days " style="color: #B197FC;"></i>
@@ -13,14 +18,6 @@
       <td>
         <p><%= link_to "#{user.followings.count} フォロー中", user_followings_path(user) %></p>
         <p><%= link_to "#{user.followers.count} フォロワー", user_followers_path(user) %></p>
-      </td>
-      <td>
-        <% unless current_user.email == "admin@test.com" %><!--adminログイン時は表示させない-->
-          <p><%= render 'public/relationships/btn', user: user %></p><!--フォローボタン-->
-        <% end %>
-      </td>
-      <td>
-        <!--%= render "relationships/follow", user: user, options: { class: "follow-link" } %-->
       </td>
     </tr>
   <% end %>

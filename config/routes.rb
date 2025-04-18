@@ -29,10 +29,12 @@ Rails.application.routes.draw do
     post "public/guest_sign_in", to: "public/sessions#guest_sign_in"
   end
 
-
   #scope moduleでカスタマイズ
   scope module: :public do
     root to:"homes#top"
+
+    #searchのルーティング
+    get "/search", to: "searches#search"
 
     #postと子(commentとfavorite)のルーティング
     resources :posts do
@@ -44,7 +46,6 @@ Rails.application.routes.draw do
     resources :users, only: [:show,:edit,:update, :destroy] do
       get "confirm" => "users#confirm"
       member do
-        # いいねした投稿一覧
         get :index_favorite
         get :index_follow
      end
@@ -52,23 +53,17 @@ Rails.application.routes.draw do
         get "followings" => "relationships#followings", as: "followings"
         get "followers" => "relationships#followers", as: "followers"
     end
-
-     #searchのルーティング
-    get "/search", to: "searches#search"
   end
 
   # namespaceでadminをまとめる
   namespace :admin do
     root to: "homes#top"
+    get "/search", to: "searches#search"
     resources :users, only: [:show, :index, :destroy] # こっちのdestroyは投稿を消したい
 
     #get "confirm_post", to: "confirm_post#confirm" #仮
     #get "confirm_comment", to: "confirm_post#confirm" #仮
     #get "index_comment", to: " # " #仮
     #delete "URL", to: " # " #仮 コメントを消したい
-
-    get "/search", to: "searches#search"
-    # 検索機能にアクセスするためのルーティング
   end
-
 end

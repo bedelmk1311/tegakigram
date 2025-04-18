@@ -5,32 +5,31 @@
       <%= image_tag "logo.jpg", alt: "Logo", width: 100 %>
     <% end %>
 
-    <% if user_signed_in? %> <!--〜さんのマイページ用-->
+    <% if user_signed_in? %> <!--サインイン時-->
+
       <div class="me-3">
         こんにちは！<%= current_user.name %>さん
       </div>
-    <% end %>
 
-    <% if user_signed_in? %> <!--サインイン時-->
-      <div>
+      <div><!--プロフィール-->
         <%= link_to user_path(current_user),class: 'text-dark' do %>
            <i class="fa-solid fa-user fa-2xs" style="color: #B197FC;"></i>
         <% end %>
       </div>
 
-      <div>
+      <div><!--ホーム-->
         <%=  link_to posts_path ,class: 'text-dark' do %>
           <i class="fa-solid fa-house fa-2xs" style="color: #B197FC;"></i>
         <% end %>
       </div>
 
-      <div>
+      <div><!--ログアウト-->
         <%= link_to destroy_user_session_path, method: :delete ,class: 'text-dark' do %>
           <i class="fas fa-sign-out-alt" style="color: #B197FC;"></i>
         <% end %>
       </div>
 
-      <div>
+      <div><!--新規投稿-->
         <%= link_to new_post_path ,class: 'text-dark' do %>
           <i class="fa-solid fa-circle-plus fa-2xl" style="color: #B197FC;"></i>
           <i class="fa-solid fa-plus fa-2xl" style="color: #B197FC;"></i>
@@ -38,22 +37,61 @@
         <% end %>
       </div>
 
-      <div>
-        <%= render 'public/searches/form' %><!--検索窓-->
+      <div><!--検索窓-->
+        <%= render 'public/searches/form' %>
       </div>
-      <!--% elsif %--> <!--Admim時-->
+
+    <% elsif admin_signed_in? %> <!--Admin時-->
+      <div class="me-3">
+        管理者さんこんにちは!
+      </div>
+
+      <div> <!--ホーム-->
+        <%= link_to admin_root_path,class: 'text-dark' do %>
+           <i class="fa-solid fa-house fa-2xs" style="color: #B197FC;"></i>
+        <% end %>
+      </div>
+
+      <div> <!--ユーザー一覧-->
+        <%= link_to admin_users_path,class: 'text-dark' do %>
+           <i class="fa-solid fa-user fa-2xs" style="color: #B197FC;"></i>
+        <% end %>
+      </div>
+
+      <div> <!--検索-->
+        <%= link_to admin_search_path,class: 'text-dark' do %>
+           <i class="fa-solid fa-magnifying-glass fa-2xs" style="color: #B197FC;"></i>
+        <% end %>
+      </div>
+
+      <div> <!--管理者ログアウト-->
+        <%= link_to destroy_admin_session_path, method: :delete, class: 'text-dark' do %>
+           <i class="fas fa-sign-out-alt" style="color: #B197FC;"></i>
+        <% end %>
+      </div> 
+
     <% else %> <!--Nobody-->
       <div>
         <%= link_to new_user_registration_path, class: 'text-dark' do %>
           <i class="fas fa-user-plus"></i> 新規会員登録
         <% end %>
       </div>
+
       <div>
-        <%= link_to new_user_session_path ,class: 'text-dark' do %>
+        <%= link_to new_user_session_path,class: 'text-dark' do %>
           <i class="fas fa-sign-in-alt"></i> ログイン
         <% end %>
       </div>
-      
+
+      <div> 
+        <%= link_to new_user_session_path,class: 'text-dark' do %>
+          <i class="fas fa-sign-in-alt"></i> このサイトについて
+        <% end %>
+      </div>
+
+        <%= link_to new_admin_session_path,class: 'text-dark' do %>
+           <i class="fas fa-sign-in-alt" style="color: #B197FC;"></i>開発用！管理者ログイン
+        <% end %>
     <% end %>
 
   </div>
