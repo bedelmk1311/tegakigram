@@ -6,7 +6,7 @@
     </div>
 
     <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h3><%= @user.name %> さんがフォロー中のユーザー一覧</h3>
+      <h2><i class="fa-solid fa-user-check fa-sm" ></i><%= @user.name %> さんがフォロー中のユーザー一覧</h2>
       <% if @users.exists? %>
         <%= render 'public/users/index', users: @users %>
       <% else %>
