@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   #before_action :authenticate_user!, except: [:top]
+  before_action :authenticate_admin! # 管理者は全てのページに行き来したい
 
   #ログイン認証が成功していないと、許可以外の画面は表示できない仕様
   before_action :configure_permitted_parameters, if: :devise_controller?

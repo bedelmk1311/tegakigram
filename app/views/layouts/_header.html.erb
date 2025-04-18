@@ -41,13 +41,14 @@
         <%= render 'public/searches/form' %>
       </div>
 
-    <%
-=begin%>
- <% elsif %> <!--Admin時-->
+    <% elsif admin_signed_in? %> <!--Admin時-->
+      <div class="me-3">
+        管理者さんこんにちは!
+      </div>
 
       <div> <!--ホーム-->
-        <%= link_to user_path(current_user),class: 'text-dark' do %>
-           <i class="fa-solid fa-user fa-2xs" style="color: #B197FC;"></i>
+        <%= link_to admin_root_path,class: 'text-dark' do %>
+           <i class="fa-solid fa-house fa-2xs" style="color: #B197FC;"></i>
         <% end %>
       </div>
 
@@ -59,20 +60,15 @@
 
       <div> <!--検索-->
         <%= link_to admin_search_path,class: 'text-dark' do %>
-           <i class="fa-solid fa-user fa-2xs" style="color: #B197FC;"></i>
+           <i class="fa-solid fa-magnifying-glass fa-2xs" style="color: #B197FC;"></i>
         <% end %>
       </div>
 
-      <div> <!--ログアウトorログイン-->
-        <%= link_to destroy_admin_session_path,class: 'text-dark' do %>
+      <div> <!--管理者ログアウト-->
+        <%= link_to destroy_admin_session_path, method: :delete, class: 'text-dark' do %>
            <i class="fas fa-sign-out-alt" style="color: #B197FC;"></i>
         <% end %>
-        <%= link_to new_admin_session_path,class: 'text-dark' do %>
-           <i class="fas fa-sign-in-alt" style="color: #B197FC;"></i>
-        <% end %>
       </div> 
-<%
-=end%>
 
     <% else %> <!--Nobody-->
       <div>
@@ -93,6 +89,9 @@
         <% end %>
       </div>
 
+        <%= link_to new_admin_session_path,class: 'text-dark' do %>
+           <i class="fas fa-sign-in-alt" style="color: #B197FC;"></i>開発用！管理者ログイン
+        <% end %>
     <% end %>
 
   </div>
