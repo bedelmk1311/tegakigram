@@ -16,11 +16,26 @@
   </div>
 
   <div class= "">
-    <h1>投稿紹介</h1>
+    <h3>最新の投稿された写真</h3>
+    <% @posts.each do |post|%>
+      <%= image_tag post.get_image, size: '100x100' %>
+    <% end %>
   </div>
 
   <div class="">
-    <h1>謝辞</h1>
-    <h1>画像素材</h1>
+    <h3>使用した画像素材・ロゴについて</h3>
+      <li>
+        イラスト・写真<br>
+        https://pixabay.com/ja/<br>
+        https://www.ac-illust.com/<br>
+      </li>
+
+      <li>
+        アイコン<br>
+        https://fontawesome.com/account/general<br>
+
+      <li>
+        ロゴ制作<br>
+        https://www.designevo.com/jp/create/<br>
   </div>
 </div>
