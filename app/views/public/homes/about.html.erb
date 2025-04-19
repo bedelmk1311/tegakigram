@@ -1,19 +1,26 @@
 <div class="container bg-custom-color">
-  <div class= "text-center">
-    <h1>TEGAKI gramとは</h1>
 
-    <div class="">
-      <%= link_to root_path do %> <!--ロゴ-->
-        <%= image_tag "logo_text_toka.png", alt: "Logo", width: 200 %>
-      <% end %>
+  <div class= "row ">
+    <div class= "col ">
+      <h1>TEGAKI gramとは</h1>
+      <div class="">
+        <%= link_to root_path do %> <!--ロゴ-->
+          <%= image_tag "logo_text_toka.png", alt: "Logo", width: 200 %>
+        <% end %>
+      </div>
     </div>
 
-    <div class="">
-        <%= link_to 'ログイン',new_user_session_path, class: "btn btn-outline-info btn-sm  mb-3 " %><br>
-        <%= link_to 'サインイン',new_user_registration_path, class: "btn btn-outline-success btn-sm  mb-3 " %><br>
-        <%= link_to "ゲストログイン", public_guest_sign_in_path, class: "btn btn-outline-secondary btn-sm mb-3 ", method: :post %><br>
-        <%= link_to 'このサイトについて',about_path, class: "btn btn-outline-danger btn-sm mb-3 " %>
+    <div class= "col ">
+      <h1>私について</h1>
     </div>
+  </div>
 
+  <div class= "">
+    <h1>投稿紹介</h1>
+  </div>
+
+  <div class="">
+    <h1>謝辞</h1>
+    <h1>画像素材</h1>
   </div>
 </div>
