@@ -1,0 +1,42 @@
+<div class="container bg-custom-color">
+
+  <div class= "row ">
+    <div class= "col ">
+      <h1>TEGAKI gramとは</h1>
+      <div class="">
+        <%= link_to root_path do %> <!--ロゴ-->
+          <%= image_tag "logo_text_toka.png", alt: "Logo", width: 200 %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class= "col ">
+      <h1>私について</h1>
+    </div>
+  </div>
+
+  <div class= "">
+    <h3>最新の投稿された写真</h3>
+    <% @posts.each do |post|%>
+      <%= image_tag post.get_image, size: '100x100' %>
+    <% end %>
+  </div>
+
+  <div class="">
+    <h3>使用した画像素材・ロゴについて</h3>
+      <p>このサイトに登場するデータは全て架空です。
+      <li>
+        イラスト・写真<br>
+        https://pixabay.com/ja/<br>
+        https://www.ac-illust.com/<br>
+      </li>
+
+      <li>
+        アイコン<br>
+        https://fontawesome.com/account/general<br>
+
+      <li>
+        ロゴ制作<br>
+        https://www.designevo.com/jp/create/<br>
+  </div>
+</div>
