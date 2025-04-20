@@ -11,7 +11,8 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to posts_path, notice: "投稿に成功しました"
+      #redirect_to posts_path, notice: "投稿に成功しました"
+      back_redirect_by_notice("投稿に成功しました")
     else
       render :new
     end
@@ -40,8 +41,8 @@ class Public::PostsController < ApplicationController
 
   def update 
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: "投稿の編集内容は保存されました"
-       #showに戻るか一覧に戻るか迷い中
+      back_redirect_by_notice("投稿の編集内容は保存されました")
+      #redirect_to post_path(@post), notice: "投稿の編集内容は保存されました"
     else
       render "edit"
     end
@@ -49,7 +50,8 @@ class Public::PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path
+    #redirect_to posts_path もしかしたらこっちかも
+    back_redirect_by_notice("投稿の削除に成功しました")
   end
   
    private

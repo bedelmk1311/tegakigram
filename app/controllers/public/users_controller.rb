@@ -42,7 +42,8 @@ class Public::UsersController < ApplicationController
 
   def update
       if @user.update(user_params) #引数を指定しないとargumentエラー
-        redirect_to user_path(@user), notice: "プロフィールの編集内容は保存されました"
+        #redirect_to user_path(@user), notice: "プロフィールの編集内容は保存されました"
+        back_redirect_by_notice("プロフィールの編集内容は保存されました")
       else
         render :edit
       end
