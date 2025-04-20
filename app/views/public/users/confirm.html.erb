@@ -15,7 +15,7 @@
         続ける場合は「削除する」をクリックしてください。
       </p>
 
-      <%= link_to "削除する", user_path(@user.id), method: :delete, class: "btn btn-outline-danger ms-3" %>
+      <%= link_to "削除する", user_path(current_user.id), method: :delete, class: "btn btn-outline-danger ms-3" %>
       <%= link_to "ホームに戻る", root_path, class: "btn btn-sm btn-outline-primary" %>
   </div>
 </div>
