@@ -1,20 +1,20 @@
 <header class="bg-light">
   <div class="container">
+      <div class="row">
+      <!--表示する名前-->
+      <div class="">
+        <% if user_signed_in? %>
+            こんにちは！<%= current_user.name %>さん
+          <% elsif admin_signed_in? %>
+            管理者さんこんにちは!
+        <% end %>
+      </div>
+    </div>
     <div class ="row">
 
-    <div class ="col"> <!--ロゴとタイトル-->
+    <div class =" "> <!--ロゴとタイトル-->
       <%= link_to root_path do %>
         <%= image_tag "logo.jpg", alt: "Logo", width: 50 %>
-      <% end %>
-        <h2>TEGAKI gram</h2>
-    </div>
-
-    <!--表示する名前-->
-    <div class="col me-3">
-      <% if user_signed_in? %> <!--サインイン時-->
-          こんにちは！<%= current_user.name %>さん
-        <% elsif admin_signed_in? %> <!--Admin時-->
-          管理者さんこんにちは!
       <% end %>
     </div>
 
@@ -23,25 +23,25 @@
 
       <% if user_signed_in? %> <!--サインイン時-->
       <li class="nav-item"><!--プロフィール-->
-        <%= link_to user_path(current_user),class: 'text-dark' do %>
+        <%= link_to user_path(current_user),class: 'nav-link active text-dark' do %>
            <i class="fa-solid fa-user fa-2xl" style="color: #B197FC;"></i>
         <% end %>
       </li>
 
       <li class="nav-item"><!--ホーム-->
-        <%=  link_to posts_path ,class: 'text-dark' do %>
+        <%=  link_to posts_path ,class: 'nav-link text-dark' do %>
           <i class="fa-solid fa-house fa-2xl" style="color: #B197FC;"></i>
         <% end %>
       </li>
 
       <li class="nav-item"><!--ログアウト-->
-        <%= link_to destroy_user_session_path, method: :delete ,class: 'text-dark' do %>
+        <%= link_to destroy_user_session_path, method: :delete ,class: 'nav-link text-dark' do %>
           <i class="fas fa-sign-out-alt fa-2xl" style="color: #B197FC;"></i>
         <% end %>
       </li>
 
       <li class="nav-item"><!--新規投稿-->
-        <%= link_to new_post_path ,class: 'text-dark' do %>
+        <%= link_to new_post_path ,class: 'nav-link text-dark' do %>
           <i class="fa-solid fa-circle-plus fa-2xl" style="color: #B197FC;"></i>
         <% end %>
       </li>
@@ -49,55 +49,55 @@
 
       <% elsif admin_signed_in? %> <!--Admin時-->
       <li class="nav-item"> <!--ホーム-->
-        <%= link_to admin_root_path,class: 'text-dark' do %>
-           <i class="fa-solid fa-house fa-2xl" style="color: #B197FC;"></i>
+        <%= link_to admin_root_path,class: 'nav-link text-dark' do %>
+           <i class="fa-solid fa-house fa-2xl" style="color: #B197FC;"></i>ホーム
         <% end %>
       </li>
 
       <li class="nav-item"><!--ユーザー一覧-->
-        <%= link_to admin_users_path,class: 'text-dark' do %>
-           <i class="fa-solid fa-user fa-2xl" style="color: #B197FC;"></i>
+        <%= link_to admin_users_path,class: 'nav-link text-dark' do %>
+           <i class="fa-solid fa-user fa-2xl" style="color: #B197FC;"></i>ユーザー一覧
         <% end %>
       </li>
 
       <li class="nav-item"> <!--検索-->
-        <%= link_to admin_search_path,class: 'text-dark' do %>
-           <i class="fa-solid fa-magnifying-glass fa-2xl" style="color: #B197FC;"></i>
+        <%= link_to admin_search_path,class: 'nav-link text-dark' do %>
+           <i class="fa-solid fa-magnifying-glass fa-2xl" style="color: #B197FC;"></i>管理者検索
         <% end %>
       </li>
 
       <li class="nav-item"><!--管理者ログアウト-->
-        <%= link_to destroy_admin_session_path, method: :delete, class: 'text-dark' do %>
-           <i class="fas fa-sign-out-alt" style="color: #B197FC;"></i>
+        <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
+           <i class="fas fa-sign-out-alt fa-2xl" style="color: #B197FC;"></i>管理者ログアウト
         <% end %>
       </li>
 
       <% else %> <!--Nobody-->
       <li class="nav-item">
-        <%= link_to new_user_registration_path, class: 'text-dark' do %>
-          <i class="fas fa-user-plus"></i> 新規会員登録
+        <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
+          <i class="fas fa-user-plus fa-2xl"></i> 新規会員登録
         <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to new_user_session_path,class: 'text-dark' do %>
-          <i class="fas fa-sign-in-alt"></i> ログイン
+        <%= link_to new_user_session_path,class: 'nav-link text-dark' do %>
+          <i class="fas fa-sign-in-alt fa-2xl"></i> ログイン
         <% end %>
       </li>
 
       <li class="nav-item"> 
-        <%= link_to new_user_session_path,class: 'text-dark' do %>
-          <i class="fas fa-sign-in-alt"></i> このサイトについて
+        <%= link_to new_user_session_path,class: 'nav-link text-dark' do %>
+          <i class="fa-solid fa-circle-info fa-2xl"></i>このサイトについて
         <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to new_admin_session_path,class: 'text-dark' do %>
-           <i class="fas fa-sign-in-alt" style="color: #B197FC;"></i>開発用！管理者ログイン
+        <%= link_to new_admin_session_path,class: 'nav-link text-dark' do %>
+           <i class="fas fa-sign-in-alt fa-2xl" style="color: #B197FC;"></i>開発用！管理者ログイン
         <% end %>
       </li>
     <% end %>
-    </div>
   </ul>
+    </div>
 
 </header>
