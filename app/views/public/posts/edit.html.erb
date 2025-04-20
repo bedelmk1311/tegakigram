@@ -17,7 +17,7 @@
           </ul>
       <% end %>
 
-      <h2>仮Editing Post</h2>
+      <h2><i class="fa-solid fa-gear fa-sm" >投稿編集</h2>
       <%= form_with model: @post do |f| %>
         <h4>画像</h4>
         <%= f.file_field :post_image, accept: "image/*" %> <!--#accept属性で画像の種類を指定-->

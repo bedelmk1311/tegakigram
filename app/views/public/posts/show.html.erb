@@ -42,13 +42,10 @@
           <!--/td-->
 
           <% if @post.user == current_user %>
-            <td><!--編集-->
-              <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-outline-success edit_post_#{@post.id}" %>
+            <td>
+              <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-outline-success edit_post_#{@post.id}" %>
             </td>
-            <td><!--削除--><!--showページではアイコンじゃない方がいいかもしれない-->
-              <%= link_to @post, method: :delete, data: { confirm: '本当に消しますか？' } do %>
-                <i class="fa-solid fa-trash-can fa-xl" style="color: #dc3545"></i>
-              <% end %>
+            <td>
               <%= link_to "削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger" %>
             </td>
           <% end %>
@@ -60,7 +57,6 @@
 
         <!--コメント一覧-->
         <%= render 'public/comments/index', post: @post,comment: @comment %><br>
-
         <!--コメントフォーム-->
         <%= render 'public/comments/form', post: @post,comment: @comment %>
 
