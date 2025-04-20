@@ -76,4 +76,9 @@ class Public::UsersController < ApplicationController
       redirect_to user_path(current_user) , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません"
     end
   end
+
+  #showページにいる時はここを表示させたくない　保留
+  #def check_if_show_page
+  #  @show_page = !(params[:controller] == 'users' && params[:action] == 'show')
+  #end
 end

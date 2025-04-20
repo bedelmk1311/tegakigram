@@ -11,8 +11,8 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      #redirect_to posts_path, notice: "投稿に成功しました"
-      back_redirect_by_notice("投稿に成功しました")
+      redirect_to posts_path, notice: "投稿に成功しました"
+      #back_redirect_by_notice("投稿に成功しました") 不便
     else
       render :new
     end
