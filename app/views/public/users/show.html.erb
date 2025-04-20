@@ -8,8 +8,8 @@
     <div class='col-md-8 offset-md-1'>  <!--メインコンテンツー-->
       <h2><i class="fa-solid fa-user fa-sm" ></i><%= @user.name %> さんのプロフィールページ</h2>
 
-      <!--テンプレ化?-->
-      <!--%= render 'posts/index',posts: @posts %-->
+      <!--%= render 'public/users/index',user: @user %-->
+      <!--テンプレ化しようとしたが微妙に違う-->
         <table class='table table-hover table-inverse'>
           <tr>
             <td> <!--プロフ画像と名前ー-->
@@ -40,7 +40,6 @@
             </td>
           </tr>
         </table>
-      <!--テンプレ化?-->
 
     </div>
 

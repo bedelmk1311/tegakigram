@@ -22,7 +22,9 @@ class Public::UsersController < ApplicationController
     # ユーザーがいいねしたレコードを絞り込み
   # end
   def index_favorite 
-    @posts_favorite = current_user.favorites.map(&:post)
+    #@posts_favorite = current_user.favorites.map(&:post)
+    # .order(created_at: :desc)ではなくこちらに修正
+    @posts_favorite = current_user.favorites.map(&:post).sort_by(&:created_at).reverse
     #ユーザーが持ついいねのデータをpostメソッドを適用にして表示　
   end
 
@@ -33,21 +35,21 @@ class Public::UsersController < ApplicationController
   # end
 
   def index_follow
-    @posts_follow = current_user.followings.map { |followed_user| followed_user.posts }.flatten
+    @posts_follow = current_user.followings.map { |followed_user| followed_user.posts }.flatten.sort_by(&:created_at).reverse
+    #.sort_by(&:created_at).reverse フォローした順で並べ替え
     #各ユーザーごとにpostsを呼び出してflattenメソッドで平坦化して`@posts_follow`に格納
   end
 
   def update
       if @user.update(user_params) #引数を指定しないとargumentエラー
-        redirect_to user_path(@user), notice: "プロフィールの編集内容は保存されました"
+        #redirect_to user_path(@user), notice: "プロフィールの編集内容は保存されました"
+        back_redirect_by_notice("プロフィールの編集内容は保存されました")
       else
         render :edit
       end
   end
 
   def confirm 
-    @user = current_user 
-    #確認画面にいるuserを拾う
   end
 
   def destroy
