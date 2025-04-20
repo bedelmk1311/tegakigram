@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 # ターミナル出力メモ
 puts "seedの実行を開始"
 
@@ -152,6 +144,7 @@ Post.create(
   body: "木目と白の相性良き。次の制作のヒントに。",
   user: kaguya
 )
+
 comments_data = [
   { message: "地味に餃子ぬいぐるみもかわいい", post_id: 1 },
   { message: "斬新なアイディア", post_id: 3 },
@@ -162,7 +155,6 @@ comments_data = [
   { message: "超リアル。", post_id: 9 },
   { message: "次回作楽しみにしてます！", post_id: 10 }
 ]
-
 comments_data.each do |comment_data|
   Comment.find_or_create_by!(comment_data.merge(user: kintaro))
 end
@@ -174,7 +166,6 @@ comments_data = [
   { message: "イラスト展やるべき", post_id: 9 },
   { message: "こういうカフェでコーヒー飲みたい", post_id: 10 }
 ]
-
 comments_data.each do |comment_data|
   Comment.find_or_create_by!(comment_data.merge(user: urasimataro))
 end
@@ -185,7 +176,6 @@ comments_data = [
   { message: "すごい!手ぬぐいとか商品化したい", post_id: 8 },
   { message: "これは鱒？それとも鮭？", post_id: 9 }
 ]
-
 comments_data.each do |comment_data|
   Comment.find_or_create_by!(comment_data.merge(user: kaguya))
 end
@@ -196,8 +186,32 @@ comments_data = [
   { message: "すごいです！うちも丑の日でこういうの書いてみようかな", post_id: 6 },
   { message: "かぐやさんありがとうございます！いつも無言でいいねですみません！", post_id: 5 }
 ]
-
 comments_data.each do |comment_data|
   Comment.find_or_create_by!(comment_data.merge(user: shirayuki))
 end
+
+Relationship.create(follower_id: 1, followed_id: 2)
+Relationship.create(follower_id: 1, followed_id: 3)
+Relationship.create(follower_id: 1, followed_id: 4)
+Relationship.create(follower_id: 1, followed_id: 5)
+Relationship.create(follower_id: 1, followed_id: 6)
+
+Relationship.create(follower_id: 2, followed_id: 1)
+Relationship.create(follower_id: 2, followed_id: 3)
+Relationship.create(follower_id: 2, followed_id: 4)
+Relationship.create(follower_id: 2, followed_id: 5)
+Relationship.create(follower_id: 2, followed_id: 6)
+
+Relationship.create(follower_id: 3, followed_id: 5)
+Relationship.create(follower_id: 3, followed_id: 6)
+
+Relationship.create(follower_id: 5, followed_id: 1)
+Relationship.create(follower_id: 5, followed_id: 2)
+Relationship.create(follower_id: 5, followed_id: 3)
+Relationship.create(follower_id: 5, followed_id: 4)
+Relationship.create(follower_id: 5, followed_id: 6)
+
+Relationship.create(follower_id: 4, followed_id: 3)
+Relationship.create(follower_id: 4, followed_id: 5)
+
 puts "seedの実行が完了しました"
