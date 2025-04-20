@@ -190,28 +190,61 @@ comments_data.each do |comment_data|
   Comment.find_or_create_by!(comment_data.merge(user: shirayuki))
 end
 
+#フォロー・フォロワー
 Relationship.create(follower_id: 1, followed_id: 2)
 Relationship.create(follower_id: 1, followed_id: 3)
 Relationship.create(follower_id: 1, followed_id: 4)
 Relationship.create(follower_id: 1, followed_id: 5)
-Relationship.create(follower_id: 1, followed_id: 6)
 
 Relationship.create(follower_id: 2, followed_id: 1)
 Relationship.create(follower_id: 2, followed_id: 3)
 Relationship.create(follower_id: 2, followed_id: 4)
 Relationship.create(follower_id: 2, followed_id: 5)
-Relationship.create(follower_id: 2, followed_id: 6)
 
+Relationship.create(follower_id: 3, followed_id: 4)
 Relationship.create(follower_id: 3, followed_id: 5)
-Relationship.create(follower_id: 3, followed_id: 6)
 
 Relationship.create(follower_id: 5, followed_id: 1)
 Relationship.create(follower_id: 5, followed_id: 2)
 Relationship.create(follower_id: 5, followed_id: 3)
 Relationship.create(follower_id: 5, followed_id: 4)
-Relationship.create(follower_id: 5, followed_id: 6)
 
 Relationship.create(follower_id: 4, followed_id: 3)
 Relationship.create(follower_id: 4, followed_id: 5)
 
+#桃太郎のいいね
+Favorite.create(user_id: 1, post_id: 1)
+Favorite.create(user_id: 1, post_id: 2)
+Favorite.create(user_id: 1, post_id: 3)
+Favorite.create(user_id: 1, post_id: 4)
+Favorite.create(user_id: 1, post_id: 5)
+Favorite.create(user_id: 1, post_id: 6)
+Favorite.create(user_id: 1, post_id: 7)
+Favorite.create(user_id: 1, post_id: 8)
+Favorite.create(user_id: 1, post_id: 9)
+Favorite.create(user_id: 1, post_id: 10)
+
+#金太郎のいいね
+Favorite.create(user_id: 2, post_id: 1)
+Favorite.create(user_id: 2, post_id: 3)
+Favorite.create(user_id: 2, post_id: 4)
+Favorite.create(user_id: 2, post_id: 5)
+Favorite.create(user_id: 2, post_id: 6)
+Favorite.create(user_id: 2, post_id: 7)
+Favorite.create(user_id: 2, post_id: 9)
+Favorite.create(user_id: 2, post_id: 10)
+
+#白雪姫のいいね
+Favorite.create(user_id: 5, post_id: 1)
+Favorite.create(user_id: 5, post_id: 2)
+Favorite.create(user_id: 5, post_id: 3)
+Favorite.create(user_id: 5, post_id: 6)
+Favorite.create(user_id: 5, post_id: 7)
+Favorite.create(user_id: 5, post_id: 8)
+Favorite.create(user_id: 5, post_id: 10)
+
+#かぐや姫のいいね
+Favorite.create(user_id: 2, post_id: 4)
+Favorite.create(user_id: 2, post_id: 5)
+Favorite.create(user_id: 2, post_id: 9)
 puts "seedの実行が完了しました"
