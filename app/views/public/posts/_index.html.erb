@@ -2,39 +2,51 @@
 <!--users/index_favorite-->
 <!--posts/index-->
 
-<table class='table table-hover table-inverse'>
+<!--div class="card-deck d-flex flex-wrap justify-content-center" style="width:100rem"--><!--rem単位 html(親)相対値-->
+<div class="card-group-container d-flex flex-wrap m-3 " style="width:100rem"><!--rem単位 html(親)相対値-->
   <% posts.each do |post| %>
-    <tr>
 
-      <!--% if @show_page %--><!--showページにいる時はここを表示させたくない　保留-->
-        <td> <!--投稿主-->
-          <%= link_to(post.user) do %>
-            <%= image_tag post.user.get_profile_image, size:'30x30' %>
-          <% end %><br>
-          <%= post.user.name%><br>
-          <!--フォローボタン　保留-->
-          <!--%= render 'public/relationships/btn', user: current_user %-->
-        </td>
-        <!--% else %-->
-      <!--% end %-->
+    <div class="card m-3">
+      <div class="card-body shadow ">
 
-      <td> <!--投稿写真-->
-        <%= link_to(post_path(post.id)) do %>
-          <%= image_tag post.get_image, size: '300x300' %>
-        <% end %>
-      </td>
-      <td> <!--本文-->
-        <%= post.body %>
-      </td>
-      <td> <!--コメント-->
-        <%= link_to post_path(post.id) do %>
-          <i class="fa-solid fa-comment-dots " style="color: #B197FC;"> <%= post.comments.count %></i>
-        <% end %><br>
-      </td>
-      <td><!--いいね-->
-        <%= render "public/favorites/btn", post: post %>
-      </td>
-     </tr>
+        <div class="card-img-top " style=" width: fit-content;"><!--要素にサイズを合わせる-->
+          <%= link_to(post_path(post.id)) do %>
+            <%= image_tag post.get_image, size: '300x300' %> <!--投稿写真-->
+          <% end %>
+        </div>
+
+        <div class="card-title m-3">
+          <div class="row justify-content-between" ><!--両端から均等に並べる-->
+            <div>
+              <!--% if @show_page %--><!--showページにいる時はここを表示させたくない　保留-->
+                <!--投稿主-->
+                <%= link_to(post.user) do %>
+                  <%= image_tag post.user.get_profile_image, size:'30x30' %>
+                <% end %>
+                <%= post.user.name%>
+                <!--フォローボタン　保留-->
+                <!--%= render 'public/relationships/btn', user: current_user %-->
+              <!--% else %-->
+              <!--% end %-->
+            </div>
+            <div class="">
+            <!--コメント-->
+            <%= link_to post_path(post.id) do %>
+              <i class="fa-solid fa-comment-dots " style="color: #B197FC;"> <%= post.comments.count %></i>
+            <% end %>
+            <!--いいね-->
+              <%= render "public/favorites/btn", post: post %>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-text text-truncate" style="max-width: 18rem;"><!--本文省略 約18文字-->
+          <!--本文-->
+          <%= post.body %><br>
+        </div>
+      </div>
+    </div>
+
   <% end %>
-</table>
+</div>
 

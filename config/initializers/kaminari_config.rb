@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-
+  # ページネーションのデフォルト設定
 Kaminari.configure do |config|
   # config.default_per_page = 4
-
+  # デフォルト設定
   # とりあえず4件
 
   # config.max_per_page = nil
