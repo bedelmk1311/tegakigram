@@ -1,7 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user! ,except: [:index]
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
-  # ensure 例外処理 投稿者だけが〜できる
 
   def new
     @post = Post.new
@@ -12,21 +11,20 @@ class Public::PostsController < ApplicationController
     @post.user = current_user
     if @post.save
       redirect_to posts_path, notice: "投稿に成功しました"
-      #back_redirect_by_notice("投稿に成功しました") 不便
+      #back_redirect_by_notice("投稿に成功しました") 不便なので一覧へ
     else
       render :new
     end
   end
 
   def index
-    @posts = Post.all
-    #@posts = PostImage.page(params[:page]) #メシテロのようにするならば
-    #1ページ分の決められた数のデータだけを、新しい順に取得
+    @posts = Post.all.page(params[:page]).per(4)
+    #.page(params[:page])で　1ページ分の決められた数のデータだけを、新しい順に取得
   end
 
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.new #コメントを投稿するためのインスタンス変数を定義する
+    @comment = Comment.new
   end
 
   #user側に変更
