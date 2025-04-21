@@ -70,7 +70,7 @@ end
 
 gem 'devise'
 gem 'kaminari'
-gem 'bootstrap-kaminari-views'
+gem 'bootstrap4-kaminari-views'
 # Bootstrapをkaminariに効かす
 
 gem 'rails-i18n'

@@ -1,34 +1,13 @@
 ja:
-  # enums: #保留　消したいとこ消す
-  #   order:
-  #     payment_method:
-  #       credit_card: "クレジットカード"
-  #       transfer: "銀行振込"
-  #     status:
-  #       awaiting_payment: "入金待ち"
-  #       payment_confirmation: "入金確認"
-  #       in_production: "製作中"
-  #       preparing_to_ship: "発送準備"
-  #       already_shipped: "発送済み"
-  #   order_detail:
-  #     making_status:
-  #       unavoidable: "着手不可"
-  #       awaiting_manufacture: "製作待ち"
-  #       in_production: "製作中"
-  #       completion_of_production: "製作完了"
-  #       already_shipped: "発送済み"
   views:
     pagination: #ページネーション
-      first: <i class="fas fa-angle-double-left"></i>
-      last: <i class="fas fa-angle-double-right"></i>
-      previous: <i class="fas fa-angle-left"></i>
-      next: <i class="fas fa-angle-right"></i>
+      first: "&laquo; 最初へ"
+      last: "最後へ &raquo;"
+      previous: "&lsaquo; 前へ"
+      next: "次へ &rsaquo;"
       truncate: "..."
   activerecord:
-  ja:
-  activerecord:
     models:
-      # user: ユーザー devise側と重複
       post: 投稿
       comment: コメント
       label: ラベル
@@ -52,13 +31,6 @@ ja:
               blank: "を入力してください"
             introduction:
               blank: "を入力してください"
-            # price:
-            #   blank: "を入力してください"
-            #   not_a_number: "は0円以上の整数で入力してください"
-            #   not_an_integer: "は整数で入力してください"
-            #   greater_than_or_equal_to: "は0円以上で入力してください"
-            # label_id:
-            #   blank: "を入力してください"
         label:
           attributes:
             name:
