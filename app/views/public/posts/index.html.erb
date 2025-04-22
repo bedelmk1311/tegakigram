@@ -1,17 +1,19 @@
-<div class='container px-5 px-sm-0'>
-
+<div class='container'>
   <div class='row'>
 
-    <div class='col-md-3 bg-info'>  <!--サイドバー-->
+    <div class='col-md-2 bg-info'>  <!--サイドバー-->
       <%= render 'layouts/sidebar' %>
     </div>
 
-    <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h2><i class="fa-solid fa-house fa-sm" ></i>ホーム</h2>
-        <%= render 'public/posts/index', posts: @posts %>
-      <%= paginate @posts %>
+    <div class='col-md-9 offset-md-1'> <!--メインコンテンツ-->
+      <h2 class ="font-weight-bold">
+        <i class="fa-solid fa-house fa-sm" ></i>ホーム
+      </h2>
+      <%= render 'public/posts/index', posts: @posts %>
+      <div class=""><!--中央揃え？-->
+        <%= paginate @posts %>
+      </div>
     </div>
-
 
   </div>
 </div>
