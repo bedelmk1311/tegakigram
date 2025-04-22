@@ -10,38 +10,42 @@
         <i class="fa-solid fa-image"></i>(仮タイトル)
       </h2>
 
-
-          <td> <!--投稿主情報とリンク-->
-            <%= link_to(@post.user) do %>
-              <%= image_tag @post.user.get_profile_image, size:"50x50" %><br>
-              <%= @post.user.name %>
-            <% end %>
-          </td>
-
-          <td> <!--内容-->
-            <%= image_tag @post.get_image, size: '200x200' %><br>
+      <div class="row">
+        <div class="col-6"> <!--投稿写真と日付-->
+          <%= image_tag @post.get_image, size: '300x300' %><br>
             <i class="fa-solid fa-calendar-days fa-sm "></i>
-            <%= @post.created_at.strftime('%Y年%m月%d日') %>
-          </td>
+          <%= @post.created_at.strftime('%Y年%m月%d日') %>
+        </div>
 
-          <td> <!--中身-->
-            <%= @post.body %>
-          </td>
-          <td><!--いいね-->
-            <%= render "public/favorites/btn", post: @post %>
-          </td>
+        <div class="col-6">
+          <div class="row justify-content-between">
+            <div><!--ユーザーアイコンと名前-->
+              <%= link_to(@post.user) do %>
+                <%= image_tag @post.user.get_profile_image, size:'50x50',class:"rounded-circle" %>
+              <% end %>
+              <%= @post.user.name%>
+            </div>
+            <div class="m-2"><!--動的-->
+              <% if @post.user == current_user %>
+                <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-outline-success edit_post_#{@post.id}" %>
+                <%= link_to "削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger" %>
+              <% else %>
+              <% end %>
+            </div>
+            <div class="m-2"><!--いいね-->
+              <%= render "public/favorites/btn", post: @post %>
+            </div>
+          </div>
+            <p class ="lead mt-3"> <!--本文-->
+              <%= @post.body %>
+            </p>
+        </div>
 
-          <% if @post.user == current_user %>
-            <td>
-              <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-outline-success edit_post_#{@post.id}" %>
-            </td>
-            <td>
-              <%= link_to "削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger" %>
-            </td>
-          <% end %>
 
 
-      <div class="bg-warning"> <!--コメント-->
+      </div>
+
+      <div class="bg-warning justify-content-center mt-5 "> <!--コメント-->
         <p>総コメント数<strong> <%= @post.comments.count %></strong>件</p>
         <!--コメント一覧-->
         <%= render 'public/comments/index', post: @post,comment: @comment %><br>

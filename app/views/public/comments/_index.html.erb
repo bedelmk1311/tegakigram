@@ -6,7 +6,7 @@
         <tr>
           <td>
             <%= link_to user_path(comment.user)do %>
-              <%= image_tag comment.user.get_profile_image, size:"50x50" %><br>
+              <%= image_tag comment.user.get_profile_image, size:"50x50", class:"rounded-circle" %><br>
               <%= comment.user.name %>
             <% end %>
           </td>
