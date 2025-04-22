@@ -13,11 +13,11 @@
       <h2><i class="fa-solid fa-gear fa-sm" ></i>投稿編集</h2>
       <%= form_with model: @post do |f| %>
         <h4>画像</h4>
-        <%= f.file_field :post_image, accept: "image/*" %> <!--#accept属性で画像の種類を指定-->
+        <%= f.file_field :post_image, accept: "image/* m-3" %> <!--#accept属性で画像の種類を指定-->
         <h4>本文</h4>
         <%= f.text_area :body %>
         <h4>仮ラベル</h4>
-        <%= f.submit '投稿',class: "btn btn-sm btn-outline-success" %>
+        <%= f.submit '投稿',class: "btn btn-sm btn-outline-success form-control m-3" %>
       <% end %>
 
         <%= link_to 'Show', @post, class: "post_#{@post.id}",class: "btn btn-sm btn-outline-success" %>
