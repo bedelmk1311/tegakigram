@@ -1,40 +1,41 @@
 <div class="container bg-custom-color">
-  <h2 class="text-center">会員登録</h2>
+  <div class="col-6 mx-auto my-5">
 
-  <div class="text-center">
-    <%= link_to root_path do %> <!--ロゴ-->
-      <%= image_tag "logo_text_toka.png", alt: "Logo", width: 200 %>
-    <% end %>
+    <h2 class="font-weight-bold text-center">新規登録</h2>
+    <div class="text-center">
+      <%= link_to root_path do %> <!--ロゴ-->
+        <%= image_tag "logo_text_toka.png", alt: "Logo", width: 200 %>
+      <% end %>
+    </div>
+
+    <div class="form-body p-4 text-center">
+      <%= form_with(model: resource, url: registration_path(resource_name)) do |f| %>
+        <%= render "public/shared/error_messages", resource: resource %>
+
+        <div class="field"><!--名前-->
+          <%= f.text_field :name, placeholder: "名前", autofocus: true, autocomplete: "name",class: "form-control mx-auto m-1" %>
+        </div>
+
+        <div class="field"><!--メール-->
+          <%= f.email_field :email, placeholder: "Eメール", autofocus: true, autocomplete: "email",class: "form-control mx-auto  m-1" %>
+        </div>
+
+        <div class="field"><!--パスワード-->
+            <% if @minimum_password_length %>
+            <% end %>
+            <%= f.password_field :password, placeholder: "パスワード(6文字以上)", autocomplete: "new-password",class: "form-control mx-auto m-1" %>
+        </div>
+
+        <div class="field"><!--パスワード-->
+          <%= f.password_field :password_confirmation, placeholder: "パスワード(確認用)",autocomplete: "new-password",class: "form-control mx-auto m-1" %>
+        </div>
+
+        <div class="actions"><!--ボタン-->
+          <%= f.submit "はじめる",class: "btn btn-sm btn-outline-success m-1" %>
+        </div>
+      <% end %>
+      <p>すでに会員の方は<%= render "public/shared/links" %></p>
+    </div>
+
   </div>
-
-  <div class="text-center">
-    <%= form_with(model: resource, url: registration_path(resource_name)) do |f| %>
-      <%= render "public/shared/error_messages", resource: resource %>
-
-      <div class="field"><!--名前-->
-        <%= f.text_field :name, placeholder: "名前", autofocus: true, autocomplete: "name",class: "form-control w-50 m-1" %>
-      </div>
-
-      <div class="field"><!--メール-->
-        <%= f.email_field :email, placeholder: "Eメール", autofocus: true, autocomplete: "email",class: "form-control w-50 m-1" %>
-      </div>
-
-      <div class="field"><!--パスワード-->
-          <% if @minimum_password_length %>
-          <% end %>
-          <%= f.password_field :password, placeholder: "パスワード(6文字以上)", autocomplete: "new-password",class: "form-control w-50 m-1" %>
-      </div>
-
-      <div class="field"><!--パスワード-->
-        <%= f.password_field :password_confirmation, placeholder: "パスワード(確認用)",autocomplete: "new-password",class: "form-control w-50 m-1" %>
-      </div>
-
-      <div class="actions"><!--ボタン-->
-        <%= f.submit "はじめる",class: "btn btn-sm btn-outline-success m-1" %>
-      </div>
-    <% end %>
-    <p>すでに会員の方は<%= render "public/shared/links" %></p>
-  </div>
-
-
 </div>
