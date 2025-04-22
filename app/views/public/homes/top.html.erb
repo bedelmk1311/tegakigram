@@ -1,19 +1,25 @@
 <div class="container bg-custom-color">
-  <div class= "text-center">
-    <h1 class ="font-weight-bold">welcome to TEGAKI gram!!</h1>
 
-    <div class="">
-      <%= link_to root_path do %> <!--ロゴ-->
-        <%= image_tag "logo_text_toka.png", alt: "Logo", width: 200 %>
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+
+    <div class="col-10 col-sm-8 col-lg-6">
+      <%= link_to root_path do %> <!--完成図が入ります-->
+        <%= image_tag "kogarashi.jpg", alt: "Logo", class: "img-fluid"%>
       <% end %>
     </div>
 
-    <div class="">
-        <%= link_to 'ログイン',new_user_session_path, class: "btn btn-outline-info btn-sm  mb-3 " %><br>
-        <%= link_to 'サインイン',new_user_registration_path, class: "btn btn-outline-success btn-sm  mb-3 " %><br>
-        <%= link_to "ゲストログイン", public_guest_sign_in_path, class: "btn btn-outline-secondary btn-sm mb-3 ", method: :post %><br>
-        <%= link_to 'このサイトについて',about_path, class: "btn btn-outline-danger btn-sm mb-3 " %>
-    </div>
+    <div class="col-lg-6">
+      <h1 class="font-weight-bold m-3 border-bottom ">Welcome to TEGAKI gram!!</h1>
+      <p class ="lead">
+        手書きPOPやメニューは、店舗の個性や温かみを伝える重要なツールとして、飲食業や小売業で根強い人気を誇ります。
+        手書きPOPの魅力を発信し、記録・参考・交流の場として、新しいレイアウトやデザインのインスピレーションを得られるサービスがあればと思い、製作しました。
+      </p>
 
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <%= link_to 'ログイン',new_user_session_path, class: "btn btn-outline-info btn-lg " %>
+        <%= link_to 'サインイン',new_user_registration_path, class: "btn btn-outline-success btn-lg " %>
+        <%= link_to "ゲストログイン", public_guest_sign_in_path, class: "btn btn-outline-secondary btn-lg ", method: :post %>
+      </div>
+    </div>
   </div>
 </div>
