@@ -7,7 +7,7 @@
     </div>
 
     <div class='col-md-9'> <!--メインコンテンツ-->
-      <h2><i class="fa-solid fa-thumbs-up fa-sm" ></i>いいねした投稿</h2>
+      <h2><i class="fa-solid fa-thumbs-up fa-sm" ></i><%= current_user.name %> さんがいいねした投稿</h2>
         <% if @posts_favorite == [] %>
           <div class="test-center">
             いいねした投稿はありません<br>

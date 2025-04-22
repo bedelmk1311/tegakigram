@@ -9,8 +9,7 @@ class Public::UsersController < ApplicationController
     @post = Post.new
     @posts = @user.posts
     @posts_all = Post.all
-    #@posts = @user.posts.page(params[:page])
-    #kaminari pageメソッドで使用可能
+
   end
 
   def edit
