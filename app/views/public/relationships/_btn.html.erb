@@ -1,9 +1,12 @@
+<!--users/show-->
+<!--posts/show-->
+
 <% if current_user != user && current_user.following?(user) %>
   <%= link_to user_relationships_path(user.id), method: :delete do %>
-    <i class="fa-solid fa-user-xmark fa-2xl" style="color: #B197FC;"></i>
+    <i class="fa-solid fa-user-xmark fa-xl" style="color: #B197FC;"></i>
   <% end %>
 <% elsif current_user != user %>
   <%= link_to user_relationships_path(user.id), method: :post do %>
-    <i class="fa-solid fa-user-check fa-2xl" style="color: #B197FC;"></i>
+    <i class="fa-solid fa-user-check fa-xl" style="color: #B197FC;"></i>
   <% end %>
 <% end %>

@@ -25,11 +25,12 @@
               <% end %>
               <%= @post.user.name%>
             </div>
-            <div class="m-2"><!--動的-->
+            <div class="m-2"><!--動的ボタン　編集削除orフォロー-->
               <% if @post.user == current_user %>
                 <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-outline-success edit_post_#{@post.id}" %>
                 <%= link_to "削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger" %>
               <% else %>
+                <%= render 'public/relationships/btn', user: @user %>
               <% end %>
             </div>
             <div class="m-2"><!--いいね-->
@@ -45,8 +46,9 @@
 
       </div>
 
-      <div class="bg-warning justify-content-center mt-5 "> <!--コメント-->
-        <p>総コメント数<strong> <%= @post.comments.count %></strong>件</p>
+      <div class="justify-content-center mt-5 "> <!--コメント-->
+        <h4 class="m-2">
+          総コメント数<strong> <%= @post.comments.count %></strong>件</h4>
         <!--コメント一覧-->
         <%= render 'public/comments/index', post: @post,comment: @comment %><br>
         <!--コメントフォーム-->
