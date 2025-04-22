@@ -1,20 +1,16 @@
 <div class='container'>
   <div class='row'>
 
-    <div class='col-md-3 bg-info'>  <!--サイドバー-->
+    <div class='col-md-2'>  <!--サイドバー-->
       <%= render 'layouts/sidebar' %>
     </div>
 
-    <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
-      <h2><i class="fa-solid fa-image"></i>(仮タイトル)</h2>
+    <div class='col-md-9 offset-md-1'> <!--メインコンテンツ-->
+      <h2 class ="font-weight-bold">
+        <i class="fa-solid fa-image"></i>(仮タイトル)
+      </h2>
 
-      <!--%= render 'layouts/errors', obj: @post %-->
-      <!--%= render 'comments/errors', obj: @comment %-->
-      <!--div id ="comments-error"></div-->
-      <!--コメントのバリデーションエラーメッセ入れたい-->
 
-      <table class='table'>
-        <tr>
           <td> <!--投稿主情報とリンク-->
             <%= link_to(@post.user) do %>
               <%= image_tag @post.user.get_profile_image, size:"50x50" %><br>
@@ -34,12 +30,6 @@
           <td><!--いいね-->
             <%= render "public/favorites/btn", post: @post %>
           </td>
-          <!--td class=<%= "favorite-" + @post.id.to_s %> --> <!--お気に入りボタン-->
-            <!--%= render "favorites/btn", post: @post %-->
-          <!--/td-->
-          <!--td class="comments-counter"--> <!--コメント-->
-            <!--%= render "comments/counter", post: @post %-->
-          <!--/td-->
 
           <% if @post.user == current_user %>
             <td>
@@ -49,17 +39,14 @@
               <%= link_to "削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger" %>
             </td>
           <% end %>
-        </tr>
-      </table>
+
 
       <div class="bg-warning"> <!--コメント-->
         <p>総コメント数<strong> <%= @post.comments.count %></strong>件</p>
-
         <!--コメント一覧-->
         <%= render 'public/comments/index', post: @post,comment: @comment %><br>
         <!--コメントフォーム-->
         <%= render 'public/comments/form', post: @post,comment: @comment %>
-
       </div>
 
     </div>

@@ -16,8 +16,8 @@
       </p>
 
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <%= link_to '新規登録',new_user_registration_path, class: "btn btn-outline-danger btn-lg " %>
         <%= link_to 'ログイン',new_user_session_path, class: "btn btn-outline-info btn-lg " %>
-        <%= link_to 'サインイン',new_user_registration_path, class: "btn btn-outline-success btn-lg " %>
         <%= link_to "ゲストログイン", public_guest_sign_in_path, class: "btn btn-outline-secondary btn-lg ", method: :post %>
       </div>
     </div>
