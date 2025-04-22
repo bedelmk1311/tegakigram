@@ -1,11 +1,11 @@
 <div class='container'>
   <div class='row'>
 
-    <div class='col-md-3 bg-info'>  <!--サイドバー-->
+    <div class='col-md-3'>  <!--サイドバー-->
       <%= render 'layouts/sidebar' %>
     </div>
 
-    <div class="col-md-8 px-5 px-sm-0 mx-auto"> <!--メインコンテンツ-->
+    <div class="col-md-9 mx-auto"> <!--メインコンテンツ-->
 
       <!--バリデーションエラーメッセ-->
       <%= render 'layouts/error', obj: @user %>
