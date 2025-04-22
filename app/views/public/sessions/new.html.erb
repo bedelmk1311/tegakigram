@@ -12,11 +12,11 @@
       <%= render "public/shared/error_messages", resource: resource %>
 
       <div class="field"><!--メール欄-->
-        <%= f.email_field :email, placeholder: "Eメール", autofocus: true, autocomplete: "email", class: "form-control m-1" %>
+        <%= f.email_field :email, placeholder: "Eメール", autofocus: true, autocomplete: "email", class: "form-control w-50 m-1" %>
       </div>
 
       <div class="field"><!--パスワード欄-->
-        <%= f.password_field :password, placeholder: "パスワード" , autocomplete: "current-password",class: "form-control m-1" %>
+        <%= f.password_field :password, placeholder: "パスワード" , autocomplete: "current-password",class: "form-control w-50 m-1" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
