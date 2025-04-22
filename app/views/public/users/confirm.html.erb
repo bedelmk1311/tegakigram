@@ -1,21 +1,18 @@
 <div class="container bg-custom-color">
-
   <div class="text-center">
-    <%= link_to root_path do %> <!--ロゴ-->
+    <%= link_to root_path do %> 
       <%= image_tag "logo_text_toka.png", alt: "Logo", width: 200 %>
     <% end %>
   </div>
 
-  <div class="text-center"> <!--メインコンテンツ-->
-    <h3>アカウント削除しますか？</h3>
-
+  <div class="text-center">
+    <h3 class="font-weight-bold">アカウント削除しますか？</h3>
       <p>
         登録情報や過去の投稿も削除され、<br>
         新規投稿は行えなくなります。<br>
         続ける場合は「削除する」をクリックしてください。
       </p>
-
-      <%= link_to "削除する", user_path(current_user.id), method: :delete, class: "btn btn-outline-danger ms-3" %>
-      <%= link_to "ホームに戻る", root_path, class: "btn btn-sm btn-outline-primary" %>
+      <%= link_to "削除する", user_path(current_user.id), method: :delete, class: "btn btn-outline-danger mb-3" %><br>
+      <%= link_to "ホームに戻る", root_path, class: "btn btn-sm btn-outline-primary mb-3" %>
   </div>
 </div>

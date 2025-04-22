@@ -18,13 +18,15 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.page(params[:page]).per(4)
+    @posts = Post.all.page(params[:page]).per(6)
     #.page(params[:page])で　1ページ分の決められた数のデータだけを、新しい順に取得
   end
 
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
+    #@user = User.find(params[:id])
+    @user = @post.user
   end
 
   #user側に変更

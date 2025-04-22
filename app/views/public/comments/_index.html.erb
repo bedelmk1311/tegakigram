@@ -1,17 +1,17 @@
 <!--public/posts/show-->
 
-<div class="">
+<div class="bg-light">
     <table class='table table-hover table-inverse'>
       <% post.comments.each do |comment| %>
         <tr>
           <td>
-            <%= link_to user_path(comment.user)do %>
-              <%= image_tag comment.user.get_profile_image, size:"50x50" %><br>
-              <%= comment.user.name %>
-            <% end %>
+            <%= comment.created_at.strftime("%m月%d日 %H:%M") %>
           </td>
           <td>
-            <%= comment.created_at.strftime("%m月%d日 %H:%M") %>
+            <%= link_to user_path(comment.user)do %>
+              <%= image_tag comment.user.get_profile_image, size:"30x30", class:"rounded-circle" %><br>
+            <% end %>
+            <%= comment.user.name %>
           </td>
           <td>
             <%= comment.message %>

@@ -1,8 +1,8 @@
-<header class="bg-light">
+<header class="bg-light d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
   <div class="container">
       <div class="row">
       <!--表示する名前-->
-      <div class="">
+      <div class="col-md-3 mb-2 mb-md-0 ">
         <% if user_signed_in? %>
             こんにちは！<%= current_user.name %>さん
           <% elsif admin_signed_in? %>
@@ -23,7 +23,7 @@
 
       <% if user_signed_in? %> <!--サインイン時-->
       <li class="nav-item"><!--プロフィール-->
-        <%= link_to user_path(current_user),class: 'nav-link active text-dark' do %>
+        <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
            <i class="fa-solid fa-user fa-2xl" style="color: #B197FC;"></i>
         <% end %>
       </li>
@@ -75,7 +75,7 @@
       <% else %> <!--Nobody-->
       <li class="nav-item">
         <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
-          <i class="fas fa-user-plus fa-2xl"></i> 新規会員登録
+          <i class="fas fa-user-plus fa-2xl"></i> 新規登録
         <% end %>
       </li>
 
@@ -86,14 +86,14 @@
       </li>
 
       <li class="nav-item"> 
-        <%= link_to new_user_session_path,class: 'nav-link text-dark' do %>
-          <i class="fa-solid fa-circle-info fa-2xl"></i>このサイトについて
+        <%= link_to about_path,class: 'nav-link text-dark' do %>
+          <i class="fa-solid fa-circle-info fa-2xl"></i>初めての方へ
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to new_admin_session_path,class: 'nav-link text-dark' do %>
-           <i class="fas fa-sign-in-alt fa-2xl" style="color: #B197FC;"></i>開発用！管理者ログイン
+           <i class="fas fa-sign-in-alt fa-2xl" style="color: #B197FC;"></i>開発用管理
         <% end %>
       </li>
     <% end %>
