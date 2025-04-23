@@ -16,18 +16,6 @@
       </li>
 
       <li class="nav-item">
-        <%=  link_to index_favorite_user_path(current_user) ,class: 'btn' do %>
-          <i class="fa-solid fa-thumbs-up fa-xl " style="color: #B197FC;"></i>いいねしたポスト
-        <% end %>
-      </li>
-
-      <li class="nav-item">
-        <%=  link_to index_follow_user_path(current_user) ,class: 'btn' do %>
-                <i class="fa-solid fa-user-check fa-xl" style="color: #B197FC;"></i>フォローしているユーザーのポスト
-        <% end %>
-      </li>
-
-      <li class="nav-item">
         <%= link_to destroy_user_session_path, method: :delete ,class: 'btn' do %>
           <i class="fas fa-sign-out-alt fa-xl " style="color: #B197FC;"></i>ログアウト
         <% end %>
@@ -39,7 +27,9 @@
         <% end %>
       </li>
 
-    <% elsif admin_signed_in? %> <!--Admin時-->
+    <%
+=begin%>
+ <% elsif admin_signed_in? %> <!--Admin時-->
     <% else %> <!--Nobody-->
 
       <li class="nav-item">
@@ -64,7 +54,9 @@
         <%= link_to new_user_session_path ,class: 'btn' do %>
           <i class="fas fa-sign-in-alt fa-xl " style="color: #B197FC;"></i> ゲストログイン
         <% end %>
-      </li>
+      </li> 
+<%
+=end%>
     <% end %>
   </ul>
 </div>

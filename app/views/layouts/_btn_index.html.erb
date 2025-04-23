@@ -1,0 +1,10 @@
+<!--posts/index-->
+<!--users/show-->
+<%=  link_to index_favorite_user_path(current_user) do %>
+  <i class="fa-solid fa-thumbs-up fa-xl " style="color: #B197FC;"></i>いいねしたポスト
+<% end %>
+
+<%=  link_to index_follow_user_path(current_user) do %>
+  <i class="fa-solid fa-user-check fa-xl" style="color: #B197FC;"></i>フォローしているユーザーのポスト
+<% end %>
+

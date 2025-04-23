@@ -1,5 +1,5 @@
 <!--layouts/header-->
-<div class="bg- col-4 py-3">
+<div class="">
   <% if user_signed_in? %>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
       <%= f.text_field :word,required: true, placeholder: "さがしてみよう!", class: "form-control form-control-sm" %>
