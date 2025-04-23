@@ -6,7 +6,7 @@
   <% users.each do |user| %>
     <tr>
       <td> <!--プロフ画像と名前ー-->
-        <%= image_tag user.get_profile_image, size: '50x50' %><br>
+        <%= image_tag user.get_profile_image, size: '50x50', class:"rounded-circle"  %><br>
         <%= user.name %>
       </td>
       <td> <!--自己紹介と登録日-->

@@ -1,11 +1,11 @@
 <div class='container'>
   <div class='row'>
 
-    <div class='col-md-3 bg-info'>  <!--サイドバー-->
+    <div class='col-md-3'>  <!--サイドバー-->
       <%= render 'layouts/sidebar' %>
     </div>
 
-    <div class='col-md-8 offset-md-1'> <!--メインコンテンツ-->
+    <div class='col-md-9'> <!--メインコンテンツ-->
       <h2><i class="fa-solid fa-user-check fa-sm" ></i><%= @user.name %> さんのフォロワー一覧</h2>
       <% if @users.exists? %>
         <%= render 'public/users/index', users: @users %>

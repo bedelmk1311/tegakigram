@@ -17,74 +17,38 @@
         <ul class="nav justify-content-center">
 
           <% if user_signed_in? %> <!--サインイン時-->
-            <li class="nav-item"><!--プロフィール-->
+            <li class="nav-item">
               <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
-                <i class="fa-solid fa-user fa-2xl" style="color: #B197FC;"></i>
-            <% end %>
-            </li>
-            <li class="nav-item"><!--ホーム-->
-              <%=  link_to posts_path,class: 'nav-link text-dark' do %>
-                <i class="fa-solid fa-house fa-2xl" style="color: #B197FC;"></i>
+                マイページ<i class="fa-solid fa-user fa-xl" style="color: #B197FC;"></i>
               <% end %>
             </li>
-            <li class="nav-item"><!--ログアウト-->
+            <li class="nav-item">
               <%= link_to destroy_user_session_path, method: :delete ,class: 'nav-link text-dark' do %>
-                <i class="fas fa-sign-out-alt fa-2xl" style="color: #B197FC;"></i>
+                ログアウト<i class="fas fa-sign-out-alt fa-xl"></i>
               <% end %>
             </li>
-            <li class="nav-item"><!--新規投稿-->
-              <%= link_to new_post_path,class: 'nav-link text-dark' do %>
-                <i class="fa-solid fa-circle-plus fa-2xl" style="color: #B197FC;"></i>
-              <% end %>
-            </li>
-
           <% elsif admin_signed_in? %> <!--Admin時-->
-            <li class="nav-item"> <!--ホーム-->
-              <%= link_to admin_root_path,class: 'nav-link text-dark' do %>
-                <i class="fa-solid fa-house fa-2xl" style="color: #B197FC;"></i>
-              <% end %>
-            </li>
-
-            <li class="nav-item"><!--ユーザー一覧-->
-              <%= link_to admin_users_path,class: 'nav-link text-dark' do %>
-                <i class="fa-solid fa-user fa-2xl" style="color: #B197FC;"></i>
-              <% end %>
-            </li>
-
-            <li class="nav-item"> <!--検索-->
-              <%= link_to admin_search_path,class: 'nav-link text-dark' do %>
-                <i class="fa-solid fa-magnifying-glass fa-2xl" style="color: #B197FC;"></i>
-              <% end %>
-            </li>
-
-            <li class="nav-item"><!--管理者ログアウト-->
+            <li class="nav-item">
               <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
-                <i class="fas fa-sign-out-alt fa-2xl" style="color: #B197FC;"></i>
+                ログアウト<i class="fas fa-sign-out-alt fa-xl"></i>
               <% end %>
             </li>
 
           <% else %> <!--Nobody-->
             <li class="nav-item">
               <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
-                <i class="fas fa-user-plus fa-2xl"></i>
+                新規登録<i class="fas fa-user-plus fa-xl"></i>
               <% end %>
             </li>
 
             <li class="nav-item">
               <%= link_to new_user_session_path,class: 'nav-link text-dark' do %>
-                <i class="fas fa-sign-in-alt fa-2xl"></i>
+                ログイン<i class="fas fa-sign-in-alt fa-xl"></i>
               <% end %>
             </li>
-
-            <li class="nav-item"> 
-              <%= link_to about_path,class: 'nav-link text-dark' do %>
-                <i class="fa-solid fa-circle-info fa-2xl"></i>
-              <% end %>
-            </li>
-
             <li class="nav-item">
               <%= link_to new_admin_session_path,class: 'nav-link text-dark' do %>
-                <i class="fas fa-sign-in-alt fa-2xl" style="color: #B197FC;"></i>
+                開発用<i class="fas fa-sign-in-alt fa-xl" style="color: #B197FC;"></i>
               <% end %>
             </li>
           <% end %>
