@@ -20,7 +20,7 @@ class Public::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     #redirect_to post_path(@post) , notice: "コメント削除の削除に成功しました" #戻る
-    back_redirect_by_notice("コメント削除の削除に成功しました")
+    back_redirect_by_notice("コメントの削除に成功しました")
   end
 
   private

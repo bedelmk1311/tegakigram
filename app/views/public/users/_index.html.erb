@@ -6,8 +6,11 @@
   <% users.each do |user| %>
     <tr>
       <td> <!--プロフ画像と名前ー-->
-        <%= image_tag user.get_profile_image, size: '50x50', class:"rounded-circle"  %><br>
+        <%= link_to(user) do %>
+          <%= image_tag user.get_profile_image, size: '50x50', class:"rounded-circle"  %><br>
+        <% end %>
         <%= user.name %>
+
       </td>
       <td> <!--自己紹介と登録日-->
         <i class="fa-solid fa-calendar-days " style="color: #B197FC;"></i>

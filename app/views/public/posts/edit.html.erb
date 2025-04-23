@@ -18,8 +18,8 @@
         <%= f.text_area :body, class: "form-control m-3", rows:'5' %>
         <!--<h4>仮ラベル</h4>-->
         <%= f.submit '投稿',class: "btn btn-sm btn-outline-success m-3" %>
-        <!--%= link_to 'Show', @post, class: "post_#{@post.id}",class: "btn btn-sm btn-outline-success" %-->
-        <%= link_to '戻る', :back, class:"btn btn-sm btn-outline-secondary " %>
+        <%= link_to '戻る', posts_path, class: "post_#{@post.id}",class: "btn btn-sm btn-outline-success" %>
+        <!--%= link_to '戻る', :back, class:"btn btn-sm btn-outline-secondary " %-->
       <% end %>
 
     </div>
