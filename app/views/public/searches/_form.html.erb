@@ -1,10 +1,14 @@
-<div class="bg-success">
+<!--layouts/header-->
+<div class="bg-success col-4">
   <% if user_signed_in? %>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field :word,required: true, placeholder: "さがしてみよう!", class: "form-control m-3" %> <!--検索内容をwordとしてアクションに送る-->
-      <%= f.select :range, options_for_select([['Post'],['User']]) %> <!--検索するモデルの選択-->
-      <%= button_tag type: "submit", class: "btn btn-default" do %> <!--submitでアイコン効かせる-->
-        <i class="fa-solid fa-magnifying-glass fa-2xl" style="color: #B197FC;"></i>
+      <%= f.text_field :word,required: true, placeholder: "さがしてみよう!", class: "form-control form-control-sm" %>
+      <!--検索内容をwordとしてアクションに送る-->
+      <%= f.select :range, options_for_select([['Post'],['User']]) %>
+      <!--検索するモデルの選択-->
+      <%= button_tag type: "submit", class: "btn btn-default" do %>
+      <!--submitでアイコン効かせる-->
+        <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #B197FC;"></i>
       <% end %>
     <% end %>
   <% end %>
