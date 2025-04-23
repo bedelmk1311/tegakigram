@@ -6,21 +6,16 @@ Admin.create!(
    password: 'tegakigram'
 )
 
-# Admin.find_or_create_by!(
-#    email: 'admin@test.com',
-#    password: 'tegakigram'
-# )
-
 momotaro = User.find_or_create_by!(email: "momo@test.com") do |user|
   user.name = "桃太郎"
   user.password = "password"
-  user.introduction = "見る専アカウント/フォロバ100%"
+  user.introduction = "見る専アカウント/フォロバ100%/全員の投稿をいいねして全員をフォローしています。"
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/peaches.jpg"), filename:"peaches.jpg")
 end
 kintaro = User.find_or_create_by!(email: "kin@test.com") do |user|
   user.name = "金太郎"
   user.password = "password"
-  user.introduction = "筆ペン練習マン"
+  user.introduction = "始めたばかりです。よろしくお願いします。最近はもっぱら筆ペン練習マンとなっています"
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/bear_picture.jpg"), filename:"bear_picture.jpg")
 end
 urasimataro = User.find_or_create_by!(email: "urashima@test.com") do |user|
@@ -38,7 +33,7 @@ end
 shirayuki= User.find_or_create_by!(email: "snow@test.com") do |user|
   user.name = "Snow White"
   user.password = "password"
-  user.introduction = "北国にある魚屋見習い。記録用であげていきます"
+  user.introduction = "北国にある魚屋見習い。日替わりおすすめのお魚新聞を趣味で書いています。ここでは自分の記録用であげていきます。"
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/snowwhite.jpg"), filename:"snowwhite.jpg")
 end
 
@@ -47,51 +42,6 @@ end
 #   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/gyoza_sign.jpg"), filename:"gyoza_sign.jpg"),
 #   body: "のぼりが手書きでした。味わいがあって好きです。",
 #   user: urasimataro
-# )∫
-# Post.find_or_create_by!( 
-#   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/pop_anago.jpg"), filename:"pop_anago.jpg"),
-#   body: "あなごの特売POP。筆ペンとマーカーを使用しています。",
-#   user: kintaro
-# )
-# Post.find_or_create_by!( 
-#   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/yakitori_sign.jpg"), filename:"yakitori_sign.jpg"),
-#   body: "知り合いがやっている焼き鳥屋さん。れっきとした看板で、決して落書きではないそうです。",
-#   user: urasimataro
-# )
-# Post.find_or_create_by!( 
-#   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/pop_simesaba.jpg"), filename:"pop_simesaba.jpg"),
-#   body: "良い鯖が入荷すると仕込みたくなるが口癖のうちのお父さん。明日のポスター作りの下書きです。",
-#   user: shirayuki
-# )
-# Post.find_or_create_by!( 
-#   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/pop_osusume.jpg"), filename:"pop_osusume.jpg"),
-#   body: "日替わりで出すお魚通信。乾いたらラミネートかけて店先に出します。",
-#   user: shirayuki
-# )
-# Post.find_or_create_by!( 
-#   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/glass_unagi.jpg"), filename:"glass_unagi.jpg"),
-#   body: "制作依頼品。塗りつぶしが大変だったので極太タイプも持っておいた方がよかったな〜と。",
-#   user: kaguya
-# )
-# Post.find_or_create_by!( 
-#   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/glass_tako.jpg"), filename:"glass_tako.jpg"),
-#   body: "制作依頼品。ライトアップすると窓ガラスアートって映えるよね〜",
-#   user: kaguya
-# )
-# Post.find_or_create_by!( 
-#   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/hand_written.jpg"), filename:"hand_written.jpg"),
-#   body: "慣れるまで大変だけど油性の筆ペンはまじで商品展開少ないのでみんなにすすめたい",
-#   user: kintaro
-# )
-# Post.find_or_create_by!( 
-#   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/salmon.jpg"), filename:"pop_salmon.jpg"),
-#   body: "鮭ばっかり描いてたらだんだん上手くなってきた",
-#   user: shirayuki
-# )
-# Post.find_or_create_by!( 
-#   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/quote_sign.jpg"), filename:"quote_sign.jpg"),
-#   body: "木目と白の相性良き。次の制作のヒントに。",
-#   user: kaguya
 # )
 
 Post.create( 
@@ -101,12 +51,12 @@ Post.create(
 )
 Post.create( 
   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/pop_anago.jpg"), filename:"pop_anago.jpg"),
-  body: "あなごの特売POP。筆ペンとマーカーを使用しています。",
+  body: "あなごの特売POP。筆ペンとマーカーを使用しています。数字をフリーハンドで書くのが難しかった。練習あるのみ。",
   user: kintaro
 )
 Post.create( 
   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/yakitori_sign.jpg"), filename:"yakitori_sign.jpg"),
-  body: "知り合いがやっている焼き鳥屋さん。れっきとした看板で、決して落書きではないそうです。",
+  body: "知り合いがやっている焼き鳥屋さん。シャッターに書いたれっきとした看板で、決して落書きではないそうです。",
   user: urasimataro
 )
 Post.create( 
@@ -131,7 +81,7 @@ Post.create(
 )
 Post.create( 
   post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/hand_written.jpg"), filename:"hand_written.jpg"),
-  body: "慣れるまで大変だけど油性の筆ペンはまじで商品展開少ないのでみんなにすすめたい",
+  body: "慣れるまで大変だけど、油性の筆ペンは商品展開少ないのでこのブランドおすすめです。",
   user: kintaro
 )
 Post.create( 
@@ -152,7 +102,7 @@ comments_data = [
   { message: "筆の掠れぐらいが神。", post_id: 5 },
   { message: "下書きとかはどうやっているんですか？", post_id: 6 },
   { message: "めちゃくちゃかっこいいです！", post_id: 7 },
-  { message: "超リアル。", post_id: 9 },
+  { message: "超リアル。図鑑みたい", post_id: 9 },
   { message: "次回作楽しみにしてます！", post_id: 10 }
 ]
 comments_data.each do |comment_data|
@@ -183,7 +133,7 @@ comments_data = [
   { message: "いつもコメントありがとうございます！！あなごの字体が好きです！", post_id: 2 },
   { message: "うちのお店と同じぐらい古いです。。", post_id: 3 },
   { message: "ほんとは灰色の部分を鯖柄にしたかったんですけど、バイトの子にゼブラ柄と言われてしまったので諦めました、、、", post_id: 4 },
-  { message: "すごいです！うちも丑の日でこういうの書いてみようかな", post_id: 6 },
+  { message: "すごいです！うちも丑の日でこういうの書いてみたいです。", post_id: 6 },
   { message: "かぐやさんありがとうございます！いつも無言でいいねですみません！", post_id: 5 }
 ]
 comments_data.each do |comment_data|
