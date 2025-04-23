@@ -1,45 +1,34 @@
 <div class="d-flex flex-column bg-light">
-  <h3>仮Sidebar</h3>
   <ul class="nav nav-pills flex-column mb-auto">
 
     <% if user_signed_in? %> <!--サインイン時-->
       <li class="nav-item">
-        <%= link_to user_path(current_user),class: 'btn' do %>
-           <i class="fa-solid fa-user fa-xl " style="color: #B197FC;"></i>プロフィール
-        <% end %>
-      </li>
-
-      <li class="nav-item">
         <%=  link_to posts_path ,class: 'btn' do %>
-          <i class="fa-solid fa-house fa-xl " style="color: #B197FC;"></i>ホーム
+          <i class="fa-solid fa-house fa-xl " style="color: #B197FC;"> ホーム</i>
         <% end %>
       </li>
 
       <li class="nav-item">
-        <%=  link_to index_favorite_user_path(current_user) ,class: 'btn' do %>
-          <i class="fa-solid fa-thumbs-up fa-xl " style="color: #B197FC;"></i>いいねしたポスト
+        <%= link_to user_path(current_user),class: 'btn' do %>
+           <i class="fa-solid fa-user fa-xl " style="color: #B197FC;"> プロフィール</i>
         <% end %>
       </li>
 
       <li class="nav-item">
-        <%=  link_to index_follow_user_path(current_user) ,class: 'btn' do %>
-                <i class="fa-solid fa-user-check fa-xl" style="color: #B197FC;"></i>フォローしているユーザーのポスト
-        <% end %>
-      </li>
-
-      <li class="nav-item">
-        <%= link_to destroy_user_session_path, method: :delete ,class: 'btn' do %>
-          <i class="fas fa-sign-out-alt fa-xl " style="color: #B197FC;"></i>ログアウト
+        <%= link_to edit_user_path(current_user),class: 'btn' do %>
+           <i class="fa-solid fa-gear fa-xl " style="color: #B197FC;"> 設定</i>
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to new_post_path ,class: 'btn' do %>
-          <i class="fa-solid fa-circle-plus fa-xl" style="color: #B197FC;"></i>新規ポスト
+          <i class="fa-solid fa-circle-plus fa-xl" style="color: #B197FC;"> 投稿</i>
         <% end %>
       </li>
 
-    <% elsif admin_signed_in? %> <!--Admin時-->
+    <%
+=begin%>
+ <% elsif admin_signed_in? %> <!--Admin時-->
     <% else %> <!--Nobody-->
 
       <li class="nav-item">
@@ -64,7 +53,9 @@
         <%= link_to new_user_session_path ,class: 'btn' do %>
           <i class="fas fa-sign-in-alt fa-xl " style="color: #B197FC;"></i> ゲストログイン
         <% end %>
-      </li>
+      </li> 
+<%
+=end%>
     <% end %>
   </ul>
 </div>

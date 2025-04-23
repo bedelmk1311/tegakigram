@@ -12,19 +12,16 @@
 
       <div class="row">
         <div class="col-4"> <!--プロフ画像と登録日-->
-              <%= image_tag @user.get_profile_image, size: '150x150' %><br>
-              <i class="fa-solid fa-calendar-days " style="color: #B197FC;"></i>
-              <%= @user.created_at.strftime('%Y年%m月%d日') %>
+          <%= image_tag @user.get_profile_image, size: '150x150' %><br>
+          <i class="fa-solid fa-calendar-days " style="color: #B197FC;"></i>
+          <%= @user.created_at.strftime('%Y年%m月%d日') %><br>
+          <%= link_to "#{@user.followings.count} フォロー中", user_followings_path(@user) %><br>
+          <%= link_to "#{@user.followers.count} フォロワー", user_followers_path(@user) %>
         </div>
 
         <div class="col-8">
-
-          <div class ="row justify-content-between">
-            <div class ="col">
-              <%= link_to "#{@user.followings.count} フォロー中", user_followings_path(@user) %><br>
-              <%= link_to "#{@user.followers.count} フォロワー", user_followers_path(@user) %>
-            </div>
-            <div class="col"> <!--DRY原則?-->
+            <!--DRY原則?-->
+            <div class ="row justify-content-end">
               <!--現在ログインしているユーザーのプロフィールページかつ、ゲストユーザーじゃない場合-->
               <% if @user == current_user && @user.email != "guest@example.com" %>
                 <%= link_to edit_user_path(@user) do %>
@@ -34,9 +31,8 @@
                 <%= render 'public/relationships/btn', user: @user %>
               <% end %>
             </div>
-          </div>
 
-          <div class="lead py-5">
+          <div class="py-5">
               <%= @user.introduction %>
           </div>
         </div>

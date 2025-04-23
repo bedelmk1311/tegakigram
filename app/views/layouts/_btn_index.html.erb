@@ -1,0 +1,10 @@
+<!--posts/index-->
+<!--users/show-->
+<%=  link_to index_favorite_user_path(current_user), class:"btn btn-outline-secondary " do %>
+  <i class="fa-solid fa-thumbs-up fa-sm "></i>いいねしたポスト
+<% end %>
+
+<%=  link_to index_follow_user_path(current_user), class:"btn btn-outline-secondary " do %>
+  <i class="fa-solid fa-user-check fa-sm"></i>フォローしているユーザーのポスト
+<% end %>
+

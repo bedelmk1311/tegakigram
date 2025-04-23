@@ -1,0 +1,8 @@
+<!--layouts/header-->
+<div>
+  <% if user_signed_in? %>
+    こんにちは <%= current_user.name %> さん!
+  <% elsif admin_signed_in? %>
+    管理者さんこんにちは!
+  <% end %>
+</div>
