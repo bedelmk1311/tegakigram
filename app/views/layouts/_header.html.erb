@@ -1,14 +1,7 @@
 <header class="bg-light d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
   <div class="container">
-      <div class="row">
-      <!--表示する名前-->
-      <div class="col-md-3 mb-2 mb-md-0 ">
-        <% if user_signed_in? %>
-            こんにちは！<%= current_user.name %>さん
-          <% elsif admin_signed_in? %>
-            管理者さんこんにちは!
-        <% end %>
-      </div>
+    <div class="row">
+      <%= render 'layouts/greeting' %>
     </div>
     <div class ="row">
 
