@@ -33,7 +33,7 @@ end
 shirayuki= User.find_or_create_by!(email: "snow@test.com") do |user|
   user.name = "Snow White"
   user.password = "password"
-  user.introduction = "北国にある魚屋見習い。日替わりおすすめのお魚新聞を趣味で書いています。ここでは自分の記録用であげていきます。"
+  user.introduction = "北国にある魚屋見習い。おすすめのお魚新聞を趣味で書いています。自分の記録用であげていきます。"
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/snowwhite.jpg"), filename:"snowwhite.jpg")
 end
 
