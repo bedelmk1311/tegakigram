@@ -33,8 +33,8 @@
       </div>
 
       <div class="form-group">  <!--戻るボタン-->
-        <!--%= link_to '戻る', back_path, class:"btn btn-sm btn-outline-secondary " %-->
-        <%= link_to '戻る', :back, class:"btn btn-sm btn-outline-secondary " %>
+        <%= link_to '戻る', user_path(current_user) ,class: "btn btn-sm btn-outline-secondary" %>
+        <!--%= link_to '戻る', :back, class:"btn btn-sm btn-outline-secondary " %-->
       </div>
 
       <p>アカウント削除は <%= link_to 'こちら', user_confirm_path(@user) %> から</p>
