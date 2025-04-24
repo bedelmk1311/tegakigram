@@ -8,7 +8,7 @@
 
     <div class="form-body p-4 text-center">
       <%= form_with(model: resource, url: session_path(resource_name)) do |f| %>
-        <%= render "public/shared/error_messages", resource: resource %>
+        <!--%= render "public/shared/error_messages", resource: resource %--><!--多分意味ないはず-->
 
         <div class="field"><!--メール欄-->
           <%= f.email_field :email, placeholder: "Eメール", autofocus: true, autocomplete: "email", class: "form-control mx-auto m-1" %>
