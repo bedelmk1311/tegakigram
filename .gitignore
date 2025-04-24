@@ -39,5 +39,6 @@
 yarn-debug.log*
 .yarn-integrity
 
+#Gitの管理下に置きたくないファイルやフォルダを指定
 /.env
 # RDSで構築したMySQLへEC2から接続する
