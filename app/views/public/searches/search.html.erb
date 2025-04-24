@@ -1,42 +1,32 @@
 <div class='container'>
   <div class='row'>
-
-    <div class='col-md-3'>  <!--サイドバー-->
+    <div class='col-md-3'><!--サイドバー-->
       <%= render 'layouts/sidebar' %>
     </div>
-
-    <div class='col-md-9 '> <!--メインコンテンツ-->
+    <div class='col-md-9 '><!--メインコンテンツ-->
 
     <% if @range == 'User' %> <!--ユーザー検索-->
-      <h3>ユーザー検索</h3>
+      <h3 class="font-weight-bold">
+        <i class="fa-solid fa-user fa-sm" ></i>ユーザー検索
+      </h3>
       <h4><strong><%= @word %></strong> の単語を含む検索結果</h4>
 
       <% if @users == [] %>
         <p>存在しませんでした</p>
       <% else %>
-      <!--%= render 'public/users/show', users: @records %--> <!--indexまで出るから情報が多すぎるかも-->
-        <% @users.each do |user| %>
-          <li>
-            <%= image_tag user.get_profile_image, size:"50x50" %>
-            <%= user.name %>
-          </li>
-        <% end %>
+        <%= render 'public/users/index', users: @users %>
       <% end %>
 
     <% else @range == 'Post' %> <!--投稿検索-->
-      <h3>投稿検索</h3>
+      <h3 class="font-weight-bold">
+        <i class="fa-solid fa-image"></i>投稿検索
+      </h3>
       <h4><strong><%= @word %></strong> の単語を含む検索結果</h4>
 
-      <!--%= render 'posts/index', posts: @records %-->
       <% if @posts == [] %>
         <p>存在しませんでした</p>
       <% else %>
-        <% @posts.each do |post| %>
-          <li>
-            <%= image_tag post.post_image, size:"50x50" %>
-            <%= post.body %>
-          </li>
-        <% end %>
+        <%= render 'public/posts/index', posts: @posts %>
       <% end %>
     <% end %>
 
