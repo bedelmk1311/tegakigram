@@ -11,22 +11,14 @@
       </h3>
 
       <div class="row">
-        <div class="col-4"> <!--プロフ画像と登録日-->
+        <div class="col-4"><!--プロフ画像と登録日-->
           <%= image_tag @user.get_profile_image, size: '150x150' %><br>
           <i class="fa-solid fa-calendar-days " style="color: #B197FC;"></i>
           <%= @user.created_at.strftime('%Y年%m月%d日') %><br>
-          <%= link_to user_followings_path(@user) do %>
-            <%= @user.followings.count %> フォロー中
-            <i class="fa-solid fa-caret-right"></i>
-          <% end %><br>
-          <%= link_to user_followers_path(@user) do %>
-            <%= @user.followers.count%> フォロワー
-            <i class="fa-solid fa-caret-right"></i>
-          <% end %>
+          <%= render 'public/relationships/link', user: @user %><!--フォロー情報リンク-->
         </div>
 
         <div class="col-8">
-            <!--DRY原則?-->
             <div class ="row justify-content-end">
               <!--現在ログインしているユーザーのプロフィールページかつ、ゲストユーザーじゃない場合-->
               <% if @user == current_user && @user.email != "guest@example.com" %>

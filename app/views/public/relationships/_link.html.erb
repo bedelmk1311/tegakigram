@@ -1,0 +1,12 @@
+<!--public/users/show-->
+<!--public/users/show-->
+<!--adimin/users/show-->
+<!--adimin/users/index-->
+<%= link_to user_followings_path(user) do %>
+  <%= user.followings.count %> フォロー中
+  <i class="fa-solid fa-caret-right"></i>
+<% end %><br>
+<%= link_to user_followers_path(user) do %>
+  <%= user.followers.count%> フォロワー
+  <i class="fa-solid fa-caret-right"></i>
+<% end %>
