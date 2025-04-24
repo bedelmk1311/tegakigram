@@ -14,9 +14,8 @@
             いいねしてみよう!
           </div>
         <% else %>
-          <div>
-            <%= render 'public/posts/index', posts: @posts_favorite %>
-          </div>
+          全 <%= @posts_favorite.count%> 件
+          <%= render 'public/posts/index', posts: @posts_favorite %>
         <% end %>
     </div>
 

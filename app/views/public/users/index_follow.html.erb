@@ -6,8 +6,9 @@
     </div>
 
     <div class='col-md-9'> <!--メインコンテンツ-->
-      <h2><i class="fa-solid fa-user-check fa-sm" ></i><%= current_user.name %> さんが
-      フォロー中のユーザーの投稿</h2>
+      <h2>
+        <i class="fa-solid fa-user-check fa-sm" ></i><%= current_user.name %> さんがフォロー中のユーザーの投稿
+      </h2>
         <% if @posts_follow == [] %>
           <div class="test-center">
             <%= image_tag "kogarashi.jpg", alt: "Logo", width: 200 %><br>
@@ -15,9 +16,8 @@
             フォローしてみよう!
           </div>
         <% else %>
-          <div>
-            <%= render 'public/posts/index', posts: @posts_follow %>
-          </div>
+          全 <%= @posts_follow.count%> 件
+          <%= render 'public/posts/index', posts: @posts_follow %>
         <% end %>
     </div>
 

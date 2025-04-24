@@ -14,6 +14,7 @@
       <% if @users == [] %>
         <p>存在しませんでした</p>
       <% else %>
+        ヒット数: <%= @users.count%> 件
         <%= render 'public/users/index', users: @users %>
       <% end %>
 
@@ -26,6 +27,7 @@
       <% if @posts == [] %>
         <p>存在しませんでした</p>
       <% else %>
+        ヒット数: <%= @posts.count%> 件
         <%= render 'public/posts/index', posts: @posts %>
       <% end %>
     <% end %>
