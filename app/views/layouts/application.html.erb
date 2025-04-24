@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tegakigram</title>
+    <title>TEGAKIgram</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/cf16111dd4.js" crossorigin="anonymous"></script>
 
-    <!--独自のcss読み込ませるときここも変更？-->
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %-->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %><!--kaminariとflash用-->
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %><!--bootstrap-->
   </head>
 
 
   <body>
-    <%= render 'layouts/header' %><!--bodyの中にヘッダー-->
-      <p class="notice"><%= notice %></p> <!--フラッシュメッセージ-->
-      <p class="alert"><%= alert %></p><!--p classとp idの書き方の違いは何？余白？-->
-      <main>
+    <%= render 'layouts/header' %>
+    <!--中身によってnoticeかalertをとりだすeachメソッド-->
+    <% flash.each do |message_type, message| %>
+      <div class="flash-message <%= message_type %>"><%= message %>
+      </div>
+    <% end %>
 
-        <div class="d-flex justify-content-center mb-2">
-          <!--%= render 'searches/form' %-->
-        </div>
-        <%= yield %>
-      </main>
+    <main>
+      <%= yield %>
+    </main>
 
-    <%= render 'layouts/footer' %><!--bodyの中にフッターー-->
+    <%= render 'layouts/footer' %>
   </body>
 </html>

@@ -1,44 +1,26 @@
+<!--バリデーションエラーメッセ-->
+<%= render 'layouts/error', obj: @user %>
+
 <div class='container'>
   <div class='row'>
 
-    <div class='col-md-3'>  <!--サイドバー-->
+    <div class='col-md-3'><!--サイドバー-->
       <%= render 'layouts/sidebar' %>
     </div>
 
-    <div class="col-md-9 mx-auto"> <!--メインコンテンツ-->
-
-      <!--バリデーションエラーメッセ-->
-      <%= render 'layouts/error', obj: @user %>
-
-    <h2><i class="fa-solid fa-gear fa-sm" ></i>プロフィール編集</h2>
+    <div class="col-md-9 mx-auto"><!--メインコンテンツ-->
+    <h2 class="font-weight-bold">
+      <i class="fa-solid fa-gear fa-sm" ></i>プロフィール編集
+    </h2>
 
     <%= form_with model:@user, local:true do |f| %>
-      <!--テンプレートエラー？-->
-      <!--%= render 'layouts/errors', obj: @user %-->
-
-      <div class="form-group">
-        <%= f.text_field :name, placeholder: "名前",class: "form-control name" %>
-      </div>
-
-     <div class="form-group"> <!--プロフィール画像-->
-        <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
-      </div>
-
-      <div class="form-group"> <!--自己紹介文-->
-        <%= f.text_area :introduction, placeholder: "自分について説明してみよう!", class: "form-control introduction" %>
-      </div>
-
-      <div class="form-group">  <!--更新ボタン-->
-        <%= f.submit "変更を保存", class: 'btn btn-sm btn-outline-success' %>
-      </div>
-
-      <div class="form-group">  <!--戻るボタン-->
-        <%= link_to '戻る', user_path(current_user) ,class: "btn btn-sm btn-outline-secondary" %>
-        <!--%= link_to '戻る', :back, class:"btn btn-sm btn-outline-secondary " %-->
-      </div>
-
+      <%= f.text_field :name, placeholder: "名前",class: "form-control m-3" %>
+      <%= f.file_field :profile_image, class: "form-control-file m-3", accept: 'image/*' %>
+      <%= f.text_area :introduction, placeholder: "自分について説明してみよう!", class: "form-control m-3" %>
+      <%= f.submit "変更を保存", class: 'btn btn-sm btn-outline-success m-3' %>
+      <%= link_to '戻る', user_path(current_user) ,class: "btn btn-sm btn-outline-secondary" %>
+      <!--%= link_to '戻る', :back, class:"btn btn-sm btn-outline-secondary " %-->
       <p>アカウント削除は <%= link_to 'こちら', user_confirm_path(@user) %> から</p>
-
     <% end %>
   </div>
 </div>

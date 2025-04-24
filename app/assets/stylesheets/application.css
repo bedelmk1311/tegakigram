@@ -1,17 +1,20 @@
-
 .flash-message {
   border-radius: 5px;
   padding: 16px 24px;
   margin: 16px 0px;
 }
  
-.notice {
+.flash-message.notice {
   background-color: #bcdfff;
   color: #0067C0;
   border: solid 1px #0067C0;
 }
-/*ここに色入れると線みたいにヘッダー内入ってしまう
-
+ 
+.flash-message.alert {
+  background-color: #ffd4d1;
+  color: #930403;
+  border: solid 1px #930403;
+}
 
 /*ページネーション自体のデザイン*/
 .pagination>li>a {

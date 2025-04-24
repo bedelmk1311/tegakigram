@@ -18,6 +18,8 @@
       <td>
         <p><%= link_to "#{user.followings.count} フォロー中", user_followings_path(user) %></p>
         <p><%= link_to "#{user.followers.count} フォロワー", user_followers_path(user) %></p>
+          <%= render 'public/relationships/btn', user: user %><!--フォローボタン-->
+
       </td>
     </tr>
   <% end %>
