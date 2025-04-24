@@ -2,10 +2,8 @@
   <div class="col-6 mx-auto my-5">
 
     <h2 class="font-weight-bold text-center ">ログイン画面</h2>
-    <div class="text-center"><!--mx-autoだと効かないのなんで？-->
-      <%= link_to root_path do %> <!--ロゴ-->
-        <%= image_tag "logo_text_toka.png", alt: "Logo", width: 200 %>
-      <% end %>
+    <div class="text-center">
+      <%= render 'layouts/logo' %>
     </div>
 
     <div class="form-body p-4 text-center">

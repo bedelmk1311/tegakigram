@@ -1,10 +1,17 @@
-<h2>管理者ログイン</h2>
+<!-- エラーメッセージ表示 -->
+<% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
+<% end %>
 
-  <!-- エラーメッセージ表示 -->
-  <% if flash[:alert] %>
-    <div class="alert"><%= flash[:alert] %></div>
-  <% end %>
+<div class="container bg-custom-color ">
+  <div class="col-6 mx-auto my-5">
 
+    <h2 class="font-weight-bold text-center ">管理者ログイン</h2>
+    <div class="text-center">
+      <%= render 'layouts/logo' %>
+    </div>
+
+    <div class="form-body p-4 text-center">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <!--%= form_with(resource, as: resource_name, url: session_path(resource_name)) do |f| %-->
   <div class="field">
