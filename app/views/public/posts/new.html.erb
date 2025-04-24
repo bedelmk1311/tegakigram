@@ -1,24 +1,22 @@
+<!--バリデーションエラーメッセ-->
+<%= render 'layouts/error', obj: @post %>
+
 <div class='container'>
   <div class='row'>
 
-    <div class='col-md-3 '>  <!--サイドバー-->
+    <div class='col-md-3 '><!--サイドバー-->
       <%= render 'layouts/sidebar' %>
     </div>
 
-    <div class='col-md-9'> <!--メインコンテンツ-->
-
-      <!--バリデーションエラーメッセ-->
-      <%= render 'layouts/error', obj: @post %>
-
+    <div class='col-md-9'><!--メインコンテンツ-->
       <h2 class="font-weight-bold">
         <i class="fa-solid fa-circle-plus fa-sm " ></i>新規投稿画面
       </h2>
       <%= form_with model: @post do |f| %>
         <%= f.file_field :post_image, accept: "image/*", class: "m-3"%>
         <%= f.text_area :body, placeholder: "どんな作品か説明してみよう!", class: "form-control m-3", rows:'5' %>
-        <!--<h4>仮ラベル</h4>-->
 
-        <%= f.submit '投稿',class: "btn btn-sm btn-outline-success" %>
+        <%= f.submit '投稿', class: "btn btn-sm btn-outline-success" %>
       <% end %>
     </div>
 
