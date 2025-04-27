@@ -1,11 +1,19 @@
 # ターミナル出力メモ
 puts "seedの実行を開始"
 
-Admin.create!(
-   email: 'admin@test.com',
-   password: 'tegakigram'
-)
+# Admin.create!(
+#    email: 'admin@test.com',
+#    password: 'tegakigram'
 
+#    email: ENV["ADMIN_EMAIL"]
+#    password: ENV["ADMIN_PASSWORD"]
+# )
+# Admin
+Admin.find_or_create_by!(email: ENV['ADMIN_EMAIL']) do |admin|
+  admin.password = ENV['ADMIN_PASSWORD']
+end
+
+#ユーザー
 momotaro = User.find_or_create_by!(email: "momo@test.com") do |user|
   user.name = "桃太郎"
   user.password = "password"
@@ -95,6 +103,7 @@ Post.create(
   user: kaguya
 )
 
+#コメント
 comments_data = [
   { message: "地味に餃子ぬいぐるみもかわいい", post_id: 1 },
   { message: "斬新なアイディア", post_id: 3 },
@@ -197,4 +206,5 @@ Favorite.create(user_id: 5, post_id: 10)
 Favorite.create(user_id: 2, post_id: 4)
 Favorite.create(user_id: 2, post_id: 5)
 Favorite.create(user_id: 2, post_id: 9)
+
 puts "seedの実行が完了しました"

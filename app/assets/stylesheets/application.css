@@ -1,3 +1,4 @@
+/*フラッシュメッセージ*/
 .flash-message {
   border-radius: 5px;
   padding: 16px 24px;
@@ -20,7 +21,7 @@
 .pagination>li>a {
   border: none; /*枠線をなくす*/
    color: #fff;	/*文字の色を変える */
-  background-color: #739599;	/*背景の色を変える*/
+  background-color: #2F5E63;	/*背景の色を変える*/
 }
 
 /* 表示しているページ番号のデザイン */
@@ -32,4 +33,10 @@
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
   border-radius: 5px;
+}
+
+/*view pointから100%の高さのグラデーション
+.top {
+  background: linear-gradient (#4CD8DC, #B197FC);
+  min-height: 100vh;
 }

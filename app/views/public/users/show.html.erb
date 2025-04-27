@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-4"><!--プロフ画像と登録日-->
           <%= image_tag @user.get_profile_image, size: '150x150' %><br>
-          <i class="fa-solid fa-calendar-days " style="color: #B197FC;"></i>
+          <i class="fa-solid fa-calendar-days " style="color: #2F5E63;"></i>
           <%= @user.created_at.strftime('%Y年%m月%d日') %><br>
           <%= render 'public/relationships/link', user: @user %><!--フォロー情報リンク-->
         </div>
@@ -23,7 +23,7 @@
               <!--現在ログインしているユーザーのプロフィールページかつ、ゲストユーザーじゃない場合-->
               <% if @user == current_user && @user.email != "guest@example.com" %>
                 <%= link_to edit_user_path(@user) do %>
-                  <i class="fa-solid fa-gear fa-2xl" style="color: #B197FC;" ></i>
+                  <i class="fa-solid fa-gear fa-2xl" style="color: #212529;"></i>
                 <% end %>
               <% else %>
                 <%= render 'public/relationships/btn', user: @user %>
