@@ -4,25 +4,25 @@
     <% if user_signed_in? %> <!--サインイン時-->
       <li class="nav-item">
         <%=  link_to posts_path ,class: 'btn' do %>
-          <i class="fa-solid fa-house fa-xl " style="color: #B197FC;"> ホーム</i>
+          <i class="fa-solid fa-house fa-xl " style="color: #2F5E63;"> ホーム</i>
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to user_path(current_user),class: 'btn' do %>
-           <i class="fa-solid fa-user fa-xl " style="color: #B197FC;"> プロフィール</i>
+           <i class="fa-solid fa-user fa-xl " style="color: #2F5E63;"> プロフィール</i>
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to edit_user_path(current_user),class: 'btn' do %>
-           <i class="fa-solid fa-gear fa-xl " style="color: #B197FC;"> 設定</i>
+           <i class="fa-solid fa-gear fa-xl " style="color: #2F5E63;"> 設定</i>
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to new_post_path ,class: 'btn' do %>
-          <i class="fa-solid fa-circle-plus fa-xl" style="color: #B197FC;"> 投稿</i>
+          <i class="fa-solid fa-circle-plus fa-xl" style="color: #2F5E63;"> 投稿</i>
         <% end %>
       </li>
 
@@ -33,25 +33,25 @@
 
       <li class="nav-item">
         <%=  link_to posts_path ,class: 'btn' do %>
-          <i class="fa-solid fa-house fa-xl " style="color: #B197FC;">ホーム</i>
+          <i class="fa-solid fa-house fa-xl "style="color: #2F5E63;">ホーム</i>
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to new_user_registration_path, class: 'btn' do %>
-          <i class="fas fa-user-plus fa-xl " style="color: #B197FC;"></i> 新規会員登録
+          <i class="fas fa-user-plus fa-xl " style="color: #2F5E63;"></i> 新規会員登録
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to new_user_session_path ,class: 'btn' do %>
-          <i class="fas fa-sign-in-alt fa-xl " style="color: #B197FC;"></i> ログイン
+          <i class="fas fa-sign-in-alt fa-xl "style="color: #2F5E63;"></i> ログイン
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to new_user_session_path ,class: 'btn' do %>
-          <i class="fas fa-sign-in-alt fa-xl " style="color: #B197FC;"></i> ゲストログイン
+          <i class="fas fa-sign-in-alt fa-xl " style="color: #2F5E63;"></i> ゲストログイン
         <% end %>
       </li> 
 <%
