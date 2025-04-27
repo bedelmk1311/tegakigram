@@ -11,12 +11,6 @@
         <% end %>
       </div>
 
-      <div> <!--検索-->
-        <%= link_to admin_search_path,class: 'text-dark' do %>
-           <i class="fa-solid fa-magnifying-glass fa-2xs" style="color: #2F5E63;"></i>
-        <% end %>
-      </div>
-
       <div> <!--ログアウトorログイン-->
         <%= link_to destroy_admin_session_path, method: :delete, class: 'text-dark' do %>
            <i class="fas fa-sign-out-alt" style="color: #2F5E63;"></i>
