@@ -58,13 +58,8 @@ Rails.application.routes.draw do
 
   # namespaceでadminをまとめる
   namespace :admin do
-    root to: "homes#top"
+    root to: "users#index"
     get "/search", to: "searches#search"
-    resources :users, only: [:show, :index, :destroy] # こっちのdestroyは投稿を消したい
-
-    #get "confirm_post", to: "confirm_post#confirm" #仮
-    #get "confirm_comment", to: "confirm_post#confirm" #仮
-    #get "index_comment", to: " # " #仮
-    #delete "URL", to: " # " #仮 コメントを消したい
+    resources :users, only: [:show, :index, :destroy] 
   end
 end
