@@ -1,3 +1,20 @@
-<h2>管理者</h2>
+<h2>管理者ページ</h2>
 <h2>登録ユーザー一覧</h2>
-<%= render 'public/users/index', users: @users %>
+
+<table class='table table-hover table-inverse'>
+  <% @users.each do |user| %>
+    <tr>
+      <td> <!--プロフ画像と名前ー-->
+        <%= link_to admin_user_path(user) do %>
+          <%= image_tag user.get_profile_image, size: '50x50', class:"rounded-circle" %><br>
+        <% end %>
+        <%= user.name %>
+      </td>
+      <td><!--自己紹介と登録日-->
+        <i class="fa-solid fa-calendar-days " style="color: #2F5E63;"></i>
+        <%= user.created_at.strftime('%Y年%m月%d日') %><br>
+        <%= user.introduction %>
+      </td>
+    </tr>
+  <% end %>
+</table>
