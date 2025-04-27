@@ -1,40 +1,48 @@
-<div class="container bg-">
+<div class="container bg-light ">
+  <div class="col-10 mx-auto my-3">
 
-  <div class= "row ">
-    <div class= "col ">
-      <h1>TEGAKI gramとは</h1>
-      <div class="">
-        <%= render 'layouts/logo' %>
+    <h3 class="font-weight-bold my-3 text-center ">
+      <i class="fa-solid fa-circle-info"></i>
+      TEGAKIgramとは</h3>
+    <div class="row">
+      <div class="col-4">
+        <%= image_tag "logo.jpg", alt: "Logo", class: "img-fluid"%>
+      </div>
+      <div class="col-8 ">
+        <p class ="lead">
+          手書きPOPやメニューは、店舗の個性や温かみを伝える重要なツールとして、飲食業や小売業で根強い人気を誇ります。<br>
+          手書きPOPの魅力を発信し、記録・参考・交流の場として、新しいレイアウトやデザインのインスピレーションを得られるサービスがあればと思い、製作しました。
+        </p>
+        <div class= "text-right">
+          <i class="fa-solid fa-fire-flame-curved fa-beat-fade"></i> 最近の投稿<br>
+          <% @posts.each do |post|%>
+            <%= image_tag post.get_image, size: '80x80', class:"rounded my-3" %>
+          <% end %><br>
+          ゲストログインして
+          <%= link_to "もっと見る>", public_guest_sign_in_path, method: :post %>
+        </div>
       </div>
     </div>
 
-    <div class= "col ">
-      <h1>私について</h1>
+    <div class="text-center my-5">
+      <h3 class="font-weight-bold my-3 text-center ">
+        <i class="fa-solid fa-images"></i>
+        使用した素材・サービスについて
+      </h3>
+      <h4>イラスト・写真素材</h4>
+        <%= link_to 'pixabay', 'https://pixabay.com/ja/' %><br>
+        <%= link_to 'イラストAC', 'https://www.ac-illust.com/' %><br>
+      <h4>アイコン</h4>
+        <%= link_to 'fontawesome', 'https://fontawesome.com/account/general' %><br>
+      <h4>ロゴ制作</h4>
+        <%= link_to 'DesignEvo', 'https://www.designevo.com/jp/create/' %><br>
+        <br>
+      <p>このサイトに登場するデータは全て架空の物を使用しています。</p>
     </div>
-  </div>
 
-  <div class= "">
-    <h3>最新の投稿された写真</h3>
-    <% @posts.each do |post|%>
-      <%= image_tag post.get_image, size: '100x100' %>
-    <% end %>
-  </div>
-
-  <div class="">
-    <h3>使用した画像素材・ロゴについて</h3>
-      <p>このサイトに登場するデータは全て架空です。
-      <li>
-        イラスト・写真<br>
-        https://pixabay.com/ja/<br>
-        https://www.ac-illust.com/<br>
-      </li>
-
-      <li>
-        アイコン<br>
-        https://fontawesome.com/account/general<br>
-
-      <li>
-        ロゴ制作<br>
-        https://www.designevo.com/jp/create/<br>
+    <div class= "text-center my-5">
+      <h3 class="font-weight-bold my-3 text-center ">
+        製作者</h3>
+    </div>
   </div>
 </div>
