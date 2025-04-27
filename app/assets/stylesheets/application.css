@@ -21,7 +21,7 @@
 .pagination>li>a {
   border: none; /*枠線をなくす*/
    color: #fff;	/*文字の色を変える */
-  background-color: #739599;	/*背景の色を変える*/
+  background-color: #2F5E63;	/*背景の色を変える*/
 }
 
 /* 表示しているページ番号のデザイン */
