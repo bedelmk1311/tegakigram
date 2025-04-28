@@ -12,7 +12,7 @@
 
       <div class="row">
         <div class="col-4"><!--プロフ画像と登録日-->
-          <%= image_tag @user.get_profile_image, size: '150x150' %><br>
+          <%= image_tag @user.get_profile_image, size: '150x150',class:"rounded" %><br>
           <i class="fa-solid fa-calendar-days " style="color: #2F5E63;"></i>
           <%= @user.created_at.strftime('%Y年%m月%d日') %><br>
           <%= render 'public/relationships/link', user: @user %><!--フォロー情報リンク-->
@@ -36,7 +36,7 @@
         </div>
       </div>
 
-        <div class ="py-3 bg-light">
+        <div class ="py-3">
           <h3 class="font-weight-bold">
             <i class="fa-solid fa-images fa-sm "></i>
             投稿一覧
