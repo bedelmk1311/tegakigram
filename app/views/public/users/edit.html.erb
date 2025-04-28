@@ -19,7 +19,6 @@
       <%= f.text_area :introduction, placeholder: "自分について説明してみよう!", class: "form-control m-3" %>
       <%= f.submit "変更を保存", class: 'btn btn-sm btn-outline-success m-3' %>
       <%= link_to '戻る', user_path(current_user) ,class: "btn btn-sm btn-outline-secondary" %>
-      <!--%= link_to '戻る', :back, class:"btn btn-sm btn-outline-secondary " %-->
       <p>アカウント削除は <%= link_to 'こちら', user_confirm_path(@user) %> から</p>
     <% end %>
   </div>

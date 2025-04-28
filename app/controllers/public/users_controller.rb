@@ -39,7 +39,6 @@ class Public::UsersController < ApplicationController
 
   def update
       if @user.update(user_params) #引数を指定しないとargumentエラー
-        #redirect_to user_path(@user), notice: "プロフィールの編集内容は保存されました"
         back_redirect_by_notice("プロフィールの編集内容は保存されました")
       else
         render :edit
@@ -70,13 +69,7 @@ class Public::UsersController < ApplicationController
   def ensure_guest_user
     @user = User.find(params[:id])
     if @user.email == "guest@example.com"
-      #redirect_to user_path(current_user) , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません"
       back_redirect_by_notice("ゲストユーザーはプロフィール編集画面へ遷移できません")
     end
   end
-
-  #showページにいる時はここを表示させたくない　保留
-  #def check_if_show_page
-  #  @show_page = !(params[:controller] == 'users' && params[:action] == 'show')
-  #end
 end

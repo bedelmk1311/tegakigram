@@ -5,6 +5,7 @@
 ## サイト概要
 ### サービスのURL
 ゲスト機能を実装しましたので登録せずにお試しいただけます。
+![TEGAKIgram](./app/assets/images/app.jpg)
 ### サイトテーマ
 手書きPOP、看板に特化したSNSサイト
 ​
