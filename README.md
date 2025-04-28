@@ -1,6 +1,11 @@
 # TEGAKIgram
+## オリジナルロゴ
+![メインロゴ](./app/assets/images/logo.jpg)
 
 ## サイト概要
+### サービスのURL
+ゲスト機能を実装しましたので登録せずにお試しいただけます。
+![TEGAKIgram](./app/assets/images/app.jpg)
 ### サイトテーマ
 手書きPOP、看板に特化したSNSサイト
 ​
@@ -24,38 +29,35 @@
 * 過去に作成した手書きPOPを見返したい時
 
 ## 設計書
+![ER図](./app/assets/images/er.jpg)
+![エンドユーザー側 UIフロー](./app/assets/images/uiflow_public.jpg)
+![管理者側　UIフロー](./app/assets/images/uiflow_admin.jpg)
+![アプリ詳細定義書](./app/assets/images/app.jpg)
 
-作成中
+## 制作期間
+2025年4月1日〜4月28日
+[WBSシート](https://docs.google.com/spreadsheets/d/1ueSUm3UaM2kHIiq7WddnXvYVaeDI73HjywBPIjE--fQ/edit?usp=sharing)
 
-## オリジナルロゴ
-![メインロゴ](./app/assets/images/logo.jpg)
-​
 ## 開発環境
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
-- IDE：vscode
+| 項目 | 内容 |
+|--|--|
+| OS | Linux (CentOS) |
+| 言語 | HTML, CSS, JavaScript, Ruby, SQL |
+| フレームワーク | Ruby on Rails |
+| JSライブラリ | jQuery |
+| 開発環境 | VSCode |
 
 ## バージョン
 - Rails version: 6.1.7.10
 - Ruby version: ruby 3.1.2p
 ​
 ## 使用素材
-
-<!-- - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。 -->
-イラスト・写真
-- https://pixabay.com/ja/
-- https://www.ac-illust.com/
-
-アイコン
-- https://fontawesome.com/account/general
-ロゴ制作
-- https://www.designevo.com/jp/create/
-
-
-<!-- - アプリケーションの実装に使用したgem/bootstrapのリファレンスなどの記載は不要です。 -->
-<!-- - 使用しない場合は、使用素材の項目をREADMEから削除してください。 -->
-<!-- - 架空の団体・題材を前提にポートフォリオを制作する場合、下記のテンプレートを当項目内に記載しましょう。 -->
+### イラスト・写真
 著作権を考慮し、架空のデータを扱う予定です。
 なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。
+
+- [pixabay](https://pixabay.com/ja/)
+- [Unsplash](https://unsplash.com/ja)
+- [アイコンAC](https://www.ac-illust.com/)
+- [fontawesome](https://fontawesome.com/account/general)
+- [DesignEvo](https://www.designevo.com/jp/create/)

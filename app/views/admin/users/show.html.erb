@@ -1,20 +1,37 @@
-<h2>管理者</h2>
-<h2>admin/users#show</h2>
-<!--プロフ画像と名前ー-->
-  <h3><%= @user.name %> さんの情報</h3>
-  <%= image_tag @user.get_profile_image, size: '200x200' %><br>
-  <!--管理者は見れるようにする権限あとで追加-->
-  <p><%= link_to "#{@user.followings.count} フォロー中", user_followings_path(@user) %></p>
-  <p><%= link_to "#{@user.followers.count} フォロワー", user_followers_path(@user) %></p>
-          <%= render 'public/relationships/btn', user: user %><!--フォローボタン-->
+<div class='container'>
+  <div class='row'>
 
+    <div class='col-md-3 my-3'><!--サイドバー-->
+      <%= render 'layouts/sidebar' %>
+    </div>
 
-  <i class="fa-solid fa-calendar-days " style="color: #2F5E63;"></i>
-  <%= @user.created_at.strftime('%Y年%m月%d日') %><br>
-  
-  <p>自己紹介</p>
-  <%= @user.introduction %>
-<!--余力あれば確認画面、今はdataのみ-->
-  <p>
-    アカウント<%= link_to '削除', admin_user_path(@user), method: :delete, data: { confirm: "本当に削除しますか？" } %>
-  </p>
+    <div class='col-md-9'><!--メインコンテンツー-->
+      <h3 class="font-weight-bold my-3">
+        <i class="fa-solid fa-user fa-sm" ></i>
+        <%= @user.name %> さんの情報
+      </h3>
+
+      <div class="row">
+        <div class="col-4"><!--プロフ画像と登録日-->
+          <%= image_tag @user.get_profile_image, size: '150x150' %><br>
+          <i class="fa-solid fa-calendar-days " style="color: #2F5E63;"></i>
+          <%= @user.created_at.strftime('%Y年%m月%d日') %><br>
+          <p><%= @user.followings.count %>フォロー中</p>
+          <p><%= @user.followers.count %>フォロワー</p>
+        </div>
+
+        <div class="col-8">
+          <div class ="row justify-content-end">
+            <%= link_to 'アカウント削除',admin_user_path(@user), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger btn-lg " %>
+            <div class="py-5">
+              <%= @user.introduction %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

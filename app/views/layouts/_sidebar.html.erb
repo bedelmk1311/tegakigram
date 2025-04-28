@@ -26,36 +26,25 @@
         <% end %>
       </li>
 
-    <%
-=begin%>
- <% elsif admin_signed_in? %> <!--Admin時-->
-    <% else %> <!--Nobody-->
 
+ <% else admin_signed_in? %> <!--Admin時-->
       <li class="nav-item">
-        <%=  link_to posts_path ,class: 'btn' do %>
-          <i class="fa-solid fa-house fa-xl "style="color: #2F5E63;">ホーム</i>
+        <%= link_to admin_root_path,class: 'btn ' do %>
+           <i class="fa-solid fa-house fa-xl" style="color: #2F5E63;"></i> 管理者ホーム
         <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to new_user_registration_path, class: 'btn' do %>
-          <i class="fas fa-user-plus fa-xl " style="color: #2F5E63;"></i> 新規会員登録
+        <%= link_to admin_users_path,class: 'btn ' do %>
+           <i class="fa-solid fa-user fa-xl" style="color: #2F5E63;"></i> ユーザー一覧
         <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to new_user_session_path ,class: 'btn' do %>
-          <i class="fas fa-sign-in-alt fa-xl "style="color: #2F5E63;"></i> ログイン
-        <% end %>
-      </li>
-
-      <li class="nav-item">
-        <%= link_to new_user_session_path ,class: 'btn' do %>
-          <i class="fas fa-sign-in-alt fa-xl " style="color: #2F5E63;"></i> ゲストログイン
+        <%= link_to destroy_admin_session_path, method: :delete, class: 'btn' do %>
+           <i class="fas fa-sign-out-alt fa-xl" style="color: #2F5E63;"></i> 管理者ログアウト
         <% end %>
       </li> 
-<%
-=end%>
     <% end %>
   </ul>
 </div>

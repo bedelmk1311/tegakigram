@@ -1,20 +1,19 @@
-<div class="container bg-">
+<div class="container">
 
   <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
 
-    <div class="col-10 col-sm-8 col-lg-6">
-      <%= link_to root_path do %> <!--完成図が入ります-->
-        <%= image_tag "kogarashi.jpg", alt: "Logo", class: "img-fluid"%>
-      <% end %>
+    <div class="col-10 col-sm-8 col-lg-6 text-center">
+        <%= image_tag "logo.jpg", alt: "Logo", class: "img-fluid"%>
     </div>
 
-    <div class="col-lg-6">
+    <div class="col-lg-6 text-center">
       <h1 class="font-weight-bold m-3 border-bottom ">Welcome to TEGAKIgram!!</h1>
       <p class ="lead">
+      TEGAKIgramは手書きコンテンツに特化したSNSサイトです
       </p>
 
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <%= link_to 'このサイトについて',about_path, class: "btn btn-outline-info btn-lg " %>
+        <%= link_to 'このサイトについて',about_path, class: "btn btn-outline-primary btn-lg mr-3" %>
         <%= link_to "ゲストログイン", public_guest_sign_in_path, class: "btn btn-outline-secondary btn-lg ", method: :post %>
       </div>
     </div>

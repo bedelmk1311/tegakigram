@@ -1,13 +1,5 @@
 # ターミナル出力メモ
 puts "seedの実行を開始"
-
-# Admin.create!(
-#    email: 'admin@test.com',
-#    password: 'tegakigram'
-
-#    email: ENV["ADMIN_EMAIL"]
-#    password: ENV["ADMIN_PASSWORD"]
-# )
 # Admin
 Admin.find_or_create_by!(email: ENV['ADMIN_EMAIL']) do |admin|
   admin.password = ENV['ADMIN_PASSWORD']

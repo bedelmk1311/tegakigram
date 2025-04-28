@@ -10,7 +10,7 @@
 
         <div class="card-img-top " style=" width: fit-content;"><!--要素にサイズを合わせる-->
           <%= link_to(post_path(post.id)) do %>
-            <%= image_tag post.get_image, size: '300x300' %> <!--投稿写真-->
+            <%= image_tag post.get_image, size: '300x300',class:"rounded" %> <!--投稿写真-->
           <% end %>
         </div>
 
@@ -18,13 +18,10 @@
           <div class="row justify-content-between" ><!--両端から均等に並べる-->
 
             <div class=""><!--ユーザーアイコンと名前-->
-              <!--% if @show_page %--><!--showページにいる時はここを表示させたくない　保留-->
-                  <%= link_to(post.user) do %>
-                    <%= image_tag post.user.get_profile_image, size:'30x30',class:"rounded-circle" %>
-                  <% end %>
-                <%= post.user.name%>
-              <!--% else %-->
-              <!--% end %-->
+              <%= link_to(post.user) do %>
+                <%= image_tag post.user.get_profile_image, size:'30x30',class:"rounded-circle" %>
+              <% end %>
+              <%= post.user.name%>
             </div>
 
             <div class=""><!--コメントといいね-->
