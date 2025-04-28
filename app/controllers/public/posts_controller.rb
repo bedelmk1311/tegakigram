@@ -47,8 +47,8 @@ class Public::PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    #redirect_to posts_path もしかしたらこっちかも
-    back_redirect_by_notice("投稿の削除に成功しました")
+    redirect_to posts_path, notice:"投稿の削除に成功しました"
+    #back_redirect_by_notice("投稿の削除に成功しました")
   end
 
    private

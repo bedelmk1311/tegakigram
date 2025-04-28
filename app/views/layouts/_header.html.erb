@@ -46,11 +46,15 @@
                 ログイン<i class="fas fa-sign-in-alt fa-xl" style="color: #2F5E63;"></i>
               <% end %>
             </li>
-            <li class="nav-item">
+            <%
+=begin%>
+ <li class="nav-item">
               <%= link_to new_admin_session_path,class: 'nav-link text-dark' do %>
-                開発用<i class="fas fa-sign-in-alt fa-xl" style="color: #2F5E63;"></i>
+                開発用!管理者ログイン<i class="fas fa-sign-in-alt fa-xl" style="color: #2F5E63;"></i>
               <% end %>
-            </li>
+            </li> 
+<%
+=end%>
           <% end %>
         </ul>
       </div>

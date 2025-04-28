@@ -1,4 +1,4 @@
-<div class="container bg-">
+<div class="container bg-light">
   <div class="text-center">
     <%= render 'layouts/logo' %>
   </div>
@@ -11,6 +11,6 @@
         続ける場合は「削除する」をクリックしてください。
       </p>
       <%= link_to "削除する", user_path(current_user.id), method: :delete, class: "btn btn-outline-danger mb-3" %><br>
-      <%= link_to "ホームに戻る", root_path, class: "btn btn-sm btn-outline-primary mb-3" %>
+      <%= link_to "ホームに戻る", posts_path, class: "btn btn-sm btn-outline-primary mb-3" %>
   </div>
 </div>

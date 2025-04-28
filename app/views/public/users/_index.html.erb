@@ -19,6 +19,7 @@
       <td>
         <%= render 'public/relationships/link', user: user %><!--フォロー情報リンク-->
       </td>
+      <td>
         <% unless current_user.nil? %><!--adminログイン時は表示させない-->
           <% unless current_user.email == ENV['ADMIN_EMAIL'] %>
             <%= render 'public/relationships/btn', user: user %><!--フォローボタン-->

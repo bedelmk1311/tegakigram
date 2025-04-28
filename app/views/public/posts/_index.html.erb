@@ -10,7 +10,7 @@
 
         <div class="card-img-top " style=" width: fit-content;"><!--要素にサイズを合わせる-->
           <%= link_to(post_path(post.id)) do %>
-            <%= image_tag post.get_image, size: '300x300' %> <!--投稿写真-->
+            <%= image_tag post.get_image, size: '300x300',class:"rounded" %> <!--投稿写真-->
           <% end %>
         </div>
 
