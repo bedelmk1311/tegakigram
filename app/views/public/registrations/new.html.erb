@@ -1,3 +1,4 @@
+<%= render "public/shared/error_messages", resource: resource %>
 <div class="container bg-">
   <div class="col-6 mx-auto my-5">
 
@@ -8,7 +9,6 @@
 
     <div class="form-body p-4 text-center">
       <%= form_with(model: resource, url: registration_path(resource_name)) do |f| %>
-        <%= render "public/shared/error_messages", resource: resource %>
 
         <div class="field"><!--名前-->
           <%= f.text_field :name, placeholder: "名前", autofocus: true, autocomplete: "name",class: "form-control mx-auto m-1" %>
