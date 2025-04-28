@@ -1,10 +1,10 @@
 # TEGAKIgram
 ## オリジナルロゴ
 ![メインロゴ](./app/assets/images/logo.jpg)
-## サービスのURL
-ゲスト機能を実装しましたので登路せずにお試しいただけます。
 
 ## サイト概要
+### サービスのURL
+ゲスト機能を実装しましたので登録せずにお試しいただけます。
 ### サイトテーマ
 手書きPOP、看板に特化したSNSサイト
 ​
@@ -28,14 +28,14 @@
 * 過去に作成した手書きPOPを見返したい時
 
 ## 設計書
-![ER図](./app/assets/images/logo.jpg)
-![エンドユーザー側 UIフロー](./app/assets/images/logo.jpg)
-![管理者側　UIフロー](./app/assets/images/logo.jpg)
-![アプリ詳細定義書](./app/assets/images/logo.jpg)
+![ER図](./app/assets/images/er.jpg)
+![エンドユーザー側 UIフロー](./app/assets/images/uiflow_public.jpg)
+![管理者側　UIフロー](./app/assets/images/uiflow_admin.jpg)
+![アプリ詳細定義書](./app/assets/images/app.jpg)
 
 ## 制作期間
 2025年4月1日〜4月28日
-([WBSシート](https://docs.google.com/spreadsheets/d/1ueSUm3UaM2kHIiq7WddnXvYVaeDI73HjywBPIjE--fQ/edit?usp=sharing))
+[WBSシート](https://docs.google.com/spreadsheets/d/1ueSUm3UaM2kHIiq7WddnXvYVaeDI73HjywBPIjE--fQ/edit?usp=sharing)
 
 ## 開発環境
 | 項目 | 内容 |
@@ -56,6 +56,7 @@
 なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。
 
 - [pixabay](https://pixabay.com/ja/)
+- [Unsplash](https://unsplash.com/ja)
 - [アイコンAC](https://www.ac-illust.com/)
 - [fontawesome](https://fontawesome.com/account/general)
 - [DesignEvo](https://www.designevo.com/jp/create/)
