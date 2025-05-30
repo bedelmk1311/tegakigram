@@ -3,9 +3,11 @@
 ![メインロゴ](./app/assets/images/logo.jpg)
 
 ## サイト概要
-### サービスのURL
+### サービスURL
 ゲスト機能を実装しましたので登録せずにお試しいただけます。
-[TEGAKIgram](準備中)
+
+[TEGAKIgram](http://tegakigram.com/)
+
 ### サイトテーマ
 手書きPOP、看板に特化したSNSサイト
 ​
@@ -47,9 +49,13 @@
 | JSライブラリ | jQuery |
 | 開発環境 | VSCode |
 
-## バージョン
-- Rails version: 6.1.7.10
-- Ruby version: ruby 3.1.2p
+## 開発環境
+- macOS sequoia 15.4.1
+- zsh 5.9
+- Rails 6.1.7.10
+- Ruby 3.1.2
+- VS Code 1.98.2
+
 ​
 ## 使用素材
 ### イラスト・写真
