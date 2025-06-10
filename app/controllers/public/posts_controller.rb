@@ -48,13 +48,13 @@ class Public::PostsController < ApplicationController
     redirect_to posts_path, notice:"投稿の削除に成功しました"
   end
 
-   private
+  private
 
-   def post_params # 投稿データを保存するためのストロングパラメーター
-     params.require(:post).permit(:body, :post_image)
-   end
+  def post_params # 投稿データを保存するためのストロングパラメーター
+    params.require(:post).permit(:body, :post_image)
+  end
 
-   def ensure_correct_user #現在のユーザーがPostのユーザー同一かどうか
+  def ensure_correct_user #現在のユーザーがPostのユーザー同一かどうか
     @post = Post.find(params[:id])
     unless @post.user == current_user
       redirect_to posts_path

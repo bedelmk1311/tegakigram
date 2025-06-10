@@ -10,13 +10,13 @@
 
       <li class="nav-item">
         <%= link_to user_path(current_user),class: 'btn' do %>
-           <i class="fa-solid fa-user fa-xl " style="color: #2F5E63;"> プロフィール</i>
+          <i class="fa-solid fa-user fa-xl " style="color: #2F5E63;"> プロフィール</i>
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to edit_user_path(current_user),class: 'btn' do %>
-           <i class="fa-solid fa-gear fa-xl " style="color: #2F5E63;"> 設定</i>
+          <i class="fa-solid fa-gear fa-xl " style="color: #2F5E63;"> 設定</i>
         <% end %>
       </li>
 
@@ -30,19 +30,19 @@
  <% else admin_signed_in? %> <!--Admin時-->
       <li class="nav-item">
         <%= link_to admin_root_path,class: 'btn ' do %>
-           <i class="fa-solid fa-house fa-xl" style="color: #2F5E63;"></i> 管理者ホーム
+          <i class="fa-solid fa-house fa-xl" style="color: #2F5E63;"></i> 管理者ホーム
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to admin_users_path,class: 'btn ' do %>
-           <i class="fa-solid fa-user fa-xl" style="color: #2F5E63;"></i> ユーザー一覧
+          <i class="fa-solid fa-user fa-xl" style="color: #2F5E63;"></i> ユーザー一覧
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to destroy_admin_session_path, method: :delete, class: 'btn' do %>
-           <i class="fas fa-sign-out-alt fa-xl" style="color: #2F5E63;"></i> 管理者ログアウト
+          <i class="fas fa-sign-out-alt fa-xl" style="color: #2F5E63;"></i> 管理者ログアウト
         <% end %>
       </li> 
     <% end %>
